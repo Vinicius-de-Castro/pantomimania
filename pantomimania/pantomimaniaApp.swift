@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct pantomimaniaApp: App {
+    @State var navMan = NavManager()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(navMan)
         }
     }
 }

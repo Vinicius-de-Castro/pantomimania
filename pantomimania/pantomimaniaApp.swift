@@ -13,10 +13,11 @@ struct pantomimaniaApp: App {
     @State private var gameState = GameState()
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-//                .environment(navMan)
-            TestView()
+            ContentView()
+                .environment(navMan)
                 .environment(gameState)
+//            TestView()
+//                .environment(gameState)
         }
     }
 }

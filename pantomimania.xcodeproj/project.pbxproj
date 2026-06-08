@@ -15,7 +15,7 @@
 			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
 			buildPhase = 4FA1C9CC2FD044B3005AEE83 /* Sources */;
 			membershipExceptions = (
-				Utils/Performance/data.json,
+				Utils/GameData/data.json,
 			);
 		};
 /* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */

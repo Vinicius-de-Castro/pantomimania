@@ -20,6 +20,11 @@
         "name": "Hard Test Animal",
         "description": "A test animal for testing purposes.",
         "photo": "teddybear.fill"
+      },
+      {
+        "name": "Another Hard Test Animal",
+        "description": "A test animal for testing purposes.",
+        "photo": "lizard.fill"
       }
     ]
   },
@@ -43,7 +48,7 @@
       {
         "name": "Hard Test Pop Culture",
         "description": "A test item for testing purposes.",
-        "photo": "music.fill"
+        "photo": "music.note"
       }
     ]
   }

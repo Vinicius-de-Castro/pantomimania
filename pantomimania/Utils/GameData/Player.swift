@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-class Player {
+@Observable
+class Player: Identifiable {
+    var id = UUID()
     var name: String
     var mascot: Image?
     

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import Observation
 
 enum Route: Hashable {
     case playerList

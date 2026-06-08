@@ -17,7 +17,6 @@ struct ContentView: View {
                 Circle()
                     .containerRelativeFrame(.horizontal, count: 3, spacing: 20)
                     .foregroundStyle(.blue)
-//                    .distortionEffect(0.2, maxSampleOffset: 1)
                     .blur(radius: 100)
                     .padding()
                 VStack {

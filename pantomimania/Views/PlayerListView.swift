@@ -10,6 +10,7 @@ import SwiftUI
 struct PlayerListView: View {
     
     @Environment(NavManager.self) var nav
+    @State var playerNames: [String] = []
     
     var body: some View {
         VStack {

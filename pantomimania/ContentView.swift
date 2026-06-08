@@ -13,13 +13,33 @@ struct ContentView: View {
     var body: some View {
         @Bindable var nav = navMan
         NavigationStack(path: $nav.path){
-            VStack {
-                Text("Nome do app")
-                Button("Jogar"){
-                    nav.navigate(to: .playerList)
+            HStack{
+                Circle()
+                    .containerRelativeFrame(.horizontal, count: 3, spacing: 20)
+                    .foregroundStyle(.blue)
+//                    .distortionEffect(0.2, maxSampleOffset: 1)
+                    .blur(radius: 100)
+                    .padding()
+                VStack {
+                    Text("Nome do app")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    Button{
+                        nav.navigate(to: .playerList)
+                    } label: {
+                        Label("Jogar", systemImage: "play.fill")
+                            .foregroundStyle(Color.white)
+                            .background(){
+                                RoundedRectangle(cornerRadius: 16)
+                                    .padding()
+                            }
+                            .padding()
+                            .font(.title)
+                            .padding()
+                    }
                 }
+                .padding()
             }
-            .navigationTitle(Text("Pantomimania"))
             .navigationDestination(for: Route.self) { route in
                 switch route {
                 case .playerList:

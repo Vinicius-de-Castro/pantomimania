@@ -15,7 +15,7 @@ struct GameOverView: View {
         VStack{
             Text("Game Over")
             Button("Play Again"){
-                nav.backToRoot()
+                nav.backBy(count: 5)
             }
         }
     }

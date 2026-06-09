@@ -63,6 +63,9 @@ struct MatchOptionsView: View {
             .navigationTitle(Text("Configure a partida"))
             .toolbar{
                 Button("Jogar") {
+                    game.roundLength = roundLength
+                    game.selectedCategories = selectedCategories
+                    game.playerQueue = game.playerList.shuffled()
                     nav.navigate(to: .playerTurn)
                 }
                 .buttonStyle(.borderedProminent)

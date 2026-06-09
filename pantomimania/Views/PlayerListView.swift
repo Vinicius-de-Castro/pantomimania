@@ -79,6 +79,7 @@ struct PlayerListView: View {
             .tint(Color.accentColor)
         }
         .navigationTitle("Lista de jogadores")
+        .navigationBarBackButtonHidden(true)
     }
 }
 

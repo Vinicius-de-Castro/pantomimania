@@ -6,6 +6,10 @@
 //
 import SwiftUI
 
+enum Difficulty: String {
+    case easy, normal, hard
+}
+
 class Performance: Identifiable, Codable {
     var id = UUID()
     var name: String

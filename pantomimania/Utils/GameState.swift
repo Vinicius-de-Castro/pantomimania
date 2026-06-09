@@ -12,6 +12,8 @@ import Observation
 @Observable
 class GameState {
     var playerList: [Player]
+    var playerQueue: [Player]
+    var roundLength: Int
     
     var cameraManager: CameraManager
     var timerManager: TimerManager
@@ -22,6 +24,8 @@ class GameState {
     
     init() {
         self.playerList = []
+        self.playerQueue = []
+        self.roundLength = 30
         self.cameraManager = CameraManager()
         self.timerManager = TimerManager()
         self.gallery = []

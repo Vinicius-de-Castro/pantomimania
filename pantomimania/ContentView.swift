@@ -1,14 +1,5 @@
-//
-//  ContentView.swift
-//  pantomimania
-//
-//  Created by Vinicius Rodrigues de Castro on 03/06/26.
-//
-
 import SwiftUI
-
 struct ContentView: View {
-
     @Environment(NavManager.self) var navMan
     var body: some View {
         @Bindable var nav = navMan
@@ -17,31 +8,33 @@ struct ContentView: View {
                 Circle()
                     .containerRelativeFrame(.horizontal, count: 3, spacing: 20)
                     .foregroundStyle(.blue)
-//                    .distortionEffect(0.2, maxSampleOffset: 1)
                     .blur(radius: 100)
                     .padding()
+        //colocar imagem aqui
                 VStack {
-                    Text("Nome do app")
+                    Text("Seja bem vindo ao Mimika!")
                         .font(.largeTitle)
                         .fontWeight(.bold)
-                    Button{
+                    Text("Vem brincar com seus amigos")
+                        .font(.callout)
+                    Button {
                         nav.navigate(to: .playerList)
-                    } label: {
-                        Label("Jogar", systemImage: "play.fill")
-                            .foregroundStyle(Color.white)
-                            .background(){
-                                RoundedRectangle(cornerRadius: 16)
-                                    .padding()
-                            }
-                            .padding()
-                            .font(.title)
-                            .padding()
                     }
+                        label: {
+                            Label("Jogar", systemImage: "play.fill")
+                                .foregroundStyle(Color.black)
+                                .padding(20)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 30)
+                                        .fill(Color.blue)
+                                )
+                                .font(.title)
+                                .padding()
+                        }
                 }
-                .padding()
             }
-            .navigationDestination(for: Route.self) { route in
-                switch route {
+            .navigationDestination(for: Route.self) {
+                route in switch route {
                 case .playerList:
                     PlayerListView()
                 case .matchOptions:
@@ -55,12 +48,11 @@ struct ContentView: View {
                 case .gameOver:
                     GameOverView()
                 }
-                
             }
         }
     }
 }
-
 #Preview {
     ContentView()
+        .environment(NavManager())
 }

@@ -15,13 +15,13 @@ struct PlayerListView: View {
                 ForEach(playerList) { player in
                     @Bindable var bindablePlayer = player
                     VStack (alignment: .center){
-                        RoundedRectangle(cornerRadius: 16)
+                        RoundedRectangle(cornerRadius: 28)
                             .foregroundStyle(Color.accentColor)
                             .aspectRatio(3/4, contentMode: .fit)
                         TextField("Nome", text: $bindablePlayer.name)
                             .padding()
                             .overlay{
-                                RoundedRectangle(cornerRadius: 16)
+                                RoundedRectangle(cornerRadius: 28)
                                     .stroke(.quaternary, lineWidth: 2)
                             }
                         Button {
@@ -60,7 +60,7 @@ struct PlayerListView: View {
                         .frame(maxWidth: .infinity)
                         .aspectRatio(3/4, contentMode: .fit)
                         .background(
-                            RoundedRectangle(cornerRadius: 16)
+                            RoundedRectangle(cornerRadius: 28)
                                 .foregroundStyle(.quaternary)
                         )
                         

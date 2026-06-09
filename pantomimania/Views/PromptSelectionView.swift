@@ -25,7 +25,7 @@ struct PromptSelectionView: View {
                 ForEach(performanceOptions) { perfo in
                     VStack {
                         ZStack {
-                            RoundedRectangle(cornerRadius: 16)
+                            RoundedRectangle(cornerRadius: 28)
                                 .fill(.quaternary)
                                 .stroke((perfo.id == selectedPrompt?.id ? Color.blue : Color.clear), lineWidth: 4)
                                 .aspectRatio(3/4, contentMode: (.fit))
@@ -48,7 +48,7 @@ struct PromptSelectionView: View {
             Spacer()
             
             ZStack(alignment: .topLeading){
-                RoundedRectangle(cornerRadius: 16)
+                RoundedRectangle(cornerRadius: 28)
                     .foregroundStyle(.quaternary)
                     .frame(maxWidth: .infinity)
                 

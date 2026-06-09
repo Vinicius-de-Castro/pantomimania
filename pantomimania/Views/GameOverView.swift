@@ -11,6 +11,8 @@ struct GameOverView: View {
     
     @Environment(NavManager.self) var nav
     
+    @Environment(GameState.self) var game
+    
     var body: some View {
         VStack{
             Text("Game Over")

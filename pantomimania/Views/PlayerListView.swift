@@ -1,6 +1,7 @@
 import SwiftUI
 struct PlayerListView: View {
     @Environment(NavManager.self) var nav
+    
     @Environment(GameState.self) var game
     
     @State var playerList: [Player] = []

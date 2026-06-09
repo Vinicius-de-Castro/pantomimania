@@ -8,10 +8,13 @@ import SwiftUI
 import Foundation
 
 @Observable class TimerManager {
-    var timeElapsed: Int = 0
-    var isRunning: Bool = false
-    var targetTime: Int = 0
+    private var timeElapsed: Int = 0
+    
+    private var targetTime: Int = 0
+    
     private var timer: Timer?
+    
+    var isRunning: Bool = false
     
     var finished: (() -> Void)?
     
@@ -48,5 +51,9 @@ import Foundation
     func stop() {
         pause()
         timeElapsed = 0
+    }
+    
+    func getTimeLeft() -> Int {
+        return targetTime - timeElapsed
     }
 }

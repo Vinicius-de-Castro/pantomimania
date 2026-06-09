@@ -10,8 +10,8 @@ import SwiftUI
 struct PlayerTurnView: View {
     
     @Environment(NavManager.self) var nav
+    
     @Environment(GameState.self) var game
-//    @State var playerQueue: [Player] = []
     
     var body: some View {
         VStack {
@@ -22,9 +22,9 @@ struct PlayerTurnView: View {
             Circle()
                 .containerRelativeFrame(.horizontal, count: 3, spacing: 20)
                 .foregroundStyle(.blue)
-                .blur(radius: 100)
+                .blur(radius: 50)
                 .padding()
-            Button("Performar") {
+            Button("Continuar") {
                 nav.navigate(to: .promptSelection)
             }
             .buttonStyle(.borderedProminent)

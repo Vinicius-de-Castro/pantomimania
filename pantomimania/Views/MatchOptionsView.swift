@@ -10,9 +10,11 @@ import SwiftUI
 struct MatchOptionsView: View {
     
     @Environment(NavManager.self) var nav
+    
     @Environment(GameState.self) var game
     
     @State private var roundLength: Int = 30
+    
     @State private var selectedCategories: [PerformanceCategory] = []
     
     var body: some View {

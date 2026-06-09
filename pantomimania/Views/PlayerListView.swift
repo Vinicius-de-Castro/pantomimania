@@ -1,14 +1,5 @@
-//
-//  PlayerListView.swift
-//  pantomimania
-//
-//  Created by Vinicius Rodrigues de Castro on 03/06/26.
-//
-
 import SwiftUI
-
 struct PlayerListView: View {
-    
     @Environment(NavManager.self) var nav
     @Environment(GameState.self) var game
     

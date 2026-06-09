@@ -3,51 +3,51 @@
     "name": "Animais",
     "easyPerformances": [
       {
-        "name": "Easy Test Animal",
-        "description": "A test animal for testing purposes.",
+        "name": "Cachorro",
+        "description": "Um cachorro bem sapeca e fofinho",
         "photo": "dog.fill"
       }
     ],
     "normalPerformances": [
       {
-        "name": "Medium Test Animal",
-        "description": "A test animal for testing purposes.",
+        "name": "Tartaruga",
+        "description": "Uma tartaruga bem velhinha.",
         "photo": "tortoise.fill"
       }
     ],
     "hardPerformances": [
       {
-        "name": "Hard Test Animal",
-        "description": "A test animal for testing purposes.",
+        "name": "Ursinho",
+        "description": "Um ursinho bem carinhoso.",
         "photo": "teddybear.fill"
       },
       {
-        "name": "Another Hard Test Animal",
-        "description": "A test animal for testing purposes.",
+        "name": "Calango",
+        "description": "Um calango do tipo que sobe nas varandas dos vizinhos.",
         "photo": "lizard.fill"
       }
     ]
   },
   {
-    "name": "Cultura Pop",
+    "name": "Objetos",
     "easyPerformances": [
       {
-        "name": "Easy Test Pop Culture",
-        "description": "A test item for testing purposes.",
+        "name": "Livro",
+        "description": "Um livro cheio de história e conhecimento.",
         "photo": "book.fill"
       }
     ],
     "normalPerformances": [
       {
-        "name": "Medium Test Pop Culture",
-        "description": "A test item for testing purposes.",
+        "name": "Televisão",
+        "description": "Uma TV que só seus vós assistem hoje em dia.",
         "photo": "tv.fill"
       }
     ],
     "hardPerformances": [
       {
-        "name": "Hard Test Pop Culture",
-        "description": "A test item for testing purposes.",
+        "name": "Música",
+        "description": "Uma nota musical bem glamurosa.",
         "photo": "music.note"
       }
     ]

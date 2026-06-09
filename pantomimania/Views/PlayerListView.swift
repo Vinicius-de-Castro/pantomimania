@@ -11,48 +11,66 @@ struct PlayerListView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(50)
-            HStack {
+            HStack (alignment: .top){
                 ForEach(playerList) { player in
                     @Bindable var bindablePlayer = player
                     VStack (alignment: .center){
                         RoundedRectangle(cornerRadius: 16)
                             .foregroundStyle(Color.accentColor)
+                            .aspectRatio(3/4, contentMode: .fit)
                         TextField("Nome", text: $bindablePlayer.name)
                             .padding()
                             .overlay{
                                 RoundedRectangle(cornerRadius: 16)
                                     .stroke(.quaternary, lineWidth: 2)
                             }
+                        Button {
+                            playerList.removeAll(where: { $0.id == player.id})
+                        } label: {
+                            Image(systemName: "xmark.circle.fill")
+                                .resizable()
+                                .tint(Color.red)
+                                .aspectRatio(1/1, contentMode: .fit)
+                                .containerRelativeFrame(.vertical, count: 20, spacing: 0)
+                                .containerRelativeFrame(.horizontal, count: 20, spacing: 0)
+                        }
                     }
-                    
-                    .containerRelativeFrame(.horizontal, count: 5, spacing: 64)
-                    .containerRelativeFrame(.vertical, count: 2, spacing: 64)
+                    .containerRelativeFrame(.horizontal, count: 5, spacing: 0)
                 }
                 
-                if (playerList.count < 4) {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 16)
-                            .containerRelativeFrame(.horizontal, count: 5, spacing: 64)
-                            .containerRelativeFrame(.vertical, count: 2, spacing: 64)
-                            .foregroundStyle(.quaternary)
+                if playerList.count < 4 {
+                    VStack(alignment: .center) {
+                    
                         VStack {
-                            Text("Adicionar jogador")
+                            Spacer()
+                            Text("Adicionar")
                                 .font(.title3)
                                 .fontWeight(.bold)
-                                .padding(.vertical)
+                                .padding(.top)
                                 .multilineTextAlignment(.center)
-                                .containerRelativeFrame(.horizontal, count: 8, spacing: 64)
+                            
                             Image(systemName: "plus.circle.fill")
                                 .resizable()
                                 .aspectRatio(1/1, contentMode: .fit)
-                                .containerRelativeFrame(.horizontal, count: 8, spacing: 64)
                                 .foregroundStyle(.blue)
-                                .background(
-                                    Circle()
-                                        .fill(Color.white)
-                                )
+                                .background(Circle().fill(Color.white))
+                                .padding(.horizontal, 64)
+                            Spacer()
                         }
+                        .frame(maxWidth: .infinity)
+                        .aspectRatio(3/4, contentMode: .fit)
+                        .background(
+                            RoundedRectangle(cornerRadius: 16)
+                                .foregroundStyle(.quaternary)
+                        )
+                        
+                        Text("")
+                            .padding()
+                        Color.clear
+                            .containerRelativeFrame(.vertical, count: 20, spacing: 0)
+                            .containerRelativeFrame(.horizontal, count: 20, spacing: 0)
                     }
+                    .containerRelativeFrame(.horizontal, count: 5, spacing: 0)
                     .onTapGesture {
                         playerList.append(Player(name: "Jogador \(playerList.count + 1)"))
                     }

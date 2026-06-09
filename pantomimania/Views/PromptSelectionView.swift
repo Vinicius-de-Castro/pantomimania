@@ -10,49 +10,74 @@ import SwiftUI
 struct PromptSelectionView: View {
     
     @Environment(NavManager.self) var nav
+    
     @Environment(GameState.self) var game
+    
+    @Environment(\.horizontalSizeClass) var orientation
+    
     @State var selectedPrompt: Performance? = nil
+    
     @State var performanceOptions: [Performance] = []
     
     var body: some View {
         VStack{
             HStack {
                 ForEach(performanceOptions) { perfo in
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 16)
-                            .containerRelativeFrame(.horizontal, count: 5, spacing: 64)
-                            .containerRelativeFrame(.vertical, count: 2, spacing: 64)
-                            .foregroundStyle(.quaternary)
-                        if perfo.id == selectedPrompt?.id {
+                    VStack {
+                        ZStack {
                             RoundedRectangle(cornerRadius: 16)
-                                .stroke(.blue, lineWidth: 4)
-                                .containerRelativeFrame(.horizontal, count: 5, spacing: 64)
-                                .containerRelativeFrame(.vertical, count: 2, spacing: 64)
+                                .fill(.quaternary)
+                                .stroke((perfo.id == selectedPrompt?.id ? Color.blue : Color.clear), lineWidth: 4)
+                                .aspectRatio(3/4, contentMode: (.fit))
+                                Image(systemName: perfo.photo) // Depois precisamos alterar pra utilizar assets
+                                    .resizable()
+                                    .frame(width: 100, height: 100) // Placeholder, pq os assets vão todos ser em 3:4 mas os ícones não são
+                                    .padding()
                         }
+                        Text(perfo.name)
+                            .font(.title)
+                            .fontWeight(.bold)
                     }
                     .onTapGesture {
                         selectedPrompt = perfo
                     }
                 }
             }
+            .padding()
             
-            ZStack{
+            Spacer()
+            
+            ZStack(alignment: .topLeading){
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundStyle(.quaternary)
-                    .containerRelativeFrame(.vertical, count: 3, spacing: 64)
-                    .containerRelativeFrame(.horizontal, count: 2, spacing: 64)
-                    .padding()
+                    .frame(maxWidth: .infinity)
                 
                 Text(selectedPrompt?.description ?? "Selecione um prompt!")
-//                    .frame(maxWidth: .infinity)
-                    .padding()
+                    .padding(32)
             }
-            .padding()
+            .overlay(alignment: .topLeading) {
+                let diff = performanceOptions.firstIndex(where: { $0.id == selectedPrompt?.id})
+                if diff != nil{
+                    let color = [Color.green, Color.yellow, Color.red][diff!]
+                    let text = ["Fácil", "Normal", "Difícil"][diff!]
+                    Text(text)
+                        .padding()
+                        .background(
+                            Capsule()
+                                .fill(color)
+                        )
+                        .padding(.horizontal, 32)
+                        .padding(.vertical, -32)
+                }
+            }
+            .padding(.horizontal, 128)
+            .padding(.vertical, 64)
         }
         .toolbar {
             Button("Continuar") {
                 nav.navigate(to: .timer)
             }
+            .disabled(selectedPrompt == nil)
             .buttonStyle(.borderedProminent)
             .foregroundStyle(Color.primary)
             .tint(Color.accentColor)

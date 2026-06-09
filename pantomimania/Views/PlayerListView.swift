@@ -16,7 +16,7 @@ struct PlayerListView: View {
     
     var body: some View {
         VStack (alignment: .center){
-            Text("Adicione os jogadores")
+            Text("Adicione 2 a 4 jogadores")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(50)
@@ -26,16 +26,12 @@ struct PlayerListView: View {
                     VStack (alignment: .center){
                         RoundedRectangle(cornerRadius: 16)
                             .foregroundStyle(Color.accentColor)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 16)
-                                    .stroke(.black, lineWidth: 4)
-                            )
                         TextField("Nome", text: $bindablePlayer.name)
                             .padding()
-                            .overlay(
+                            .overlay{
                                 RoundedRectangle(cornerRadius: 16)
-                                    .stroke(.black, lineWidth: 4)
-                            )
+                                    .stroke(.quaternary, lineWidth: 2)
+                            }
                     }
                     
                     .containerRelativeFrame(.horizontal, count: 5, spacing: 64)
@@ -47,11 +43,7 @@ struct PlayerListView: View {
                         RoundedRectangle(cornerRadius: 16)
                             .containerRelativeFrame(.horizontal, count: 5, spacing: 64)
                             .containerRelativeFrame(.vertical, count: 2, spacing: 64)
-                            .foregroundStyle(.gray)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 16)
-                                    .stroke(.black, lineWidth: 4)
-                            )
+                            .foregroundStyle(.quaternary)
                         VStack {
                             Text("Adicionar jogador")
                                 .font(.title3)
@@ -68,10 +60,6 @@ struct PlayerListView: View {
                                     Circle()
                                         .fill(Color.white)
                                 )
-                                .overlay(
-                                    Circle()
-                                        .stroke(.black, lineWidth: 4)
-                                )
                         }
                     }
                     .onTapGesture {
@@ -81,12 +69,16 @@ struct PlayerListView: View {
             }
         }
         .toolbar {
-            Button("Jogar") {
+            Button("Continuar") {
                 game.playerList = playerList
                 nav.navigate(to: .matchOptions)
             }
             .disabled(playerList.count < 2 || playerList.contains(where: { $0.name.isEmpty }))
+            .buttonStyle(.borderedProminent)
+            .foregroundStyle(Color.primary)
+            .tint(Color.accentColor)
         }
+        .navigationTitle("Lista de jogadores")
     }
 }
 

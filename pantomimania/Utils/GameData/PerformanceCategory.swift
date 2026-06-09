@@ -21,3 +21,15 @@ class PerformanceCategory: Identifiable, Codable {
         case hardPerformances
     }
 }
+
+extension PerformanceCategory: Equatable{
+    static func == (lhs: PerformanceCategory, rhs: PerformanceCategory) -> Bool {
+        return {
+            lhs.id == rhs.id &&
+            lhs.name == rhs.name &&
+            NSOrderedSet(array: lhs.easyPerformances).isEqual(to: NSOrderedSet(array: rhs.easyPerformances)) &&
+            NSOrderedSet(array: lhs.normalPerformances).isEqual(to: NSOrderedSet(array: rhs.normalPerformances)) &&
+            NSOrderedSet(array: lhs.hardPerformances).isEqual(to: NSOrderedSet(array: rhs.hardPerformances))
+        }()
+    }
+}

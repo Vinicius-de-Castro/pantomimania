@@ -10,9 +10,22 @@
 		4FA1C9D02FD044B3005AEE83 /* pantomimania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pantomimania.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		4F823DCD2FD6F86200FDC343 /* Exceptions for "pantomimania" folder in "Compile Sources" phase from "pantomimania" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 4FA1C9CC2FD044B3005AEE83 /* Sources */;
+			membershipExceptions = (
+				Utils/GameData/data.json,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4FA1C9D22FD044B3005AEE83 /* pantomimania */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4F823DCD2FD6F86200FDC343 /* Exceptions for "pantomimania" folder in "Compile Sources" phase from "pantomimania" target */,
+			);
 			path = pantomimania;
 			sourceTree = "<group>";
 		};

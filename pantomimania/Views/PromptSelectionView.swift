@@ -23,24 +23,39 @@ struct PromptSelectionView: View {
         VStack{
             HStack {
                 ForEach(performanceOptions) { perfo in
-                    VStack {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 28)
-                                .fill(.quaternary)
-                                .stroke((perfo.id == selectedPrompt?.id ? Color.blue : Color.clear), lineWidth: 4)
-                                .aspectRatio(3/4, contentMode: (.fit))
-                                Image(systemName: perfo.photo) // Depois precisamos alterar pra utilizar assets
-                                    .resizable()
-                                    .frame(width: 100, height: 100) // Placeholder, pq os assets vão todos ser em 3:4 mas os ícones não são
-                                    .padding()
+                    
+//                    var isFlipped: Bool = false
+                    
+                    let isSelected = selectedPrompt?.id == perfo.id
+                    
+                    var difficulty: Difficulty {
+                        switch performanceOptions.firstIndex(where: { $0.id == perfo.id}) {
+                        case 0:
+                            return .easy
+                        case 1:
+                            return .normal
+                        case 2:
+                            return .hard
+                        default:
+                            return .easy
                         }
-                        Text(perfo.name)
-                            .font(.title)
-                            .fontWeight(.bold)
                     }
-                    .onTapGesture {
-                        selectedPrompt = perfo
-                    }
+                    //                    VStack {
+                    //                        ZStack {
+                    //                            RoundedRectangle(cornerRadius: 28)
+                    //                                .fill(.quaternary)
+                    //                                .stroke((perfo.id == selectedPrompt?.id ? Color.blue : Color.clear), lineWidth: 4)
+                    //                                .aspectRatio(3/4, contentMode: (.fit))
+                    //                            Text(perfo.name)
+                    //                                .font(.title)
+                    //                                .fontWeight(.bold)
+                    //                        }
+                    //                    }
+                    CardView(name: perfo.name, isFlipped: isSelected, difficulty: difficulty)
+                        .onTapGesture {
+                            selectedPrompt = perfo
+//                            isSelected = (selectedPrompt?.id == perfo.id)
+                        }
                 }
             }
             .padding()
@@ -83,6 +98,7 @@ struct PromptSelectionView: View {
             .tint(Color.accentColor)
         }
         .navigationTitle("Escolha seu prompt!")
+        .navigationBarBackButtonHidden(true)
         .onAppear {
             performanceOptions = [
                 getPerformance(difficulty: .easy, game: game),

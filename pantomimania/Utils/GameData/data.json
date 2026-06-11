@@ -4,27 +4,23 @@
     "easyPerformances": [
       {
         "name": "Cachorro",
-        "description": "Um cachorro bem sapeca e fofinho",
-        "photo": "dog.fill"
+        "description": "Um cachorro bem sapeca e fofinho"
       }
     ],
     "normalPerformances": [
       {
         "name": "Tartaruga",
-        "description": "Uma tartaruga bem velhinha.",
-        "photo": "tortoise.fill"
+        "description": "Uma tartaruga bem velhinha."
       }
     ],
     "hardPerformances": [
       {
         "name": "Ursinho",
-        "description": "Um ursinho bem carinhoso.",
-        "photo": "teddybear.fill"
+        "description": "Um ursinho bem carinhoso."
       },
       {
         "name": "Calango",
-        "description": "Um calango do tipo que sobe nas varandas dos vizinhos.",
-        "photo": "lizard.fill"
+        "description": "Um calango do tipo que sobe nas varandas dos vizinhos."
       }
     ]
   },
@@ -33,22 +29,19 @@
     "easyPerformances": [
       {
         "name": "Livro",
-        "description": "Um livro cheio de história e conhecimento.",
-        "photo": "book.fill"
+        "description": "Um livro cheio de história e conhecimento."
       }
     ],
     "normalPerformances": [
       {
         "name": "Televisão",
-        "description": "Uma TV que só seus vós assistem hoje em dia.",
-        "photo": "tv.fill"
+        "description": "Uma TV que só seus vós assistem hoje em dia."
       }
     ],
     "hardPerformances": [
       {
         "name": "Música",
-        "description": "Uma nota musical bem glamurosa.",
-        "photo": "music.note"
+        "description": "Uma nota musical bem glamurosa."
       }
     ]
   }

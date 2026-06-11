@@ -14,15 +14,13 @@ class Performance: Identifiable, Codable {
     var id = UUID()
     var name: String
     var description: String
-    var photo: String
     
-    init(name: String, description: String, photo: String) {
+    init(name: String, description: String) {
         self.name = name
         self.description = description
-        self.photo = photo
     }
     
     enum CodingKeys: String, CodingKey {
-        case name, description, photo
+        case name, description
     }
 }

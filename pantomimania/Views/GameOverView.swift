@@ -23,6 +23,7 @@ struct GameOverView: View {
                         .rotationEffect(Angle(degrees: 90))
                 }
             }
+            .navigationBarBackButtonHidden(true)
             .tabViewStyle(.page)
             Button("Play Again"){
                 nav.backBy(count: 5)

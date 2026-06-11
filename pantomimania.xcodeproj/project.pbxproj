@@ -10,21 +10,21 @@
 		4FA1C9D02FD044B3005AEE83 /* pantomimania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pantomimania.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		4F823DCD2FD6F86200FDC343 /* Exceptions for "pantomimania" folder in "Compile Sources" phase from "pantomimania" target */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = 4FA1C9CC2FD044B3005AEE83 /* Sources */;
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4FE352212FD9878A003BA8EF /* Exceptions for "pantomimania" folder in "pantomimania" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Utils/GameData/data.json,
+				Info.plist,
 			);
+			target = 4FA1C9CF2FD044B3005AEE83 /* pantomimania */;
 		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4FA1C9D22FD044B3005AEE83 /* pantomimania */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				4F823DCD2FD6F86200FDC343 /* Exceptions for "pantomimania" folder in "Compile Sources" phase from "pantomimania" target */,
+				4FE352212FD9878A003BA8EF /* Exceptions for "pantomimania" folder in "pantomimania" target */,
 			);
 			path = pantomimania;
 			sourceTree = "<group>";
@@ -269,6 +269,9 @@
 				DEVELOPMENT_TEAM = TVK75LG3W8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = pantomimania/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera Usage";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photo Library Usage";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -301,6 +304,9 @@
 				DEVELOPMENT_TEAM = TVK75LG3W8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = pantomimania/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera Usage";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photo Library Usage";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

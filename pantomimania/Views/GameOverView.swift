@@ -15,7 +15,15 @@ struct GameOverView: View {
     
     var body: some View {
         VStack{
-            Text("Game Over")
+            TabView {
+                ForEach(game.gallery, id: \.self) { photo in
+                    Image(uiImage: photo)
+                        .resizable()
+                        .aspectRatio(photo.size.width / photo.size.height, contentMode: .fit)
+                        .rotationEffect(Angle(degrees: 90))
+                }
+            }
+            .tabViewStyle(.page)
             Button("Play Again"){
                 nav.backBy(count: 5)
             }

@@ -15,7 +15,7 @@ struct PlayerListView: View {
             HStack (alignment: .top){
                 ForEach(playerList) { player in
                     @Bindable var bindablePlayer = player
-                    VStack (alignment: .center){
+                    VStack (alignment: .center, spacing: 10) {
                         RoundedRectangle(cornerRadius: 28)
                             .foregroundStyle(Color.accentColor)
                             .aspectRatio(3/4, contentMode: .fit)
@@ -40,7 +40,7 @@ struct PlayerListView: View {
                 }
                 
                 if playerList.count < 4 {
-                    VStack(alignment: .center) {
+                    VStack(alignment: .center, spacing: 10) {
                     
                         VStack {
                             Spacer()
@@ -53,8 +53,7 @@ struct PlayerListView: View {
                             Image(systemName: "plus.circle.fill")
                                 .resizable()
                                 .aspectRatio(1/1, contentMode: .fit)
-                                .foregroundStyle(.blue)
-                                .background(Circle().fill(Color.white))
+                                .foregroundStyle(.white, .blue)
                                 .padding(.horizontal, 64)
                             Spacer()
                         }
@@ -65,11 +64,26 @@ struct PlayerListView: View {
                                 .foregroundStyle(.quaternary)
                         )
                         
-                        Text("")
-                            .padding()
-                        Color.clear
-                            .containerRelativeFrame(.vertical, count: 20, spacing: 0)
-                            .containerRelativeFrame(.horizontal, count: 20, spacing: 0)
+                        
+                        Group {
+                            TextField("Nome", text: .constant(""))
+                                .padding()
+                                .overlay{
+                                    RoundedRectangle(cornerRadius: 28)
+                                        .stroke(.quaternary, lineWidth: 2)
+                                }
+                            Button {
+                                
+                            } label: {
+                                Image(systemName: "xmark.circle.fill")
+                                    .resizable()
+                                    .tint(Color.red)
+                                    .aspectRatio(1/1, contentMode: .fit)
+                                    .containerRelativeFrame(.vertical, count: 20, spacing: 0)
+                                    .containerRelativeFrame(.horizontal, count: 20, spacing: 0)
+                            }
+                        }
+                        .hidden()
                     }
                     .containerRelativeFrame(.horizontal, count: 5, spacing: 0)
                     .onTapGesture {

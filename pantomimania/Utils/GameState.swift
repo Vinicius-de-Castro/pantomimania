@@ -22,6 +22,8 @@ class GameState {
     var performanceCategories: [PerformanceCategory]
     var selectedCategories: [PerformanceCategory]
     
+    var photoPermission: Bool
+    
     init() {
         self.playerList = []
         self.playerQueue = []
@@ -31,6 +33,7 @@ class GameState {
         self.gallery = []
         self.performanceCategories = loadCategories()
         self.selectedCategories = []
+        self.photoPermission = false
     }
 }
 

@@ -22,10 +22,10 @@ struct MatchOptionsView: View {
 //            Text("Configure a partida")
             List{
                 Section{
-                    Stepper(value: $roundLength, in: 30...90) {
+                    Stepper(value: $roundLength, in: 30...60) {
                         VStack(alignment: .leading){
                             Text("Duração da rodada")
-                            Text("\(roundLength/60):\(roundLength%60)")
+                            Text("\(roundLength/60):\(String(format:"%02d", roundLength%60))")
                                 .foregroundStyle(.secondary)
                         }
                     }

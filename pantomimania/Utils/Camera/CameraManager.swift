@@ -14,7 +14,7 @@ import Combine
     private let output = AVCapturePhotoOutput()
     private var previewLayer: AVCaptureVideoPreviewLayer?
     
-    var capturedImage: UIImage? // Was @Published
+    var capturedImage: UIImage?
     
     func startSession() {
         guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front),

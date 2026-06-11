@@ -97,18 +97,18 @@ struct CardView: View {
     
     func flipCard() {
         if isFlipped {
-            withAnimation(.linear(duration: 0.1)) {
+            withAnimation(.easeInOut(duration: 0.1)) {
                 backDegree = 90
             }
-            withAnimation(.linear(duration: 0.1).delay(0.1)){
+            withAnimation(.easeInOut(duration: 0.1).delay(0.1)){
                 frontDegree = 0
             }
         }
         else {
-            withAnimation(.linear(duration: 0.1)) {
+            withAnimation(.easeInOut(duration: 0.1)) {
                 frontDegree = -90
             }
-            withAnimation(.linear(duration: 0.1).delay(0.1)){
+            withAnimation(.easeInOut(duration: 0.1).delay(0.1)){
                 backDegree = 0
             }
         }

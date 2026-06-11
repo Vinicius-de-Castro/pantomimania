@@ -7,7 +7,7 @@ struct PlayerListView: View {
     @State var playerList: [Player] = []
     
     var body: some View {
-        VStack (alignment: .center){
+        VStack (alignment: .center, spacing: 0){
             Text("Adicione 2 a 4 jogadores")
                 .font(.largeTitle)
                 .fontWeight(.bold)
@@ -90,6 +90,7 @@ struct PlayerListView: View {
                         playerList.append(Player(name: "Jogador \(playerList.count + 1)"))
                     }
                 }
+                
             }
         }
         .toolbar {

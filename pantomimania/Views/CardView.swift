@@ -16,11 +16,11 @@ struct CardFront: View {
     var cardColor: Color {
         switch difficulty {
         case .easy:
-            return Color.green
-        case .normal:
-            return Color.yellow
+            return Color("Colors/level/easy-green")
+        case .medium:
+            return Color("Colors/level/medium-yellow")
         case .hard:
-            return Color.red
+            return Color("Colors/level/hard-red")
         }
     }
     
@@ -30,12 +30,13 @@ struct CardFront: View {
         
         ZStack {
             RoundedRectangle(cornerRadius: 28)
-                .fill(.quaternary)
+                .fill(Color("Colors/background/bg2"))
                 .stroke(cardColor, lineWidth: 4)
                 .aspectRatio(3/4, contentMode: (.fit))
             Text(name)
                 .font(.title)
                 .fontWeight(.bold)
+                .foregroundStyle(Color("Colors/text/primary"))
         }
         .rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 1, z: 0))
     }
@@ -47,27 +48,26 @@ struct CardBack: View {
     
     var difficulty: Difficulty
     
-    var cardColor: Color {
-        switch difficulty {
-        case .easy:
-            return Color.green
-        case .normal:
-            return Color.yellow
-        case .hard:
-            return Color.red
-        }
-    }
-    
     @Binding var degree: Double
     
     var body: some View {
         
+        let bgImage: Image = {
+            switch difficulty {
+            case .easy:
+                return Image("Images/cards/easy")
+            case .medium:
+                return Image("Images/cards/medium")
+            case .hard:
+                return Image("Images/cards/hard")
+            }
+        }()
+        
         ZStack {
-            RoundedRectangle(cornerRadius: 28)
-                .fill(cardColor)
+            bgImage
+                .resizable()
                 .aspectRatio(3/4, contentMode: (.fit))
-//            Image(systemName: "plus")
-//                .resizable(resizingMode: .tile)
+                .clipShape(RoundedRectangle(cornerRadius: 28))
         }
         .rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 1, z: 0))
     }

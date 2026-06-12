@@ -10,26 +10,24 @@ struct ContentView: View {
                     .foregroundStyle(.blue)
                     .blur(radius: 100)
                     .padding()
-        //colocar imagem aqui
                 VStack {
-                    Text("Seja bem vindo ao Mimika!")
+                    Text("Mimika!")
                         .font(.largeTitle)
                         .fontWeight(.bold)
-                    Text("Vem brincar com seus amigos")
-                        .font(.callout)
+                        .foregroundStyle(Color("Colors/text/primary"))
                     Button {
                         nav.navigate(to: .playerList)
                     }
                         label: {
                             Label("Jogar", systemImage: "play.fill")
-                                .foregroundStyle(Color.black)
                                 .padding(20)
                                 .background(
                                     RoundedRectangle(cornerRadius: 30)
-                                        .fill(Color.blue)
+                                        .fill(Color("Colors/general/orange-primary"))
                                 )
                                 .font(.title)
                                 .padding()
+                                .foregroundStyle(.white)
                         }
                 }
             }

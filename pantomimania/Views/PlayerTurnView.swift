@@ -14,16 +14,47 @@ struct PlayerTurnView: View {
     @Environment(GameState.self) var game
     
     var body: some View {
+        
+        let imageMon =
+        switch game.playerQueue.first!.mascot {
+        case Image("Images/characters/blue/blueCard"):
+            Image("Images/characters/blue/blueMon")
+                .resizable()
+            
+        case Image("Images/characters/yellow/yellowCard"):
+            Image("Images/characters/yellow/yellowMon")
+                .resizable()
+            
+        case Image("Images/characters/pink/pinkCard"):
+            Image("Images/characters/pink/pinkMon")
+                .resizable()
+            
+        case Image("Images/characters/orange/orangeCard"):
+            Image("Images/characters/orange/orangeMon")
+                .resizable()
+            
+        default:
+            Image("Images/characters/blue/blueMon")
+                .resizable()
+        }
+
+        
         VStack {
-            Text("É a vez de \(game.playerQueue.first!.name)!")
+            Text("Vez de \(game.playerQueue.first!.name)!")
                 .font(.largeTitle)
                 .bold()
-            Text("Passe o dispositivo para o jogador")
-            Circle()
-                .containerRelativeFrame(.horizontal, count: 3, spacing: 20)
-                .foregroundStyle(.blue)
-                .blur(radius: 50)
-                .padding()
+                .foregroundStyle(Color.primary)
+            Text("Passe o dispositivo para o jogador da vez")
+            
+            Spacer()
+            
+            imageMon
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding(64)
+                .padding(.bottom, -128)
+        }
+        .toolbar {
             Button("Continuar") {
                 nav.navigate(to: .promptSelection)
             }
@@ -33,4 +64,10 @@ struct PlayerTurnView: View {
         }
         .navigationBarBackButtonHidden(true)
     }
+}
+
+#Preview {
+    PlayerTurnView()
+        .environment(NavManager())
+        .environment(GameState())
 }

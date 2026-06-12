@@ -1,5 +1,5 @@
 import SwiftUI
-struct Botao3D: View {
+struct Button3D: View {
     var body: some View {
         Button("Text", action: {print("Hello, World!")})
             .buttonStyle(Circle3D())
@@ -39,5 +39,5 @@ struct Circle3D: ButtonStyle {
     .buttonStyle(Circle3D())
 }
 #Preview {
-        Botao3D()
+        Button3D()
 }

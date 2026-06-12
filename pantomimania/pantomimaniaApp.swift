@@ -16,8 +16,6 @@ struct pantomimaniaApp: App {
             ContentView()
                 .environment(navMan)
                 .environment(gameState)
-//            TestView()
-//                .environment(gameState)
         }
     }
 }

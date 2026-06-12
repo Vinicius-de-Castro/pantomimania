@@ -7,7 +7,7 @@
 import SwiftUI
 
 enum Difficulty: String {
-    case easy, normal, hard
+    case easy, medium, hard
 }
 
 class Performance: Identifiable, Codable {

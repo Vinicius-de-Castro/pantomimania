@@ -8,29 +8,41 @@ struct PlayerListView: View {
     
     var body: some View {
         VStack (alignment: .center, spacing: 0){
-            Text("Adicione 2 a 4 jogadores")
+            Text("Jogadores")
                 .font(.largeTitle)
                 .fontWeight(.bold)
-                .padding(50)
+                .padding(8)
+            Text("Adicione entre 2 a 4 jogadores")
+                .font(.title2)
+                .foregroundColor(.secondary)
+                .padding(.bottom, 32)
             HStack (alignment: .top){
                 ForEach(playerList) { player in
                     @Bindable var bindablePlayer = player
                     VStack (alignment: .center, spacing: 10) {
-                        RoundedRectangle(cornerRadius: 28)
+                        player.mascot!
+                            .resizable()
                             .foregroundStyle(Color.accentColor)
                             .aspectRatio(3/4, contentMode: .fit)
+                            .clipShape(
+                                RoundedRectangle(cornerRadius: 28)
+                            )
                         TextField("Nome", text: $bindablePlayer.name)
                             .padding()
+                            .background(Color("Colors/background/bg2"))
+                            .clipShape(
+                                RoundedRectangle(cornerRadius: 28)
+                            )
                             .overlay{
                                 RoundedRectangle(cornerRadius: 28)
-                                    .stroke(.quaternary, lineWidth: 2)
+                                    .stroke(Color("Colors/background/border"), lineWidth: 4)
                             }
                         Button {
                             playerList.removeAll(where: { $0.id == player.id})
                         } label: {
                             Image(systemName: "xmark.circle.fill")
                                 .resizable()
-                                .tint(Color.red)
+                                .tint(Color("Colors/general/red1"))
                                 .aspectRatio(1/1, contentMode: .fit)
                                 .containerRelativeFrame(.vertical, count: 20, spacing: 0)
                                 .containerRelativeFrame(.horizontal, count: 20, spacing: 0)
@@ -53,7 +65,7 @@ struct PlayerListView: View {
                             Image(systemName: "plus.circle.fill")
                                 .resizable()
                                 .aspectRatio(1/1, contentMode: .fit)
-                                .foregroundStyle(.white, .blue)
+                                .foregroundStyle(.white, .accent)
                                 .padding(.horizontal, 64)
                             Spacer()
                         }
@@ -61,8 +73,12 @@ struct PlayerListView: View {
                         .aspectRatio(3/4, contentMode: .fit)
                         .background(
                             RoundedRectangle(cornerRadius: 28)
-                                .foregroundStyle(.quaternary)
+                                .foregroundStyle(Color("Colors/background/bg2"))
                         )
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 28)
+                                .stroke(Color("Colors/background/border"), lineWidth: 4)
+                        }
                         
                         
                         Group {
@@ -77,7 +93,7 @@ struct PlayerListView: View {
                             } label: {
                                 Image(systemName: "xmark.circle.fill")
                                     .resizable()
-                                    .tint(Color.red)
+                                    .tint(Color("Colors/general/red1"))
                                     .aspectRatio(1/1, contentMode: .fit)
                                     .containerRelativeFrame(.vertical, count: 20, spacing: 0)
                                     .containerRelativeFrame(.horizontal, count: 20, spacing: 0)
@@ -87,7 +103,26 @@ struct PlayerListView: View {
                     }
                     .containerRelativeFrame(.horizontal, count: 5, spacing: 0)
                     .onTapGesture {
-                        playerList.append(Player(name: "Jogador \(playerList.count + 1)"))
+                        
+                        let playerMascot = {
+                            switch playerList.count {
+                            case 0:
+                                return Image("Images/characters/blue/blueCard")
+                            case 1:
+                                return Image("Images/characters/yellow/yellowCard")
+                            case 2:
+                                return Image("Images/characters/pink/pinkCard")
+                            case 3:
+                                return Image("Images/characters/orange/orangeCard")
+                            default:
+                                return Image("Images/characters/blue/blueCard")
+                            }
+                        }
+                        
+                        playerList.append(
+                            Player(
+                                name: "Jogador \(playerList.count + 1)", mascot: playerMascot())
+                        )
                     }
                 }
                 
@@ -103,7 +138,7 @@ struct PlayerListView: View {
             .foregroundStyle(Color.primary)
             .tint(Color.accentColor)
         }
-        .navigationTitle("Lista de jogadores")
+//        .navigationTitle("Lista de jogadores")
         .navigationBarBackButtonHidden(true)
     }
 }

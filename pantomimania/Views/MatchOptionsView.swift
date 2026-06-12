@@ -19,7 +19,6 @@ struct MatchOptionsView: View {
     
     var body: some View {
         VStack{
-//            Text("Configure a partida")
             List{
                 Section{
                     Stepper(value: $roundLength, in: 30...60) {
@@ -33,7 +32,6 @@ struct MatchOptionsView: View {
                 .padding(.horizontal)
                 Section(){
                     ForEach(game.performanceCategories) { cat in
-//                        Picker(cat.name)
                         HStack {
                             Text(cat.name)
                             Spacer()

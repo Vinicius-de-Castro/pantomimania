@@ -7,7 +7,7 @@
         "description": "Um cachorro bem sapeca e fofinho"
       }
     ],
-    "normalPerformances": [
+    "mediumPerformances": [
       {
         "name": "Tartaruga",
         "description": "Uma tartaruga bem velhinha."
@@ -32,7 +32,7 @@
         "description": "Um livro cheio de história e conhecimento."
       }
     ],
-    "normalPerformances": [
+    "mediumPerformances": [
       {
         "name": "Televisão",
         "description": "Uma TV que só seus vós assistem hoje em dia."

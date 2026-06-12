@@ -24,8 +24,6 @@ struct PromptSelectionView: View {
             HStack {
                 ForEach(performanceOptions) { perfo in
                     
-//                    var isFlipped: Bool = false
-                    
                     let isSelected = selectedPrompt?.id == perfo.id
                     
                     var difficulty: Difficulty {
@@ -33,28 +31,16 @@ struct PromptSelectionView: View {
                         case 0:
                             return .easy
                         case 1:
-                            return .normal
+                            return .medium
                         case 2:
                             return .hard
                         default:
                             return .easy
                         }
                     }
-                    //                    VStack {
-                    //                        ZStack {
-                    //                            RoundedRectangle(cornerRadius: 28)
-                    //                                .fill(.quaternary)
-                    //                                .stroke((perfo.id == selectedPrompt?.id ? Color.blue : Color.clear), lineWidth: 4)
-                    //                                .aspectRatio(3/4, contentMode: (.fit))
-                    //                            Text(perfo.name)
-                    //                                .font(.title)
-                    //                                .fontWeight(.bold)
-                    //                        }
-                    //                    }
                     CardView(name: perfo.name, isFlipped: isSelected, difficulty: difficulty)
                         .onTapGesture {
                             selectedPrompt = perfo
-//                            isSelected = (selectedPrompt?.id == perfo.id)
                         }
                 }
             }
@@ -73,8 +59,8 @@ struct PromptSelectionView: View {
             .overlay(alignment: .topLeading) {
                 let diff = performanceOptions.firstIndex(where: { $0.id == selectedPrompt?.id})
                 if diff != nil{
-                    let color = [Color.green, Color.yellow, Color.red][diff!]
-                    let text = ["Fácil", "Normal", "Difícil"][diff!]
+                    let color = [Color("Colors/level/easy-green"), Color("Colors/level/medium-yellow"), Color("Colors/level/hard-red")][diff!]
+                    let text = ["Fácil", "Médio", "Difícil"][diff!]
                     Text(text)
                         .padding()
                         .background(
@@ -102,7 +88,7 @@ struct PromptSelectionView: View {
         .onAppear {
             performanceOptions = [
                 getPerformance(difficulty: .easy, game: game),
-                getPerformance(difficulty: .normal, game: game),
+                getPerformance(difficulty: .medium, game: game),
                 getPerformance(difficulty: .hard, game: game)
             ]
         }
@@ -116,8 +102,8 @@ func getPerformance(difficulty: Difficulty, game: GameState) -> Performance {
         if difficulty == .easy {
             performances = category.easyPerformances
         }
-        if difficulty == .normal {
-            performances = category.normalPerformances
+        if difficulty == .medium {
+            performances = category.mediumPerformances
         }
         if difficulty == .hard {
             performances = category.hardPerformances

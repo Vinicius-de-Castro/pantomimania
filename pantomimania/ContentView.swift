@@ -5,11 +5,12 @@ struct ContentView: View {
         @Bindable var nav = navMan
         NavigationStack(path: $nav.path){
             HStack{
-                Circle()
-                    .containerRelativeFrame(.horizontal, count: 3, spacing: 20)
-                    .foregroundStyle(.blue)
-                    .blur(radius: 100)
+                Image("Images/mainScreen")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding()
+                    .padding(.leading, -120)
                 VStack {
                     Text("Mimika!")
                         .font(.largeTitle)
@@ -20,9 +21,10 @@ struct ContentView: View {
                     }
                         label: {
                             Label("Jogar", systemImage: "play.fill")
-                                .padding(20)
+                                .padding(32)
+                                .padding(.horizontal)
                                 .background(
-                                    RoundedRectangle(cornerRadius: 30)
+                                    Capsule()
                                         .fill(Color("Colors/general/orange-primary"))
                                 )
                                 .font(.title)
@@ -30,6 +32,8 @@ struct ContentView: View {
                                 .foregroundStyle(.white)
                         }
                 }
+                .padding()
+                .padding(.trailing, 160)
             }
             .navigationDestination(for: Route.self) {
                 route in switch route {

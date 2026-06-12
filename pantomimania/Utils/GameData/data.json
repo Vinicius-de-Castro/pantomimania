@@ -4,23 +4,39 @@
     "easyPerformances": [
       {
         "name": "Cachorro",
-        "description": "Um cachorro bem sapeca e fofinho"
+        "description": "Um cachorro abanando o rabo e pedindo carinho."
+      },
+      {
+        "name": "Gato",
+        "description": "Um gato se limpando e derrubando algo da mesa."
       }
     ],
     "mediumPerformances": [
       {
         "name": "Tartaruga",
-        "description": "Uma tartaruga bem velhinha."
+        "description": "Uma tartaruga andando bem devagar."
+      },
+      {
+        "name": "Pinguim",
+        "description": "Um pinguim andando com passos curtos e desengonçados."
       }
     ],
     "hardPerformances": [
       {
-        "name": "Ursinho",
-        "description": "Um ursinho bem carinhoso."
+        "name": "Urso",
+        "description": "Um urso grande coçando as costas em uma árvore."
       },
       {
-        "name": "Calango",
-        "description": "Um calango do tipo que sobe nas varandas dos vizinhos."
+        "name": "Lagarto",
+        "description": "Um lagarto subindo rapidamente em uma parede."
+      },
+      {
+        "name": "Bicho-Preguiça",
+        "description": "Um bicho-preguiça se movendo em câmera lenta."
+      },
+      {
+        "name": "Dinossauro",
+        "description": "Um dinossauro com bracinhos curtos tentando pegar algo."
       }
     ]
   },
@@ -29,19 +45,229 @@
     "easyPerformances": [
       {
         "name": "Livro",
-        "description": "Um livro cheio de história e conhecimento."
+        "description": "Alguém folheando e lendo um livro."
+      },
+      {
+        "name": "Relógio",
+        "description": "Alguém apontando para o pulso para mostrar a hora."
       }
     ],
     "mediumPerformances": [
       {
         "name": "Televisão",
-        "description": "Uma TV que só seus vós assistem hoje em dia."
+        "description": "Alguém usando um controle remoto para mudar de canal."
+      },
+      {
+        "name": "Ventilador",
+        "description": "Um ventilador virando de um lado para o outro."
       }
     ],
     "hardPerformances": [
       {
-        "name": "Música",
-        "description": "Uma nota musical bem glamurosa."
+        "name": "Caixa de Som",
+        "description": "Uma caixa de som tocando música alta e vibrando."
+      },
+      {
+        "name": "Óculos",
+        "description": "Alguém ajeitando os óculos no rosto e limpando as lentes."
+      }
+    ]
+  },
+  {
+    "name": "Tecnologia",
+    "easyPerformances": [
+      {
+        "name": "Smartphone",
+        "description": "Alguém digitando uma mensagem no celular."
+      },
+      {
+        "name": "Fone de Ouvido",
+        "description": "Alguém desenrolando o fio de um fone de ouvido."
+      }
+    ],
+    "mediumPerformances": [
+      {
+        "name": "Programador",
+        "description": "Alguém digitando rápido no computador e prestando atenção na tela."
+      },
+      {
+        "name": "Teclado",
+        "description": "Alguém digitando em um teclado barulhento."
+      }
+    ],
+    "hardPerformances": [
+      {
+        "name": "Notebook",
+        "description": "Alguém abrindo um notebook e começando a trabalhar."
+      },
+      {
+        "name": "Realidade Virtual",
+        "description": "Alguém usando óculos de realidade virtual e tentando tocar coisas no ar."
+      }
+    ]
+  },
+  {
+    "name": "Veículos",
+    "easyPerformances": [
+      {
+        "name": "Bicicleta",
+        "description": "Alguém pedalando uma bicicleta."
+      },
+      {
+        "name": "Skate",
+        "description": "Alguém andando de skate e tentando se equilibrar."
+      }
+    ],
+    "mediumPerformances": [
+      {
+        "name": "Carro",
+        "description": "Alguém dirigindo um carro e virando o volante."
+      },
+      {
+        "name": "Moto",
+        "description": "Alguém acelerando uma moto."
+      }
+    ],
+    "hardPerformances": [
+      {
+        "name": "Patinete",
+        "description": "Alguém andando de patinete com um pé só."
+      },
+      {
+        "name": "Monociclo",
+        "description": "Alguém tentando se equilibrar em um monociclo."
+      }
+    ]
+  },
+  {
+    "name": "Música",
+    "easyPerformances": [
+      {
+        "name": "Violão",
+        "description": "Alguém tocando violão."
+      },
+      {
+        "name": "Cantor",
+        "description": "Alguém cantando com um microfone na mão."
+      }
+    ],
+    "mediumPerformances": [
+      {
+        "name": "Bateria",
+        "description": "Alguém tocando bateria com baquetas."
+      },
+      {
+        "name": "DJ",
+        "description": "Um DJ tocando música e mexendo nos discos."
+      }
+    ],
+    "hardPerformances": [
+      {
+        "name": "Maestro",
+        "description": "Um maestro regendo uma orquestra com a batuta."
+      },
+      {
+        "name": "Sanfona",
+        "description": "Alguém abrindo e fechando uma sanfona."
+      }
+    ]
+  },
+  {
+    "name": "Profissões",
+    "easyPerformances": [
+      {
+        "name": "Cabeleireiro",
+        "description": "Um cabeleireiro cortando o cabelo de alguém."
+      },
+      {
+        "name": "Garçom",
+        "description": "Um garçom servindo mesas com uma bandeja."
+      }
+    ],
+    "mediumPerformances": [
+      {
+        "name": "Fotógrafo",
+        "description": "Um fotógrafo segurando a câmera e tirando fotos."
+      },
+      {
+        "name": "Pintor",
+        "description": "Um pintor usando um rolo para pintar uma parede."
+      }
+    ],
+    "hardPerformances": [
+      {
+        "name": "Astronauta",
+        "description": "Um astronauta flutuando no espaço."
+      },
+      {
+        "name": "Médico",
+        "description": "Um médico usando um estetoscópio para examinar um paciente."
+      }
+    ]
+  },
+  {
+    "name": "Esportes",
+    "easyPerformances": [
+      {
+        "name": "Levantamento de Peso",
+        "description": "Alguém fazendo muita força para levantar um peso."
+      },
+      {
+        "name": "Futebol",
+        "description": "Alguém driblando e chutando uma bola de futebol."
+      }
+    ],
+    "mediumPerformances": [
+      {
+        "name": "Pingue-Pongue",
+        "description": "Alguém jogando pingue-pongue e rebatendo a bolinha."
+      },
+      {
+        "name": "Natação",
+        "description": "Alguém nadando crawl em uma piscina."
+      }
+    ],
+    "hardPerformances": [
+      {
+        "name": "Esgrima",
+        "description": "Alguém lutando esgrima com uma espada."
+      },
+      {
+        "name": "Ginástica",
+        "description": "Um ginasta fazendo acrobacias e finalizando a pose."
+      }
+    ]
+  },
+  {
+    "name": "Comida e Cozinha",
+    "easyPerformances": [
+      {
+        "name": "Cozinheiro",
+        "description": "Alguém mexendo uma panela e provando a comida."
+      },
+      {
+        "name": "Tomando Sorvete",
+        "description": "Alguém tomando um sorvete de casquinha."
+      }
+    ],
+    "mediumPerformances": [
+      {
+        "name": "Comendo Pimenta",
+        "description": "Alguém comendo algo muito apimentado e sentindo calor."
+      },
+      {
+        "name": "Fazendo Pão",
+        "description": "Alguém amassando massa de pão com as mãos."
+      }
+    ],
+    "hardPerformances": [
+      {
+        "name": "Panqueca",
+        "description": "Alguém jogando uma panqueca para o alto na frigideira."
+      },
+      {
+        "name": "Abrindo Pote",
+        "description": "Alguém tentando abrir um pote de vidro apertado."
       }
     ]
   }

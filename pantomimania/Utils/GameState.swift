@@ -27,7 +27,7 @@ class GameState {
     init() {
         self.playerList = []
         self.playerQueue = []
-        self.roundLength = 30
+        self.roundLength = 10
         self.cameraManager = CameraManager()
         self.timerManager = TimerManager()
         self.gallery = []

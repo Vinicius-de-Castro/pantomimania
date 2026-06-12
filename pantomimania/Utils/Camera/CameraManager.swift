@@ -22,6 +22,8 @@ import Combine
               session.canAddInput(input),
               session.canAddOutput(output) else { return }
         
+        previewLayer = getPreviewLayer()
+        
         session.beginConfiguration()
         session.addInput(input)
         session.addOutput(output)
@@ -63,6 +65,51 @@ extension CameraManager {
         guard let imageData = photo.fileDataRepresentation(),
               let image = UIImage(data: imageData) else { return }
         
-        self.capturedImage = image
+        let orientation = UIDevice.current.orientation
+        var imageOut: UIImage = UIImage()
+        
+        switch orientation {
+            case .portrait:
+            imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .up)
+            print("Portrait")
+        case .landscapeLeft:
+            imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .right)
+            print("LandscapeLeft")
+        case .landscapeRight:
+            imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .left)
+            print("LandscapeRight")
+        case .portraitUpsideDown:
+            imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .down)
+            print("PortraitUpsideDown")
+        default:
+            print("Unknown")
+        }
+        
+        self.capturedImage = imageOut
+    }
+    
+    func cropImage(image: CGImage) -> CGImage {
+        let sideLength = min(
+            image.width,
+            image.height
+        )
+        
+        let xOffset = (image.width - sideLength) / 2
+        let yOffset = (image.height - sideLength) / 2
+        
+        let cropRect = CGRect(
+            x: xOffset,
+            y: yOffset,
+            width: sideLength,
+            height: sideLength
+        ).integral
+        
+        let sourceCGImage = image
+        return sourceCGImage.cropping(
+            to: cropRect
+        )!
     }
 }
+
+
+

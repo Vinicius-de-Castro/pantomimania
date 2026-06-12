@@ -20,7 +20,7 @@ struct PromptSelectionView: View {
     @State var performanceOptions: [Performance] = []
     
     var body: some View {
-        VStack{
+        VStack {
             HStack {
                 ForEach(performanceOptions) { perfo in
                     

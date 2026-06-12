@@ -20,34 +20,64 @@ struct TimerView: View {
         get async {
             let status = AVCaptureDevice.authorizationStatus(for: .video)
             
-            // Determine if the user previously authorized camera access.
             var isAuthorized = status == .authorized
             
-            // If the system hasn't determined the user's authorization status,
-            // explicitly prompt them for approval.
             if status == .notDetermined {
                 isAuthorized = await AVCaptureDevice.requestAccess(for: .video)
             }
             
+            game.photoPermission = isAuthorized
+            
             return isAuthorized
         }
     }
-
-
+    
+    
     func setUpCaptureSession() async {
         guard await isAuthorized else { return }
-        // Set up the capture session.
     }
     
     var body: some View {
+        
+        let progress = CGFloat(game.timerManager.getTimeLeft())/CGFloat(game.roundLength)
+        
         VStack{
+            Text("Hora de performar")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .foregroundStyle(Color("Colors/text/primary"))
+            Text("Fique atento(a) no tempo!")
+                .font(.title)
+                .foregroundStyle(Color("Colors/text/secondary"))
+                .padding(.bottom)
             if game.timerManager.isRunning {
-                Text("\(game.timerManager.getTimeLeft())")
+                ZStack{
+                    Circle()
+                        .trim(
+                            from: 0,
+                            to: CGFloat(progress)
+                        )
+                        .stroke(
+                            .accent,
+                            style: StrokeStyle(
+                                lineWidth: 30,
+                                lineCap: .round
+                            )
+                        )
+                        .rotationEffect(.degrees(270))
+                        .animation(.easeInOut, value: progress)
+                    
+                    Text("\(game.timerManager.getTimeLeft())")
+                        .font(.system(size: 120))
+                        .fontWeight(.black)
+                        .foregroundStyle(.accent)
+                }
+                .padding()
             }
         }
         .task {
             let isAuthorized = await isAuthorized
-            print(isAuthorized)
+//            print(isAuthorized)
             game.cameraManager.startSession()
             game.timerManager.start(targetTime: game.roundLength, finished: {
                 if game.playerQueue.count < 2 {
@@ -62,17 +92,21 @@ struct TimerView: View {
             game.cameraManager.stopSession()
         }
         .onChange(of: game.timerManager.getTimeLeft()) { _, newTime in
-            guard newTime != lastProcessedSecond else { return }
-            lastProcessedSecond = newTime
-            let roundLen = game.roundLength
-            let whenToTakePhoto: [Int] = [
-                roundLen * 3 / 4,
-                roundLen * 2 / 4,
-                roundLen * 1 / 4,
-                1
-            ]
-            if whenToTakePhoto.contains(game.timerManager.getTimeLeft()) {
-                game.cameraManager.takePhoto()
+            if game.photoPermission {
+                guard newTime != lastProcessedSecond else { return }
+                lastProcessedSecond = newTime
+                let roundLen = game.roundLength
+                let whenToTakePhoto: [Int] = [
+                    roundLen * 3 / 4,
+                    roundLen * 2 / 4,
+                    roundLen * 1 / 4,
+                    1
+                ]
+                if whenToTakePhoto.contains(game.timerManager.getTimeLeft()) {
+                    game.cameraManager.takePhoto()
+                }
+                
+                
             }
         }
         .onChange(of: game.cameraManager.capturedImage) {

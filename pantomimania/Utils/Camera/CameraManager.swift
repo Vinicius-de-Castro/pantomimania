@@ -82,6 +82,7 @@ extension CameraManager {
             imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .down)
             print("PortraitUpsideDown")
         default:
+            imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .up)
             print("Unknown")
         }
         

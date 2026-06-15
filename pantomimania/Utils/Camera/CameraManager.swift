@@ -71,19 +71,19 @@ extension CameraManager {
         switch orientation {
             case .portrait:
             imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .up)
-            print("Portrait")
+//            print("Portrait")
         case .landscapeLeft:
             imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .right)
-            print("LandscapeLeft")
+//            print("LandscapeLeft")
         case .landscapeRight:
             imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .left)
-            print("LandscapeRight")
+//            print("LandscapeRight")
         case .portraitUpsideDown:
             imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .down)
-            print("PortraitUpsideDown")
+//            print("PortraitUpsideDown")
         default:
-            imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .up)
-            print("Unknown")
+            imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .right)
+//            print("Unknown")
         }
         
         self.capturedImage = imageOut
@@ -93,7 +93,7 @@ extension CameraManager {
         let sideLength = min(
             image.width,
             image.height
-        )
+        ) // Em teoria, como o app é pra ser sempre modo landscape, é pra sempre ser a altua
         
         let xOffset = (image.width - sideLength) / 2
         let yOffset = (image.height - sideLength) / 2

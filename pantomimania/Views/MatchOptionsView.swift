@@ -20,6 +20,10 @@ struct MatchOptionsView: View {
     var body: some View {
         ScrollView {
             VStack {
+                Text("Configurações da Partida")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .padding(8)
                 
                 VStack(alignment: .leading) {
                     Text("Duração da Rodada")
@@ -119,7 +123,7 @@ struct MatchOptionsView: View {
                 
             }
             .padding(128)
-            .navigationTitle(Text("Configurações da Partida"))
+//            .navigationTitle(Text("Configurações da Partida"))
             .toolbar{
                 Button("Jogar") {
                     game.roundLength = roundLength

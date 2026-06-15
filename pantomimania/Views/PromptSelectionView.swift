@@ -21,6 +21,14 @@ struct PromptSelectionView: View {
     
     var body: some View {
         VStack {
+            Text("Escolha a mímica")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .padding(8)
+            Text("Selecione uma mímica para performar")
+                .font(.title2)
+                .foregroundColor(.secondary)
+                .padding(.bottom, 32)
             HStack {
                 ForEach(performanceOptions) { perfo in
                     
@@ -83,7 +91,6 @@ struct PromptSelectionView: View {
             .foregroundStyle(Color.primary)
             .tint(Color.accentColor)
         }
-        .navigationTitle("Escolha seu prompt!")
         .navigationBarBackButtonHidden(true)
         .onAppear {
             performanceOptions = [
@@ -98,16 +105,7 @@ struct PromptSelectionView: View {
 func getPerformance(difficulty: Difficulty, game: GameState) -> Performance {
     var options: [Performance] = []
     for category in game.selectedCategories {
-        var performances: [Performance] = []
-        if difficulty == .easy {
-            performances = category.easyPerformances
-        }
-        if difficulty == .medium {
-            performances = category.mediumPerformances
-        }
-        if difficulty == .hard {
-            performances = category.hardPerformances
-        }
+        let performances: [Performance] = category.performances.filter({$0.difficulty == difficulty})
         options.insert(contentsOf: performances, at: options.count)
     }
     return options.randomElement()!

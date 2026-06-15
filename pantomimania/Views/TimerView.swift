@@ -41,42 +41,58 @@ struct TimerView: View {
         
         let progress = CGFloat(game.timerManager.getTimeLeft())/CGFloat(game.roundLength)
         
-        VStack{
-            Text("Hora de performar")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundStyle(Color("Colors/text/primary"))
-            Text("Fique atento(a) no tempo!")
-                .font(.title)
-                .foregroundStyle(Color("Colors/text/secondary"))
-                .padding(.bottom)
-            if game.timerManager.isRunning {
-                ZStack{
-                    Circle()
-                        .trim(
-                            from: 0,
-                            to: CGFloat(progress)
-                        )
-                        .stroke(
-                            .accent,
-                            style: StrokeStyle(
-                                lineWidth: 30,
-                                lineCap: .round
+//        var toastText: String = ""
+//        
+//        var showToast: Bool = false
+        
+//        ZStack(alignment: .topLeading) {
+            VStack {
+                Text("Hora de performar")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundStyle(Color("Colors/text/primary"))
+                Text("Fique atento(a) no tempo!")
+                    .font(.title)
+                    .foregroundStyle(Color("Colors/text/secondary"))
+                    .padding(.bottom)
+                if game.timerManager.isRunning {
+                    ZStack{
+                        Circle()
+                            .trim(
+                                from: 0,
+                                to: CGFloat(progress)
                             )
-                        )
-                        .rotationEffect(.degrees(270))
-                        .animation(.easeInOut, value: progress)
-                    
-                    Text("\(game.timerManager.getTimeLeft())")
-                        .font(.system(size: 120))
-                        .fontWeight(.black)
-                        .foregroundStyle(.accent)
+                            .stroke(
+                                .accent,
+                                style: StrokeStyle(
+                                    lineWidth: 30,
+                                    lineCap: .round
+                                )
+                            )
+                            .rotationEffect(.degrees(270))
+                            .animation(.easeInOut, value: progress)
+                        
+                        Text("\(game.timerManager.getTimeLeft())")
+                            .font(.system(size: 120))
+                            .fontWeight(.black)
+                            .foregroundStyle(.accent)
+                    }
+                    .padding()
                 }
-                .padding()
             }
-        }
+//            if showToast {
+//                Text(toastText)
+//                    .padding()
+//                    .background(Color("Colors/background/bg2"))
+//                    .clipShape(RoundedRectangle(cornerRadius: 14))
+//                    .overlay(
+//                        RoundedRectangle(cornerRadius: 14)
+//                            .stroke(Color("Colors/background/border"), lineWidth: 4)
+//                    )
+//            }
+//        }
         .task {
-            let isAuthorized = await isAuthorized
+            _ = await isAuthorized
 //            print(isAuthorized)
             game.cameraManager.startSession()
             game.timerManager.start(targetTime: game.roundLength, finished: {
@@ -98,12 +114,23 @@ struct TimerView: View {
                 let roundLen = game.roundLength
                 let whenToTakePhoto: [Int] = [
                     roundLen * 3 / 4,
-                    roundLen * 2 / 4,
+                    roundLen / 2,
                     roundLen * 1 / 4,
-                    1
+                    0
                 ]
                 if whenToTakePhoto.contains(game.timerManager.getTimeLeft()) {
-                    game.cameraManager.takePhoto()
+//                    showToast = true
+//                    toastText = "Hora de tirar a foto! 3..."
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//                        showToast = false
+                        game.cameraManager.takePhoto()
+//                    }
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                        toastText = "Hora de tirar a foto! 2..."
+//                    }
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                        toastText = "Hora de tirar a foto! 1..."
+//                    }
                 }
                 
                 

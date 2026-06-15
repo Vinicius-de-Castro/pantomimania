@@ -1,273 +1,291 @@
 [
   {
     "name": "Animais",
-    "easyPerformances": [
+    "performances": [
       {
         "name": "Cachorro",
-        "description": "Um cachorro abanando o rabo e pedindo carinho."
+        "description": "Um cachorro abanando o rabo e pedindo carinho.",
+        "difficulty": "easy"
       },
       {
         "name": "Gato",
-        "description": "Um gato se limpando e derrubando algo da mesa."
-      }
-    ],
-    "mediumPerformances": [
+        "description": "Um gato se limpando e derrubando algo da mesa.",
+        "difficulty": "easy"
+      },
       {
         "name": "Tartaruga",
-        "description": "Uma tartaruga andando bem devagar."
+        "description": "Uma tartaruga andando bem devagar.",
+        "difficulty": "medium"
       },
       {
         "name": "Pinguim",
-        "description": "Um pinguim andando com passos curtos e desengonçados."
-      }
-    ],
-    "hardPerformances": [
+        "description": "Um pinguim andando com passos curtos e desengonçados.",
+        "difficulty": "medium"
+      },
       {
         "name": "Urso",
-        "description": "Um urso grande coçando as costas em uma árvore."
+        "description": "Um urso grande coçando as costas em uma árvore.",
+        "difficulty": "hard"
       },
       {
         "name": "Lagarto",
-        "description": "Um lagarto subindo rapidamente em uma parede."
+        "description": "Um lagarto subindo rapidamente em uma parede.",
+        "difficulty": "hard"
       },
       {
         "name": "Bicho-Preguiça",
-        "description": "Um bicho-preguiça se movendo em câmera lenta."
+        "description": "Um bicho-preguiça se movendo em câmera lenta.",
+        "difficulty": "hard"
       },
       {
         "name": "Dinossauro",
-        "description": "Um dinossauro com bracinhos curtos tentando pegar algo."
+        "description": "Um dinossauro com bracinhos curtos tentando pegar algo.",
+        "difficulty": "hard"
       }
     ]
   },
   {
     "name": "Objetos",
-    "easyPerformances": [
+    "performances": [
       {
         "name": "Livro",
-        "description": "Alguém folheando e lendo um livro."
+        "description": "Alguém folheando e lendo um livro.",
+        "difficulty": "easy"
       },
       {
         "name": "Relógio",
-        "description": "Alguém apontando para o pulso para mostrar a hora."
-      }
-    ],
-    "mediumPerformances": [
+        "description": "Alguém apontando para o pulso para mostrar a hora.",
+        "difficulty": "easy"
+      },
       {
         "name": "Televisão",
-        "description": "Alguém usando um controle remoto para mudar de canal."
+        "description": "Alguém usando um controle remoto para mudar de canal.",
+        "difficulty": "medium"
       },
       {
         "name": "Ventilador",
-        "description": "Um ventilador virando de um lado para o outro."
-      }
-    ],
-    "hardPerformances": [
+        "description": "Um ventilador virando de um lado para o outro.",
+        "difficulty": "medium"
+      },
       {
         "name": "Caixa de Som",
-        "description": "Uma caixa de som tocando música alta e vibrando."
+        "description": "Uma caixa de som tocando música alta e vibrando.",
+        "difficulty": "hard"
       },
       {
         "name": "Óculos",
-        "description": "Alguém ajeitando os óculos no rosto e limpando as lentes."
+        "description": "Alguém ajeitando os óculos no rosto e limpando as lentes.",
+        "difficulty": "hard"
       }
     ]
   },
   {
     "name": "Tecnologia",
-    "easyPerformances": [
+    "performances": [
       {
         "name": "Smartphone",
-        "description": "Alguém digitando uma mensagem no celular."
+        "description": "Alguém digitando uma mensagem no celular.",
+        "difficulty": "easy"
       },
       {
         "name": "Fone de Ouvido",
-        "description": "Alguém desenrolando o fio de um fone de ouvido."
-      }
-    ],
-    "mediumPerformances": [
+        "description": "Alguém desenrolando o fio de um fone de ouvido.",
+        "difficulty": "easy"
+      },
       {
         "name": "Programador",
-        "description": "Alguém digitando rápido no computador e prestando atenção na tela."
+        "description": "Alguém digitando rápido no computador e prestando atenção na tela.",
+        "difficulty": "medium"
       },
       {
         "name": "Teclado",
-        "description": "Alguém digitando em um teclado barulhento."
-      }
-    ],
-    "hardPerformances": [
+        "description": "Alguém digitando em um teclado barulhento.",
+        "difficulty": "medium"
+      },
       {
         "name": "Notebook",
-        "description": "Alguém abrindo um notebook e começando a trabalhar."
+        "description": "Alguém abrindo um notebook e começando a trabalhar.",
+        "difficulty": "hard"
       },
       {
         "name": "Realidade Virtual",
-        "description": "Alguém usando óculos de realidade virtual e tentando tocar coisas no ar."
+        "description": "Alguém usando óculos de realidade virtual e tentando tocar coisas no ar.",
+        "difficulty": "hard"
       }
     ]
   },
   {
     "name": "Veículos",
-    "easyPerformances": [
+    "performances": [
       {
         "name": "Bicicleta",
-        "description": "Alguém pedalando uma bicicleta."
+        "description": "Alguém pedalando uma bicicleta.",
+        "difficulty": "easy"
       },
       {
         "name": "Skate",
-        "description": "Alguém andando de skate e tentando se equilibrar."
-      }
-    ],
-    "mediumPerformances": [
+        "description": "Alguém andando de skate e tentando se equilibrar.",
+        "difficulty": "easy"
+      },
       {
         "name": "Carro",
-        "description": "Alguém dirigindo um carro e virando o volante."
+        "description": "Alguém dirigindo um carro e virando o volante.",
+        "difficulty": "medium"
       },
       {
         "name": "Moto",
-        "description": "Alguém acelerando uma moto."
-      }
-    ],
-    "hardPerformances": [
+        "description": "Alguém acelerando uma moto.",
+        "difficulty": "medium"
+      },
       {
         "name": "Patinete",
-        "description": "Alguém andando de patinete com um pé só."
+        "description": "Alguém andando de patinete com um pf só.",
+        "difficulty": "hard"
       },
       {
         "name": "Monociclo",
-        "description": "Alguém tentando se equilibrar em um monociclo."
+        "description": "Alguém tentando se equilibrar em um monociclo.",
+        "difficulty": "hard"
       }
     ]
   },
   {
     "name": "Música",
-    "easyPerformances": [
+    "performances": [
       {
         "name": "Violão",
-        "description": "Alguém tocando violão."
+        "description": "Alguém tocando violão.",
+        "difficulty": "easy"
       },
       {
         "name": "Cantor",
-        "description": "Alguém cantando com um microfone na mão."
-      }
-    ],
-    "mediumPerformances": [
+        "description": "Alguém cantando com um microfone na mão.",
+        "difficulty": "easy"
+      },
       {
         "name": "Bateria",
-        "description": "Alguém tocando bateria com baquetas."
+        "description": "Alguém tocando bateria com baquetas.",
+        "difficulty": "medium"
       },
       {
         "name": "DJ",
-        "description": "Um DJ tocando música e mexendo nos discos."
-      }
-    ],
-    "hardPerformances": [
+        "description": "Um DJ tocando música e mexendo nos discos.",
+        "difficulty": "medium"
+      },
       {
         "name": "Maestro",
-        "description": "Um maestro regendo uma orquestra com a batuta."
+        "description": "Um maestro regendo uma orquestra com a batuta.",
+        "difficulty": "hard"
       },
       {
         "name": "Sanfona",
-        "description": "Alguém abrindo e fechando uma sanfona."
+        "description": "Alguém abrindo e fechando uma sanfona.",
+        "difficulty": "hard"
       }
     ]
   },
   {
     "name": "Profissões",
-    "easyPerformances": [
+    "performances": [
       {
         "name": "Cabeleireiro",
-        "description": "Um cabeleireiro cortando o cabelo de alguém."
+        "description": "Um cabeleireiro cortando o cabelo de alguém.",
+        "difficulty": "easy"
       },
       {
         "name": "Garçom",
-        "description": "Um garçom servindo mesas com uma bandeja."
-      }
-    ],
-    "mediumPerformances": [
+        "description": "Um garçom servindo mesas com uma bandeja.",
+        "difficulty": "easy"
+      },
       {
         "name": "Fotógrafo",
-        "description": "Um fotógrafo segurando a câmera e tirando fotos."
+        "description": "Um fotógrafo segurando a câmera e tirando fotos.",
+        "difficulty": "medium"
       },
       {
         "name": "Pintor",
-        "description": "Um pintor usando um rolo para pintar uma parede."
-      }
-    ],
-    "hardPerformances": [
+        "description": "Um pintor usando um rolo para pintar uma parede.",
+        "difficulty": "medium"
+      },
       {
         "name": "Astronauta",
-        "description": "Um astronauta flutuando no espaço."
+        "description": "Um astronauta flutuando no espaço.",
+        "difficulty": "hard"
       },
       {
         "name": "Médico",
-        "description": "Um médico usando um estetoscópio para examinar um paciente."
+        "description": "Um médico usando um estetoscópio para examinar um paciente.",
+        "difficulty": "hard"
       }
     ]
   },
   {
     "name": "Esportes",
-    "easyPerformances": [
+    "performances": [
       {
         "name": "Levantamento de Peso",
-        "description": "Alguém fazendo muita força para levantar um peso."
+        "description": "Alguém fazendo muita força para levantar um peso.",
+        "difficulty": "easy"
       },
       {
         "name": "Futebol",
-        "description": "Alguém driblando e chutando uma bola de futebol."
-      }
-    ],
-    "mediumPerformances": [
+        "description": "Alguém driblando e chutando uma bola de futebol.",
+        "difficulty": "easy"
+      },
       {
         "name": "Pingue-Pongue",
-        "description": "Alguém jogando pingue-pongue e rebatendo a bolinha."
+        "description": "Alguém jogando pingue-pongue e rebatendo a bolinha.",
+        "difficulty": "medium"
       },
       {
         "name": "Natação",
-        "description": "Alguém nadando crawl em uma piscina."
-      }
-    ],
-    "hardPerformances": [
+        "description": "Alguém nadando crawl em uma piscina.",
+        "difficulty": "medium"
+      },
       {
         "name": "Esgrima",
-        "description": "Alguém lutando esgrima com uma espada."
+        "description": "Alguém lutando esgrima com uma espada.",
+        "difficulty": "hard"
       },
       {
         "name": "Ginástica",
-        "description": "Um ginasta fazendo acrobacias e finalizando a pose."
+        "description": "Um ginasta fazendo acrobacias e finalizando a pose.",
+        "difficulty": "hard"
       }
     ]
   },
   {
     "name": "Comida e Cozinha",
-    "easyPerformances": [
+    "performances": [
       {
         "name": "Cozinheiro",
-        "description": "Alguém mexendo uma panela e provando a comida."
+        "description": "Alguém mexendo uma panela e provando a comida.",
+        "difficulty": "easy"
       },
       {
         "name": "Tomando Sorvete",
-        "description": "Alguém tomando um sorvete de casquinha."
-      }
-    ],
-    "mediumPerformances": [
+        "description": "Alguém tomando um sorvete de casquinha.",
+        "difficulty": "easy"
+      },
       {
         "name": "Comendo Pimenta",
-        "description": "Alguém comendo algo muito apimentado e sentindo calor."
+        "description": "Alguém comendo algo muito apimentado e sentindo calor.",
+        "difficulty": "medium"
       },
       {
         "name": "Fazendo Pão",
-        "description": "Alguém amassando massa de pão com as mãos."
-      }
-    ],
-    "hardPerformances": [
+        "description": "Alguém amassando massa de pão com as mãos.",
+        "difficulty": "medium"
+      },
       {
         "name": "Panqueca",
-        "description": "Alguém jogando uma panqueca para o alto na frigideira."
+        "description": "Alguém jogando uma panqueca para o alto na frigideira.",
+        "difficulty": "hard"
       },
       {
         "name": "Abrindo Pote",
-        "description": "Alguém tentando abrir um pote de vidro apertado."
+        "description": "Alguém tentando abrir um pote de vidro apertado.",
+        "difficulty": "hard"
       }
     ]
   }

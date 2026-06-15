@@ -12,7 +12,7 @@ struct ContentView: View {
                     .padding()
                     .padding(.leading, -120)
                 VStack {
-                    Text("Mimika!")
+                    Text("panto\nparty")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundStyle(Color("Colors/text/primary"))

@@ -128,16 +128,30 @@ struct PlayerListView: View {
                 
             }
         }
-        .toolbar {
-            Button("Continuar") {
+//        .toolbar {
+//            Button("Continuar") {
+//                game.playerList = playerList
+//                nav.navigate(to: .matchOptions)
+//            }
+//            .disabled(playerList.count < 2 || playerList.contains(where: { $0.name.isEmpty }))
+//            .buttonStyle(.borderedProminent)
+//            .foregroundStyle(Color.primary)
+//            .tint(Color.accentColor)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .overlay(alignment: .topTrailing){
+            Button3D(text: "Continuar",
+                     disableMode: (
+                        (playerList.count < 2 || playerList.contains(where: { $0.name.isEmpty })) ?
+                            .visually : .none
+                     )
+            ) {
                 game.playerList = playerList
                 nav.navigate(to: .matchOptions)
             }
-            .disabled(playerList.count < 2 || playerList.contains(where: { $0.name.isEmpty }))
-            .buttonStyle(.borderedProminent)
-            .foregroundStyle(Color.primary)
-            .tint(Color.accentColor)
+            .padding(.trailing, 24)
+            .padding(.top, 16)
         }
+//        }
 //        .navigationTitle("Lista de jogadores")
         .navigationBarBackButtonHidden(true)
     }

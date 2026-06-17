@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+func getPerformance(difficulty: Difficulty, game: GameState) -> Performance {
+    var options: [Performance] = []
+    for category in game.selectedCategories {
+        let performances: [Performance] = category.performances.filter({$0.difficulty == difficulty})
+        options.insert(contentsOf: performances, at: options.count)
+    }
+    return options.randomElement()!
+}
+
 struct PromptSelectionView: View {
     
     @Environment(NavManager.self) var nav
@@ -71,6 +80,9 @@ struct PromptSelectionView: View {
                     let text = ["Fácil", "Médio", "Difícil"][diff!]
                     Text(text)
                         .padding()
+                        .bold()
+                        .font(.headline)
+                        .foregroundStyle(.black)
                         .background(
                             Capsule()
                                 .fill(color)
@@ -82,14 +94,22 @@ struct PromptSelectionView: View {
             .padding(.horizontal, 128)
             .padding(.vertical, 64)
         }
-        .toolbar {
-            Button("Continuar") {
+//        .toolbar {
+//            Button("Continuar") {
+//                nav.navigate(to: .timer)
+//            }
+//            .disabled(selectedPrompt == nil)
+//            .buttonStyle(.borderedProminent)
+//            .foregroundStyle(Color.primary)
+//            .tint(Color.accentColor)
+//        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .overlay(alignment: .topTrailing) {
+            Button3D(text: "Continuar", disableMode: (selectedPrompt == nil ? .disabled : .none)) {
                 nav.navigate(to: .timer)
             }
-            .disabled(selectedPrompt == nil)
-            .buttonStyle(.borderedProminent)
-            .foregroundStyle(Color.primary)
-            .tint(Color.accentColor)
+            .padding(.trailing, 24)
+            .padding(.top, 16)
         }
         .navigationBarBackButtonHidden(true)
         .onAppear {
@@ -102,11 +122,10 @@ struct PromptSelectionView: View {
     }
 }
 
-func getPerformance(difficulty: Difficulty, game: GameState) -> Performance {
-    var options: [Performance] = []
-    for category in game.selectedCategories {
-        let performances: [Performance] = category.performances.filter({$0.difficulty == difficulty})
-        options.insert(contentsOf: performances, at: options.count)
-    }
-    return options.randomElement()!
+
+
+#Preview {
+    PlayerTurnView()
+        .environment(NavManager())
+        .environment(GameState())
 }

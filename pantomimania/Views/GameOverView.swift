@@ -91,15 +91,23 @@ struct GameOverView: View {
                 }
                 .padding()
             }
-            
-            Button("Jogar novamente"){
-                nav.backBy(count: 5)
-                game.gallery.removeAll()
+            HStack{
+                Button3D(text: "Jogar novamente", systemImage: "arrow.uturn.backward"){
+                    nav.backBy(count: 5)
+                    game.gallery.removeAll()
+                }
+                
+                //Aqui virá o botão de salvar imagens
+//                Button3D(mainColor: Color("Colors/mascot/bluealien"), text: "Salvar imagens", systemImage: "square.and.arrow.up"){
+//                    
+//                }
             }
-            .padding()
-            .background(.accent)
-            .foregroundColor(.white)
-            .clipShape(Capsule())
         }
     }
+}
+
+#Preview {
+    GameOverView()
+        .environment(NavManager())
+        .environment(GameState())
 }

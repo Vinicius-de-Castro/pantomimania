@@ -24,6 +24,8 @@ struct CardFront: View {
         }
     }
     
+    @State var cardWidth: CGFloat = 0
+    
     @Binding var degree: Double
     
     var body: some View {
@@ -33,10 +35,23 @@ struct CardFront: View {
                 .fill(Color("Colors/background/bg2"))
                 .stroke(cardColor, lineWidth: 4)
                 .aspectRatio(3/4, contentMode: (.fit))
+                .background(
+                    GeometryReader { geometry in
+                        Color.clear
+                            .onAppear {
+                                cardWidth = geometry.size.width
+                            }
+                    }
+                )
             Text(name)
-                .font(.title)
+                .font(.title3)
                 .fontWeight(.bold)
                 .foregroundStyle(Color("Colors/text/primary"))
+                .padding()
+                .minimumScaleFactor(0.5)
+                .multilineTextAlignment(.center)
+                .padding()
+                .frame(maxWidth: cardWidth)
         }
         .rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 1, z: 0))
     }

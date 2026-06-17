@@ -13,7 +13,7 @@ struct MatchOptionsView: View {
     
     @Environment(GameState.self) var game
     
-    @State private var roundLength: Int = 10
+    @State private var roundLength: Int = 20
     
     @State private var selectedCategories: [PerformanceCategory] = []
     
@@ -33,16 +33,21 @@ struct MatchOptionsView: View {
                     Text("Quanto tempo deve durar cada rodada para performar a mímica? (Máx: 60s)")
                         .foregroundStyle(Color("Colors/text/primary"))
                     HStack{
-                        Button {
+//                        Button {
+//                            roundLength -= 1
+//                        } label: {
+//                            Image(systemName: "minus")
+//                                .padding(32)
+//                                .foregroundStyle(.white)
+//                                .background(.accent)
+//                                .clipShape(Circle())
+//                        }
+//                        .disabled(roundLength == 20)
+                        RoundButton3D(systemImage: "minus", disableMode: (roundLength == 20 ? .disabled : .none)) {
                             roundLength -= 1
-                        } label: {
-                            Image(systemName: "minus")
-                                .padding(32)
-                                .foregroundStyle(.white)
-                                .background(.accent)
-                                .clipShape(Circle())
+                        } holdAction: {
+                            roundLength -= 1
                         }
-                        .disabled(roundLength == 10)
                         
                         Spacer()
                         
@@ -52,17 +57,24 @@ struct MatchOptionsView: View {
                         
                         Spacer()
                         
-                        Button {
+//                        Button {
+//                            roundLength += 1
+//                        } label: {
+//                            Image(systemName: "plus")
+//                                .padding(32)
+//                                .foregroundStyle(.white)
+//                                .background(.accent)
+//                                .clipShape(Circle())
+//                        }
+//                        .disabled(roundLength == 60)
+                        RoundButton3D(systemImage: "plus", disableMode: (roundLength == 60 ? .disabled : .none)) {
                             roundLength += 1
-                        } label: {
-                            Image(systemName: "plus")
-                                .padding(32)
-                                .foregroundStyle(.white)
-                                .background(.accent)
-                                .clipShape(Circle())
+                        } holdAction: {
+                            roundLength += 1
                         }
-                        .disabled(roundLength == 60)
+                        
                     }
+                    .padding()
                 }
                 .padding(32)
                 .background(Color("Colors/background/bg2"))
@@ -90,25 +102,24 @@ struct MatchOptionsView: View {
                     
                     LazyVGrid(columns: columns) {
                         ForEach(game.performanceCategories) { cat in
-                            Text(cat.name)
-                                .font(.title2)
-                                .fontWeight(.bold)
-                                .padding()
-                                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                .background(
-                                    (selectedCategories.contains(cat) ? .accent : Color("Colors/text/secondary"))
-                                )
-                                .foregroundStyle(.white)
-                                .clipShape(RoundedRectangle(cornerRadius: 22))
-                                .padding(4)
-                                .onTapGesture {
-                                    if (selectedCategories.contains(cat) && selectedCategories.count > 1) {
-                                        selectedCategories.removeAll(where: { $0 == cat})
+                            let isSelected = selectedCategories.contains(cat)
+                            Button3D(
+                                text: cat.name,
+                                disableMode: isSelected ? .none : .visually,
+                                width: .infinity,
+                                height: .infinity
+                            ) {
+                                    if isSelected {
+                                        if selectedCategories.count > 1 {
+                                            selectedCategories.removeAll(where: { $0 == cat})
+                                        }
                                     }
                                     else {
                                         selectedCategories.append(cat)
                                     }
-                                }
+                            }
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .padding(4)
                         }
                     }
                 }
@@ -123,18 +134,22 @@ struct MatchOptionsView: View {
                 
             }
             .padding(128)
-//            .navigationTitle(Text("Configurações da Partida"))
-            .toolbar{
-                Button("Jogar") {
-                    game.roundLength = roundLength
-                    game.selectedCategories = selectedCategories
-                    game.playerQueue = game.playerList.shuffled()
-                    nav.navigate(to: .playerTurn)
+//            .toolbar{
+//                Button3D(text: "Jogar") {
+//                    game.roundLength = roundLength
+//                    game.selectedCategories = selectedCategories
+//                    game.playerQueue = game.playerList.shuffled()
+//                    nav.navigate(to: .playerTurn)
+//                }
+//                .disabled(selectedCategories.isEmpty)
+//            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .overlay(alignment: .topTrailing) {
+                Button3D(text: "Continuar", disableMode: (selectedCategories.isEmpty ? .disabled : .none)) {
+                    nav.navigate(to: .timer)
                 }
-                .buttonStyle(.borderedProminent)
-                .foregroundStyle(Color.primary)
-                .tint(Color.accentColor)
-                .disabled(selectedCategories.isEmpty)
+                .padding(.trailing, 24)
+                .padding(.top, 16)
             }
             .onAppear{
                 selectedCategories.append(game.performanceCategories[0])

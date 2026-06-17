@@ -52,15 +52,23 @@ struct PlayerTurnView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .padding(64)
-                .padding(.bottom, -128)
+                .padding(.bottom, -200)
         }
-        .toolbar {
-            Button("Continuar") {
-                nav.navigate(to: .promptSelection)
+//        .toolbar {
+//            Button("Continuar") {
+//                nav.navigate(to: .promptSelection)
+//            }
+//            .buttonStyle(.borderedProminent)
+//            .foregroundStyle(Color.primary)
+//            .tint(Color.accentColor)
+//        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .overlay(alignment: .topTrailing) {
+            Button3D(text: "Continuar") {
+                nav.navigate(to: .timer)
             }
-            .buttonStyle(.borderedProminent)
-            .foregroundStyle(Color.primary)
-            .tint(Color.accentColor)
+            .padding(.trailing, 24)
+            .padding(.top, 16)
         }
         .navigationBarBackButtonHidden(true)
     }

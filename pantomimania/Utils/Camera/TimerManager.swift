@@ -27,6 +27,15 @@ import Foundation
         self.targetTime = targetTime
         self.finished = finished
         
+        launchTimer()
+    }
+    
+    func resume() {
+        guard !isRunning && finished != nil && timeElapsed < targetTime else { return }
+        launchTimer()
+    }
+    
+    private func launchTimer() {
         guard !isRunning && targetTime > 0 else { return }
         
         timer?.invalidate()
@@ -40,6 +49,7 @@ import Foundation
                 self.finished?()
             }
         }
+        
     }
     
     func pause() {
@@ -51,6 +61,16 @@ import Foundation
     func stop() {
         pause()
         timeElapsed = 0
+    }
+    
+    func finish() {
+        guard finished != nil else { return }
+        
+        timeElapsed = targetTime
+        
+        stop()
+        
+        finished?()
     }
     
     func getTimeLeft() -> Int {

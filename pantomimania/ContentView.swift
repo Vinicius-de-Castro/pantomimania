@@ -10,27 +10,30 @@ struct ContentView: View {
                     .scaledToFit()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding()
-                    .padding(.leading, -120)
+                    .padding(.leading, -200)
                 VStack {
                     Text("panto\nparty")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundStyle(Color("Colors/text/primary"))
-                    Button {
+//                    Button {
+//                        nav.navigate(to: .playerList)
+//                    }
+//                        label: {
+//                            Label("Jogar", systemImage: "play.fill")
+//                                .padding(32)
+//                                .padding(.horizontal)
+//                                .background(
+//                                    Capsule()
+//                                        .fill(Color("Colors/general/orange-primary"))
+//                                )
+//                                .font(.title)
+//                                .padding()
+//                                .foregroundStyle(.white)
+//                        }
+                    Button3D(text: "Jogar") {
                         nav.navigate(to: .playerList)
                     }
-                        label: {
-                            Label("Jogar", systemImage: "play.fill")
-                                .padding(32)
-                                .padding(.horizontal)
-                                .background(
-                                    Capsule()
-                                        .fill(Color("Colors/general/orange-primary"))
-                                )
-                                .font(.title)
-                                .padding()
-                                .foregroundStyle(.white)
-                        }
                 }
                 .padding()
                 .padding(.trailing, 160)

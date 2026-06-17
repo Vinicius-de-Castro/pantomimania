@@ -9,7 +9,7 @@ import SwiftUI
 import AVFoundation
 
 struct TimerView: View {
-    
+        
     @Environment(NavManager.self) var nav
     
     @Environment(GameState.self) var game
@@ -42,20 +42,11 @@ struct TimerView: View {
     }
     
     func doToast() {
-        showToast.toggle()
-        toastText = "Hora da foto! 3..."
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            showToast.toggle()
-            if game.photoPermission {
-                game.cameraManager.takePhoto()
-            }
-            toastText = "Hora da foto!"
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            toastText = "Hora da foto! 1..."
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            toastText = "Hora da foto! 2..."
         }
     }
     
@@ -77,30 +68,47 @@ struct TimerView: View {
                 .font(.title)
                 .foregroundStyle(Color("Colors/text/secondary"))
                 .padding(.bottom)
-            if game.timerManager.isRunning {
-                ZStack{
-                    Circle()
-                        .trim(
-                            from: 0,
-                            to: CGFloat(progress)
-                        )
-                        .stroke(
-                            .accent,
-                            style: StrokeStyle(
-                                lineWidth: 30,
-                                lineCap: .round
+//            if game.timerManager.isRunning {
+                VStack {
+                    ZStack{
+                        Circle()
+                            .trim(
+                                from: 0,
+                                to: CGFloat(progress)
                             )
-                        )
-                        .rotationEffect(.degrees(270))
-                        .animation(.easeInOut, value: progress)
-                    
-                    Text("\(game.timerManager.getTimeLeft())")
-                        .font(.system(size: 120))
-                        .fontWeight(.black)
-                        .foregroundStyle(.accent)
+                            .stroke(
+                                .accent,
+                                style: StrokeStyle(
+                                    lineWidth: 30,
+                                    lineCap: .round
+                                )
+                            )
+                            .rotationEffect(.degrees(270))
+                            .animation(.easeInOut, value: progress)
+                        
+                        Text("\(game.timerManager.getTimeLeft())")
+                            .font(.system(size: 120))
+                            .fontWeight(.black)
+                            .foregroundStyle(.accent)
+                    }
+                    .padding()
+                    HStack {
+                        Button3D(text: game.timerManager.isRunning ? "Pausar" : "Continuar",
+                                 systemImage: game.timerManager.isRunning ? "pause" : "play") {
+                            if game.timerManager.isRunning {
+                                game.timerManager.pause()
+                            }
+                            else {
+                                game.timerManager.resume()
+                            }
+                        }
+                        Button3D(mainColor: Color("Colors/general/red1"), text: "Finalizar", systemImage: "checkmark") {
+                            game.timerManager.finish()
+                        }
+                    }
+                    .padding()
                 }
-                .padding()
-            }
+//            }
         }
         .frame(maxWidth: .infinity)
         .overlay(alignment: .topLeading) {
@@ -143,17 +151,28 @@ struct TimerView: View {
                         lastProcessedSecond = newTime
                         let roundLen = game.roundLength
                         let whenToTakePhoto: [Int] = [
-//                            roundLen * 3 / 4,
+                            roundLen * 3 / 4,
                             roundLen / 2,
-//                            roundLen * 1 / 4,
+                            roundLen * 1 / 4,
                             0
                         ]
-                        if whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 3) {
-                            doToast()
-//                            game.cameraManager.takePhoto()
+                        if game.photoPermission {
+                            if (whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 3)) {
+                                game.cameraManager.takePhoto()
+                                toastText = "Hora da foto! 3.."
+                                showToast.toggle()
+                            }
+                            if whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 2) {
+                                toastText = "Hora da foto! 1..."
+                            }
+                            if whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 1) {
+                                toastText = "Hora da foto! 2..."
+                            }
+                            if whenToTakePhoto.contains(game.timerManager.getTimeLeft()) {
+                                showToast.toggle()
+                                toastText = "Hora da foto! 3..."
+                            }
                         }
-                        
-                        
                     }
                 }
                 .onChange(of: game.cameraManager.capturedImage) {
@@ -164,3 +183,8 @@ struct TimerView: View {
                 }
         }
     }
+#Preview {
+    TimerView()
+        .environment(NavManager())
+        .environment(GameState())
+}

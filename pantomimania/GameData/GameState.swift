@@ -13,7 +13,10 @@ import Observation
 class GameState {
     var playerList: [Player]
     var playerQueue: [Player]
+    
     var roundLength: Int
+    var roundcount: Int
+    var roundsQueued: Int
     
     var cameraManager: CameraManager
     var timerManager: TimerManager
@@ -27,7 +30,9 @@ class GameState {
     init() {
         self.playerList = []
         self.playerQueue = []
-        self.roundLength = 10
+        self.roundLength = 20
+        self.roundcount = 1
+        self.roundsQueued = 1
         self.cameraManager = CameraManager()
         self.timerManager = TimerManager()
         self.gallery = []

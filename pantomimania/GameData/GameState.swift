@@ -15,8 +15,8 @@ class GameState {
     var playerQueue: [Player]
     
     var roundLength: Int
-    var roundcount: Int
-    var roundsQueued: Int
+    var roundCount: Int
+    var nextRound: Int
     
     var cameraManager: CameraManager
     var timerManager: TimerManager
@@ -31,8 +31,8 @@ class GameState {
         self.playerList = []
         self.playerQueue = []
         self.roundLength = 20
-        self.roundcount = 1
-        self.roundsQueued = 1
+        self.roundCount = 1
+        self.nextRound = 1
         self.cameraManager = CameraManager()
         self.timerManager = TimerManager()
         self.gallery = []

@@ -8,14 +8,15 @@ struct PlayerListView: View {
     
     var body: some View {
         VStack (alignment: .center, spacing: 0){
-            Text("Jogadores")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding(8)
-            Text("Adicione entre 2 a 4 jogadores")
-                .font(.title2)
-                .foregroundColor(.secondary)
-                .padding(.bottom, 32)
+            TitleAndSubtitleView(title: "Jogadores", subtitle: "Adicione entre 2 a 4 jogadores")
+//            Text("Jogadores")
+//                .font(.largeTitle)
+//                .fontWeight(.bold)
+////                .padding(8)
+//            Text("Adicione entre 2 a 4 jogadores")
+//                .font(.title)
+//                .foregroundStyle(Color("Colors/text/secondary"))
+//                .padding(.bottom, 32)
             HStack (alignment: .top){
                 ForEach(playerList) { player in
                     @Bindable var bindablePlayer = player
@@ -37,16 +38,22 @@ struct PlayerListView: View {
                                 RoundedRectangle(cornerRadius: 28)
                                     .stroke(Color("Colors/background/border"), lineWidth: 4)
                             }
-                        Button {
+//                        Button {
+//                            playerList.removeAll(where: { $0.id == player.id})
+//                        } label: {
+//                            Image(systemName: "xmark.circle.fill")
+//                                .resizable()
+//                                .tint(Color("Colors/general/red1"))
+//                                .aspectRatio(1/1, contentMode: .fit)
+//                                .containerRelativeFrame(.vertical, count: 20, spacing: 0)
+//                                .containerRelativeFrame(.horizontal, count: 20, spacing: 0)
+//                        }
+                        RoundButton3D(mainColor: Color("Colors/general/red1"), systemImage: "xmark",
+                            action: {
                             playerList.removeAll(where: { $0.id == player.id})
-                        } label: {
-                            Image(systemName: "xmark.circle.fill")
-                                .resizable()
-                                .tint(Color("Colors/general/red1"))
-                                .aspectRatio(1/1, contentMode: .fit)
-                                .containerRelativeFrame(.vertical, count: 20, spacing: 0)
-                                .containerRelativeFrame(.horizontal, count: 20, spacing: 0)
                         }
+                        )
+                        .padding(.top, 4)
                     }
                     .containerRelativeFrame(.horizontal, count: 5, spacing: 0)
                 }
@@ -88,16 +95,22 @@ struct PlayerListView: View {
                                     RoundedRectangle(cornerRadius: 28)
                                         .stroke(.quaternary, lineWidth: 2)
                                 }
-                            Button {
-                                
-                            } label: {
-                                Image(systemName: "xmark.circle.fill")
-                                    .resizable()
-                                    .tint(Color("Colors/general/red1"))
-                                    .aspectRatio(1/1, contentMode: .fit)
-                                    .containerRelativeFrame(.vertical, count: 20, spacing: 0)
-                                    .containerRelativeFrame(.horizontal, count: 20, spacing: 0)
+//                            Button {
+//                                
+//                            } label: {
+//                                Image(systemName: "xmark.circle.fill")
+//                                    .resizable()
+//                                    .tint(Color("Colors/general/red1"))
+//                                    .aspectRatio(1/1, contentMode: .fit)
+//                                    .containerRelativeFrame(.vertical, count: 20, spacing: 0)
+//                                    .containerRelativeFrame(.horizontal, count: 20, spacing: 0)
+//                            }
+                            
+                            RoundButton3D(mainColor: Color("Colors/general/red1"), systemImage: "xmark",
+                                action: {
                             }
+                            )
+                            .padding(.top, 4)
                         }
                         .hidden()
                     }

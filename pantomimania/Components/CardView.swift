@@ -34,7 +34,7 @@ struct CardFront: View {
             RoundedRectangle(cornerRadius: 28)
                 .fill(Color("Colors/background/bg2"))
                 .stroke(cardColor, lineWidth: 4)
-                .aspectRatio(3/4, contentMode: (.fit))
+                .aspectRatio(3/4, contentMode: (.fill))
                 .background(
                     GeometryReader { geometry in
                         Color.clear
@@ -44,7 +44,7 @@ struct CardFront: View {
                     }
                 )
             Text(name)
-                .font(.title3)
+                .font(.title)
                 .fontWeight(.bold)
                 .foregroundStyle(Color("Colors/text/primary"))
                 .padding()
@@ -81,7 +81,7 @@ struct CardBack: View {
         ZStack {
             bgImage
                 .resizable()
-                .aspectRatio(3/4, contentMode: (.fit))
+                .aspectRatio(3/4, contentMode: (.fill))
                 .clipShape(RoundedRectangle(cornerRadius: 28))
         }
         .rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 1, z: 0))

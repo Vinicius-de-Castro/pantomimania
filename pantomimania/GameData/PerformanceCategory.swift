@@ -10,10 +10,12 @@ import Foundation
 class PerformanceCategory: Identifiable, Codable {
     var id = UUID()
     let name: String
+    let label: String
     let performances: [Performance]
     
     enum CodingKeys: String, CodingKey {
         case name
+        case label
         case performances
     }
 }

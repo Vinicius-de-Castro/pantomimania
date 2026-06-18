@@ -5,8 +5,6 @@ struct RoundButton3D: View {
     
     private let textColor: Color = .white
     
-    private let highlightColor: Color = Color("Colors/general/orange2")
-    
     private let shadowColor: Color = Color("Colors/general/orange-bg")
     
     var mainColor: Color = Color("Colors/general/orange-primary")
@@ -54,7 +52,7 @@ struct RoundButton3D: View {
         }
 //        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
-        .padding(.horizontal)
+//        .padding(.horizontal)
         .offset(x: 0, y: (isPressed || isVisuallyDisabled) ? -2 : -6)
         .shadow(color: Color(.black.opacity(0.25)), radius: 0, x: 0, y: 2)
         .background(
@@ -125,7 +123,7 @@ struct RoundButton3D: View {
 
 #Preview {
     HStack {
-        RoundButton3D(systemImage: "plus")
+        RoundButton3D(systemImage: "chevron.backward")
         RoundButton3D(systemImage: "minus")
     }
     

@@ -9,7 +9,7 @@ import SwiftUI
 
 func getPerformance(difficulty: Difficulty, game: GameState) -> Performance {
     var options: [Performance] = []
-    for category in game.selectedCategories {
+    for category in game.selectedCategories.shuffled() {
         let performances: [Performance] = category.performances.filter({$0.difficulty == difficulty})
         options.insert(contentsOf: performances, at: options.count)
     }
@@ -30,14 +30,16 @@ struct PromptSelectionView: View {
     
     var body: some View {
         VStack {
-            Text("Escolha a mímica")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding(8)
-            Text("Selecione uma mímica para performar")
-                .font(.title2)
-                .foregroundColor(.secondary)
-                .padding(.bottom, 32)
+            TitleAndSubtitleView(title: "Escolha a mímica", subtitle: "Selecione uma mímica para performar")
+//            Text("Escolha a mímica")
+//                .font(.largeTitle)
+//                .fontWeight(.bold)
+////                .padding(8)
+//            Text("Selecione uma mímica para performar")
+//                .font(.title)
+//                .foregroundStyle(Color("Colors/text/secondary"))
+//                .padding(.bottom, 32)
+            
             HStack {
                 ForEach(performanceOptions) { perfo in
                     
@@ -55,23 +57,29 @@ struct PromptSelectionView: View {
                             return .easy
                         }
                     }
+                    
                     CardView(name: perfo.name, isFlipped: isSelected, difficulty: difficulty)
                         .onTapGesture {
                             selectedPrompt = perfo
                         }
                 }
             }
-            .padding()
+            .padding(.bottom, 64)
             
             Spacer()
             
             ZStack(alignment: .topLeading){
                 RoundedRectangle(cornerRadius: 28)
-                    .foregroundStyle(.quaternary)
-                    .frame(maxWidth: .infinity)
+                    .foregroundStyle(Color("Colors/background/bg2"))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 28)
+                            .stroke(Color("Colors/background/border"), lineWidth: 2)
+                    }
                 
                 Text(selectedPrompt?.description ?? "Selecione um prompt!")
-                    .padding(32)
+                    .padding(.horizontal, 32)
+                    .padding(.vertical, 48)
             }
             .overlay(alignment: .topLeading) {
                 let diff = performanceOptions.firstIndex(where: { $0.id == selectedPrompt?.id})
@@ -91,19 +99,10 @@ struct PromptSelectionView: View {
                         .padding(.vertical, -32)
                 }
             }
-            .padding(.horizontal, 128)
-            .padding(.vertical, 64)
         }
-//        .toolbar {
-//            Button("Continuar") {
-//                nav.navigate(to: .timer)
-//            }
-//            .disabled(selectedPrompt == nil)
-//            .buttonStyle(.borderedProminent)
-//            .foregroundStyle(Color.primary)
-//            .tint(Color.accentColor)
-//        }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(.horizontal, 128)
+//        .padding(.vertical, 64)
         .overlay(alignment: .topTrailing) {
             Button3D(text: "Continuar", disableMode: (selectedPrompt == nil ? .disabled : .none)) {
                 nav.navigate(to: .timer)

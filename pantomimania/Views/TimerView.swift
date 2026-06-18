@@ -9,7 +9,7 @@ import SwiftUI
 import AVFoundation
 
 struct TimerView: View {
-        
+    
     @Environment(NavManager.self) var nav
     
     @Environment(GameState.self) var game
@@ -41,74 +41,59 @@ struct TimerView: View {
         guard await isAuthorized else { return }
     }
     
-    func doToast() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-        }
-    }
-    
     var body: some View {
         
         let progress = CGFloat(game.timerManager.getTimeLeft())/CGFloat(game.roundLength)
         
-        //        var toastText: String = ""
-        //
-        //        var showToast: Bool = false
-        
-        //        ZStack(alignment: .topLeading) {
         VStack {
-            Text("Hora de performar")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundStyle(Color("Colors/text/primary"))
-            Text("Fique atento(a) no tempo!")
-                .font(.title)
-                .foregroundStyle(Color("Colors/text/secondary"))
-                .padding(.bottom)
-//            if game.timerManager.isRunning {
-                VStack {
-                    ZStack{
-                        Circle()
-                            .trim(
-                                from: 0,
-                                to: CGFloat(progress)
+            TitleAndSubtitleView(title: "Hora de performar", subtitle: "Fique atento(a) no tempo!")
+//            Text("Hora de performar")
+//                .font(.largeTitle)
+//                .fontWeight(.bold)
+//                .foregroundStyle(Color("Colors/text/primary"))
+//            Text("Fique atento(a) no tempo!")
+//                .font(.title)
+//                .foregroundStyle(Color("Colors/text/secondary"))
+//                .padding(.bottom)
+            VStack {
+                ZStack{
+                    Circle()
+                        .trim(
+                            from: 0,
+                            to: CGFloat(progress)
+                        )
+                        .stroke(
+                            .accent,
+                            style: StrokeStyle(
+                                lineWidth: 30,
+                                lineCap: .round
                             )
-                            .stroke(
-                                .accent,
-                                style: StrokeStyle(
-                                    lineWidth: 30,
-                                    lineCap: .round
-                                )
-                            )
-                            .rotationEffect(.degrees(270))
-                            .animation(.easeInOut, value: progress)
-                        
-                        Text("\(game.timerManager.getTimeLeft())")
-                            .font(.system(size: 120))
-                            .fontWeight(.black)
-                            .foregroundStyle(.accent)
-                    }
-                    .padding()
-                    HStack {
-                        Button3D(text: game.timerManager.isRunning ? "Pausar" : "Continuar",
-                                 systemImage: game.timerManager.isRunning ? "pause" : "play") {
-                            if game.timerManager.isRunning {
-                                game.timerManager.pause()
-                            }
-                            else {
-                                game.timerManager.resume()
-                            }
-                        }
-                        Button3D(mainColor: Color("Colors/general/red1"), text: "Finalizar", systemImage: "checkmark") {
-                            game.timerManager.finish()
-                        }
-                    }
-                    .padding()
+                        )
+                        .rotationEffect(.degrees(270))
+                        .animation(.easeInOut, value: progress)
+                    
+                    Text("\(game.timerManager.getTimeLeft())")
+                        .font(.system(size: 120))
+                        .fontWeight(.black)
+                        .foregroundStyle(.accent)
                 }
-//            }
+                .padding()
+                HStack {
+                    Button3D(text: game.timerManager.isRunning ? "Pausar" : "Continuar",
+                             systemImage: game.timerManager.isRunning ? "pause" : "play") {
+                        if game.timerManager.isRunning {
+                            game.timerManager.pause()
+                        }
+                        else {
+                            game.timerManager.resume()
+                        }
+                    }
+                    Button3D(mainColor: Color("Colors/general/red1"), text: "Finalizar", systemImage: "checkmark") {
+                        game.timerManager.finish()
+                    }
+                }
+                .padding()
+            }
         }
         .frame(maxWidth: .infinity)
         .overlay(alignment: .topLeading) {
@@ -129,60 +114,67 @@ struct TimerView: View {
                     .padding()
             }
         }
-                .task {
-                    _ = await isAuthorized
-                    //            print(isAuthorized)
-                    game.cameraManager.startSession()
-                    game.timerManager.start(targetTime: game.roundLength, finished: {
-                        if game.playerQueue.count < 2 {
-                            nav.navigate(to: .gameOver)
-                        } else {
-                            game.playerQueue.removeFirst()
-                            nav.backBy(count: 2)
-                        }
-                    })
+        .task {
+            _ = await isAuthorized
+            game.cameraManager.startSession()
+            game.timerManager.start(targetTime: game.roundLength, finished: {
+                if game.playerQueue.count < 2 {
+                    if game.nextRound == game.roundCount {
+                        nav.navigate(to: .gameOver)
+                    } else {
+                        game.nextRound += 1
+                        game.playerQueue.removeAll()
+                        game.playerQueue = game.playerList.shuffled()
+                        nav.backBy(count: 3)
+                    }
+                } else {
+                    game.playerQueue.removeFirst()
+                    nav.backBy(count: 2)
                 }
-                .onDisappear() {
-                    game.cameraManager.stopSession()
-                }
-                .onChange(of: game.timerManager.getTimeLeft()) { _, newTime in
-                    if game.photoPermission {
-                        guard newTime != lastProcessedSecond else { return }
-                        lastProcessedSecond = newTime
-                        let roundLen = game.roundLength
-                        let whenToTakePhoto: [Int] = [
-                            roundLen * 3 / 4,
-                            roundLen / 2,
-                            roundLen * 1 / 4,
-                            0
-                        ]
-                        if game.photoPermission {
-                            if (whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 3)) {
-                                game.cameraManager.takePhoto()
-                                toastText = "Hora da foto! 3.."
-                                showToast.toggle()
-                            }
-                            if whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 2) {
-                                toastText = "Hora da foto! 1..."
-                            }
-                            if whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 1) {
-                                toastText = "Hora da foto! 2..."
-                            }
-                            if whenToTakePhoto.contains(game.timerManager.getTimeLeft()) {
-                                showToast.toggle()
-                                toastText = "Hora da foto! 3..."
-                            }
-                        }
+            })
+        }
+        .navigationBarBackButtonHidden(true)
+        .onDisappear() {
+            game.cameraManager.stopSession()
+        }
+        .onChange(of: game.timerManager.getTimeLeft()) { _, newTime in
+            if game.photoPermission {
+                guard newTime != lastProcessedSecond else { return }
+                lastProcessedSecond = newTime
+                let roundLen = game.roundLength
+                let whenToTakePhoto: [Int] = [
+                    roundLen * 3 / 4,
+                    roundLen / 2,
+                    roundLen * 1 / 4,
+                    0
+                ]
+                if game.photoPermission {
+                    if (whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 3)) {
+                        game.cameraManager.takePhoto()
+                        toastText = "Hora da foto! 3.."
+                        showToast.toggle()
+                    }
+                    if whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 2) {
+                        toastText = "Hora da foto! 1..."
+                    }
+                    if whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 1) {
+                        toastText = "Hora da foto! 2..."
+                    }
+                    if whenToTakePhoto.contains(game.timerManager.getTimeLeft()) {
+                        showToast.toggle()
+                        toastText = "Hora da foto! 3..."
                     }
                 }
-                .onChange(of: game.cameraManager.capturedImage) {
-                    if let img = game.cameraManager.capturedImage {
-                        game.gallery.append(img)
-                        game.cameraManager.capturedImage = nil
-                    }
-                }
+            }
+        }
+        .onChange(of: game.cameraManager.capturedImage) {
+            if let img = game.cameraManager.capturedImage {
+                game.gallery.append(img)
+                game.cameraManager.capturedImage = nil
+            }
         }
     }
+}
 #Preview {
     TimerView()
         .environment(NavManager())

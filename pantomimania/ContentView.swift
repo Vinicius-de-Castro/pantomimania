@@ -12,31 +12,20 @@ struct ContentView: View {
                     .padding()
                     .padding(.leading, -200)
                 VStack {
-                    Text("panto\nparty")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundStyle(Color("Colors/text/primary"))
-//                    Button {
-//                        nav.navigate(to: .playerList)
-//                    }
-//                        label: {
-//                            Label("Jogar", systemImage: "play.fill")
-//                                .padding(32)
-//                                .padding(.horizontal)
-//                                .background(
-//                                    Capsule()
-//                                        .fill(Color("Colors/general/orange-primary"))
-//                                )
-//                                .font(.title)
-//                                .padding()
-//                                .foregroundStyle(.white)
-//                        }
-                    Button3D(text: "Jogar") {
+//                    Text("panto\nparty")
+//                        .font(.largeTitle)
+//                        .fontWeight(.bold)
+//                        .foregroundStyle(Color("Colors/text/primary"))
+                    Image("Images/logo")
+                        .padding(.vertical)
+                    Button3D(text: "Jogar", systemImage: "play.fill") {
                         nav.navigate(to: .playerList)
                     }
+                    .scaleEffect(1.5)
+                    .padding()
                 }
                 .padding()
-                .padding(.trailing, 160)
+                .padding(.trailing, 64)
             }
             .navigationDestination(for: Route.self) {
                 route in switch route {
@@ -44,6 +33,8 @@ struct ContentView: View {
                     PlayerListView()
                 case .matchOptions:
                     MatchOptionsView()
+                case .nextRound:
+                    NextRoundView()
                 case .playerTurn:
                     PlayerTurnView()
                 case .promptSelection:

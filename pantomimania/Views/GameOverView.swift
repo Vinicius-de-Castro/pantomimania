@@ -25,45 +25,93 @@ struct GameOverView: View {
         VStack{
             if game.photoPermission {
                 VStack {
-                    Text("Melhores Momentos")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .padding(8)
-                    Text("Confira os melhores momentos de cada rodada")
-                        .font(.title2)
-                        .foregroundColor(.secondary)
-                        .padding(.bottom, 32)
+                    TitleAndSubtitleView(title: "Melhores Momentos", subtitle: "Confira os melhores momentos de cada rodada")
+//                    Text("Melhores Momentos")
+//                        .font(.largeTitle)
+//                        .fontWeight(.bold)
+//                        .padding(8)
+//                    Text("Confira os melhores momentos de cada rodada")
+//                        .font(.title2)
+//                        .foregroundColor(.secondary)
+//                        .padding(.bottom, 16)
                     
-                    TabView {
-                        ForEach(game.gallery, id: \.self) { photo in
-                            
-                            let polaroidColor = colors[game.gallery.firstIndex(of: photo)! % 4]
-                            
-                            VStack{
-                                Image(uiImage: photo)
-                                    .resizable()
-                                    .aspectRatio(photo.size.width / photo.size.height, contentMode: .fit)
-                                    .rotationEffect(Angle(degrees: 90))
-                                Text("Essa vai virar figurinha!!!")
-                                    .fontWeight(.bold)
+//                    TabView {
+//                        ForEach(game.gallery, id: \.self) { photo in
+//                            
+//                            let polaroidColor = colors[game.gallery.firstIndex(of: photo)! % 4]
+//                            
+//                            VStack{
+//                                Image(uiImage: photo)
+//                                    .resizable()
+//                                    .aspectRatio(photo.size.width / photo.size.height, contentMode: .fit)
+//                                    .rotationEffect(Angle(degrees: 90))
+//                                Text("Essa vai virar figurinha!!!")
+//                                    .fontWeight(.bold)
+//                                    .padding()
+//                            }
+//                            .background(polaroidColor)
+//                            .clipShape(
+//                                RoundedRectangle(cornerRadius: 26)
+//                            )
+//                            .overlay(
+//                                RoundedRectangle(cornerRadius: 26)
+//                                    .stroke(polaroidColor, lineWidth: 8)
+//                            )
+//                        }
+//                        .padding(64)
+//                    }
+//                    .navigationBarBackButtonHidden(true)
+//                    .tabViewStyle(.page)
+//                    .buttonStyle(.borderedProminent)
+//                    .foregroundStyle(Color.primary)
+//                    .tint(Color.accentColor)
+                    ZStack {
+                        ScrollView (.horizontal, showsIndicators: false) {
+                            HStack{
+                                ForEach(game.gallery, id: \.self) { photo in
+                                    let polaroidColor = colors[game.gallery.firstIndex(of: photo)! % 4]
+                                    VStack{
+                                        Image(uiImage: photo)
+                                            .resizable()
+                                            .aspectRatio(photo.size.width / photo.size.height, contentMode: .fit)
+                                            .clipped()
+                                            .rotationEffect(Angle(degrees: 90))
+                                        Text("Melhores momentos!")
+                                            .fontWeight(.bold)
+                                            .padding()
+                                    }
+                                    .background(polaroidColor)
+                                    .clipShape(
+                                        RoundedRectangle(cornerRadius: 26)
+                                    )
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 26)
+                                            .stroke(polaroidColor, lineWidth: 8)
+                                    )
                                     .padding()
+                                }
                             }
-                            .background(polaroidColor)
-                            .clipShape(
-                                RoundedRectangle(cornerRadius: 26)
-                            )
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 26)
-                                    .stroke(polaroidColor, lineWidth: 8)
-                            )
+                            .scrollTargetLayout()
+//                            .padding()
+                            .frame(maxHeight: .infinity)
                         }
-                        .padding(64)
+                        .scrollTargetBehavior(.viewAligned)
+                        
+//                        HStack {
+//                            
+//                            RoundButton3D(systemImage: "chevron.backward", action: {
+//                                
+//                            })
+//                            
+//                            Spacer()
+//                            
+//                            RoundButton3D(systemImage: "chevron.forward", action: {
+//                                
+//                            })
+//                            
+//                        }
+//                        .padding()
                     }
-                    .navigationBarBackButtonHidden(true)
-                    .tabViewStyle(.page)
-                    .buttonStyle(.borderedProminent)
-                    .foregroundStyle(Color.primary)
-                    .tint(Color.accentColor)
                 }
             }
             else {
@@ -93,7 +141,7 @@ struct GameOverView: View {
             }
             HStack{
                 Button3D(text: "Jogar novamente", systemImage: "arrow.uturn.backward"){
-                    nav.backBy(count: 5)
+                    nav.backBy(count: 6)
                     game.gallery.removeAll()
                 }
                 
@@ -102,6 +150,16 @@ struct GameOverView: View {
 //                    
 //                }
             }
+        }
+        .navigationBarBackButtonHidden(true)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .overlay (alignment: .topLeading) {
+            RoundButton3D(systemImage: "chevron.backward", action: {
+                nav.back()
+                }
+            )
+                .padding(.horizontal, 24)
+                .padding(.top, 16)
         }
     }
 }

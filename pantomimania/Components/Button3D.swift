@@ -10,8 +10,6 @@ struct Button3D: View {
     
     private let textColor: Color = .white
     
-    private let highlightColor: Color = Color("Colors/general/orange2")
-    
     private let shadowColor: Color = Color("Colors/general/orange-bg")
     
     var mainColor: Color = Color("Colors/general/orange-primary")

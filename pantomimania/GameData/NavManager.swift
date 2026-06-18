@@ -12,6 +12,7 @@ import Observation
 enum Route: Hashable {
     case playerList
     case matchOptions
+    case nextRound
     case playerTurn
     case promptSelection
     case timer

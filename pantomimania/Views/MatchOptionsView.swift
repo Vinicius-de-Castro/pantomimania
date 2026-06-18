@@ -13,6 +13,8 @@ struct MatchOptionsView: View {
     
     @Environment(GameState.self) var game
     
+    @State private var roundCount: Int = 1
+    
     @State private var roundLength: Int = 20
     
     @State private var selectedCategories: [PerformanceCategory] = []
@@ -26,6 +28,45 @@ struct MatchOptionsView: View {
                     .padding(8)
                 
                 VStack(alignment: .leading) {
+                    Text("Quantidades de rodadas")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundStyle(Color("Colors/text/primary"))
+                    Text("Quantas rodadas terá? (Máx: 5)")
+                        .foregroundStyle(Color("Colors/text/primary"))
+                    HStack{
+                        RoundButton3D(systemImage: "minus", disableMode: (roundCount <= 1 ? .disabled : .none)) {
+                            if roundCount > 1 {
+                                roundCount -= 1
+                            }
+                        } holdAction: {}
+                        
+                        Spacer()
+                        
+                        Text("\(roundCount)")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                        RoundButton3D(systemImage: "plus", disableMode: (roundCount >= 5 ? .disabled : .none)) {
+                            if roundCount < 5 {
+                                roundCount += 1
+                            }
+                        } holdAction: {}
+                        
+                    }
+                    .padding()
+                }
+                .padding(32)
+                .background(Color("Colors/background/bg2"))
+                .clipShape(RoundedRectangle(cornerRadius: 28))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 28)
+                        .stroke(Color("Colors/background/border"), lineWidth: 4)
+                )
+                .padding(.vertical)
+                
+                VStack(alignment: .leading) {
                     Text("Duração da Rodada")
                         .font(.title)
                         .fontWeight(.bold)
@@ -33,20 +74,14 @@ struct MatchOptionsView: View {
                     Text("Quanto tempo deve durar cada rodada para performar a mímica? (Máx: 60s)")
                         .foregroundStyle(Color("Colors/text/primary"))
                     HStack{
-//                        Button {
-//                            roundLength -= 1
-//                        } label: {
-//                            Image(systemName: "minus")
-//                                .padding(32)
-//                                .foregroundStyle(.white)
-//                                .background(.accent)
-//                                .clipShape(Circle())
-//                        }
-//                        .disabled(roundLength == 20)
-                        RoundButton3D(systemImage: "minus", disableMode: (roundLength == 20 ? .disabled : .none)) {
-                            roundLength -= 1
+                        RoundButton3D(systemImage: "minus", disableMode: (roundLength <= 20 ? .disabled : .none)) {
+                            if roundLength > 0 {
+                                roundLength -= 1
+                            }
                         } holdAction: {
-                            roundLength -= 1
+                            if roundLength > 0 {
+                                roundLength -= 1
+                            }
                         }
                         
                         Spacer()
@@ -56,21 +91,14 @@ struct MatchOptionsView: View {
                             .fontWeight(.bold)
                         
                         Spacer()
-                        
-//                        Button {
-//                            roundLength += 1
-//                        } label: {
-//                            Image(systemName: "plus")
-//                                .padding(32)
-//                                .foregroundStyle(.white)
-//                                .background(.accent)
-//                                .clipShape(Circle())
-//                        }
-//                        .disabled(roundLength == 60)
-                        RoundButton3D(systemImage: "plus", disableMode: (roundLength == 60 ? .disabled : .none)) {
-                            roundLength += 1
+                        RoundButton3D(systemImage: "plus", disableMode: (roundLength >= 60 ? .disabled : .none)) {
+                            if roundLength < 60 {
+                                roundLength += 1
+                            }
                         } holdAction: {
-                            roundLength += 1
+                            if roundLength < 60 {
+                                roundLength += 1
+                            }
                         }
                         
                     }
@@ -105,6 +133,7 @@ struct MatchOptionsView: View {
                             let isSelected = selectedCategories.contains(cat)
                             Button3D(
                                 text: cat.name,
+                                systemImage: cat.label,
                                 disableMode: isSelected ? .none : .visually,
                                 width: .infinity,
                                 height: .infinity
@@ -122,6 +151,7 @@ struct MatchOptionsView: View {
                             .padding(4)
                         }
                     }
+                    .padding(.top)
                 }
                 .padding(32)
                 .background(Color("Colors/background/bg2"))
@@ -130,25 +160,31 @@ struct MatchOptionsView: View {
                     RoundedRectangle(cornerRadius: 28)
                         .stroke(Color("Colors/background/border"), lineWidth: 4)
                 )
+                .padding(.vertical)
                 
                 
             }
             .padding(128)
-//            .toolbar{
-//                Button3D(text: "Jogar") {
-//                    game.roundLength = roundLength
-//                    game.selectedCategories = selectedCategories
-//                    game.playerQueue = game.playerList.shuffled()
-//                    nav.navigate(to: .playerTurn)
-//                }
-//                .disabled(selectedCategories.isEmpty)
-//            }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .overlay(alignment: .topTrailing) {
-                Button3D(text: "Continuar", disableMode: (selectedCategories.isEmpty ? .disabled : .none)) {
-                    nav.navigate(to: .timer)
+            .navigationBarBackButtonHidden(true)
+            .overlay(alignment: .top) {
+                HStack{
+                    RoundButton3D(systemImage: "chevron.backward", action: {
+                        nav.back()
+                    }
+                    )
+                    
+                    Spacer()
+                    
+                    Button3D(text: "Jogar", disableMode: (selectedCategories.isEmpty ? .disabled : .none)) {
+                        game.roundCount = roundCount
+                        game.roundLength = roundLength
+                        game.selectedCategories = selectedCategories
+                        game.playerQueue = game.playerList.shuffled()
+                        nav.navigate(to: .nextRound)
+                    }
                 }
-                .padding(.trailing, 24)
+                .padding(.horizontal, 24)
                 .padding(.top, 16)
             }
             .onAppear{

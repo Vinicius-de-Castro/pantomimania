@@ -21,123 +21,125 @@ struct MatchOptionsView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
-                Text("Configurações da Partida")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(8)
-                
-                VStack(alignment: .leading) {
-                    Text("Quantidades de rodadas")
-                        .font(.title)
+            ZStack {
+                VStack {
+                    Text("Configurações da Partida")
+                        .font(.largeTitle)
                         .fontWeight(.bold)
-                        .foregroundStyle(Color("Colors/text/primary"))
-                    Text("Quantas rodadas terá? (Máx: 5)")
-                        .foregroundStyle(Color("Colors/text/primary"))
-                    HStack{
-                        RoundButton3D(systemImage: "minus", disableMode: (roundCount <= 1 ? .disabled : .none)) {
-                            if roundCount > 1 {
-                                roundCount -= 1
-                            }
-                        } holdAction: {}
-                        
-                        Spacer()
-                        
-                        Text("\(roundCount)")
-                            .font(.largeTitle)
+                        .padding()
+                        .padding(.top)
+                    
+                    VStack(alignment: .leading) {
+                        Text("Quantidades de rodadas")
+                            .font(.title)
                             .fontWeight(.bold)
-                        
-                        Spacer()
-                        RoundButton3D(systemImage: "plus", disableMode: (roundCount >= 5 ? .disabled : .none)) {
-                            if roundCount < 5 {
-                                roundCount += 1
-                            }
-                        } holdAction: {}
-                        
-                    }
-                    .padding()
-                }
-                .padding(32)
-                .background(Color("Colors/background/bg2"))
-                .clipShape(RoundedRectangle(cornerRadius: 28))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 28)
-                        .stroke(Color("Colors/background/border"), lineWidth: 4)
-                )
-                .padding(.vertical)
-                
-                VStack(alignment: .leading) {
-                    Text("Duração da Rodada")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundStyle(Color("Colors/text/primary"))
-                    Text("Quanto tempo deve durar cada rodada para performar a mímica? (Máx: 60s)")
-                        .foregroundStyle(Color("Colors/text/primary"))
-                    HStack{
-                        RoundButton3D(systemImage: "minus", disableMode: (roundLength <= 20 ? .disabled : .none)) {
-                            if roundLength > 0 {
-                                roundLength -= 1
-                            }
-                        } holdAction: {
-                            if roundLength > 0 {
-                                roundLength -= 1
-                            }
+                            .foregroundStyle(Color("Colors/text/primary"))
+                        Text("Quantas rodadas terá? (Máx: 5)")
+                            .foregroundStyle(Color("Colors/text/primary"))
+                        HStack{
+                            RoundButton3D(systemImage: "minus", disableMode: (roundCount <= 1 ? .disabled : .none)) {
+                                if roundCount > 1 {
+                                    roundCount -= 1
+                                }
+                            } holdAction: {}
+                            
+                            Spacer()
+                            
+                            Text("\(roundCount)")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                            RoundButton3D(systemImage: "plus", disableMode: (roundCount >= 5 ? .disabled : .none)) {
+                                if roundCount < 5 {
+                                    roundCount += 1
+                                }
+                            } holdAction: {}
+                            
                         }
-                        
-                        Spacer()
-                        
-                        Text("\(roundLength/60):\(String(format:"%02d", roundLength%60))")
-                            .font(.largeTitle)
+                        .padding()
+                    }
+                    .padding(28)
+                    .background(Color("Colors/background/bg2"))
+                    .clipShape(RoundedRectangle(cornerRadius: 28))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 28)
+                            .stroke(Color("Colors/background/border"), lineWidth: 2)
+                    )
+                    .padding(.vertical, 8)
+                    
+                    VStack(alignment: .leading) {
+                        Text("Duração da Rodada")
+                            .font(.title)
                             .fontWeight(.bold)
-                        
-                        Spacer()
-                        RoundButton3D(systemImage: "plus", disableMode: (roundLength >= 60 ? .disabled : .none)) {
-                            if roundLength < 60 {
-                                roundLength += 1
+                            .foregroundStyle(Color("Colors/text/primary"))
+                        Text("Quanto tempo deve durar cada rodada para performar a mímica? (Máx: 60s)")
+                            .foregroundStyle(Color("Colors/text/primary"))
+                        HStack{
+                            RoundButton3D(systemImage: "minus", disableMode: (roundLength <= 20 ? .disabled : .none)) {
+                                if roundLength > 0 {
+                                    roundLength -= 1
+                                }
+                            } holdAction: {
+                                if roundLength > 0 {
+                                    roundLength -= 1
+                                }
                             }
-                        } holdAction: {
-                            if roundLength < 60 {
-                                roundLength += 1
+                            
+                            Spacer()
+                            
+                            Text("\(roundLength/60):\(String(format:"%02d", roundLength%60))")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                            RoundButton3D(systemImage: "plus", disableMode: (roundLength >= 60 ? .disabled : .none)) {
+                                if roundLength < 60 {
+                                    roundLength += 1
+                                }
+                            } holdAction: {
+                                if roundLength < 60 {
+                                    roundLength += 1
+                                }
                             }
+                            
                         }
-                        
+                        .padding()
                     }
-                    .padding()
-                }
-                .padding(32)
-                .background(Color("Colors/background/bg2"))
-                .clipShape(RoundedRectangle(cornerRadius: 28))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 28)
-                        .stroke(Color("Colors/background/border"), lineWidth: 4)
-                )
-                .padding(.vertical)
-                
-                VStack(alignment: .leading) {
-                    Text("Categorias")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundStyle(Color("Colors/text/primary"))
+                    .padding(28)
+                    .background(Color("Colors/background/bg2"))
+                    .clipShape(RoundedRectangle(cornerRadius: 28))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 28)
+                            .stroke(Color("Colors/background/border"), lineWidth: 2)
+                    )
+                    .padding(.vertical, 8)
                     
-                    Text("Quais categorias poderão ser perfomadas?")
-                        .foregroundStyle(Color("Colors/text/primary"))
-                    
-                    let columns: [GridItem] = [
-                        GridItem(.flexible(minimum: 100)),
-                        GridItem(.flexible(minimum: 100)),
-                        GridItem(.flexible(minimum: 100))
-                    ]
-                    
-                    LazyVGrid(columns: columns) {
-                        ForEach(game.performanceCategories) { cat in
-                            let isSelected = selectedCategories.contains(cat)
-                            Button3D(
-                                text: cat.name,
-                                systemImage: cat.label,
-                                disableMode: isSelected ? .none : .visually,
-                                width: .infinity,
-                                height: .infinity
-                            ) {
+                    VStack(alignment: .leading) {
+                        Text("Categorias")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundStyle(Color("Colors/text/primary"))
+                        
+                        Text("Quais categorias poderão ser perfomadas?")
+                            .foregroundStyle(Color("Colors/text/primary"))
+                        
+                        let columns: [GridItem] = [
+                            GridItem(.flexible(minimum: 100)),
+                            GridItem(.flexible(minimum: 100)),
+                            GridItem(.flexible(minimum: 100))
+                        ]
+                        
+                        LazyVGrid(columns: columns) {
+                            ForEach(game.performanceCategories) { cat in
+                                let isSelected = selectedCategories.contains(cat)
+                                Button3D(
+                                    text: cat.name,
+                                    systemImage: cat.label,
+                                    disableMode: isSelected ? .none : .visually,
+                                    width: .infinity,
+                                    height: .infinity
+                                ) {
                                     if isSelected {
                                         if selectedCategories.count > 1 {
                                             selectedCategories.removeAll(where: { $0 == cat})
@@ -146,27 +148,28 @@ struct MatchOptionsView: View {
                                     else {
                                         selectedCategories.append(cat)
                                     }
+                                }
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .padding(4)
                             }
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .padding(4)
                         }
+                        .padding(.top)
                     }
-                    .padding(.top)
+                    .padding(28)
+                    .background(Color("Colors/background/bg2"))
+                    .clipShape(RoundedRectangle(cornerRadius: 28))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 28)
+                            .stroke(Color("Colors/background/border"), lineWidth: 2)
+                    )
+                    .padding(.vertical, 8)
+                    
+                    
                 }
-                .padding(32)
-                .background(Color("Colors/background/bg2"))
-                .clipShape(RoundedRectangle(cornerRadius: 28))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 28)
-                        .stroke(Color("Colors/background/border"), lineWidth: 4)
-                )
-                .padding(.vertical)
-                
-                
+                .containerRelativeFrame(.horizontal, count: 10, span: 6, spacing: 0)
+                .navigationBarBackButtonHidden(true)
             }
-            .padding(128)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .navigationBarBackButtonHidden(true)
             .overlay(alignment: .top) {
                 HStack{
                     RoundButton3D(systemImage: "chevron.backward", action: {

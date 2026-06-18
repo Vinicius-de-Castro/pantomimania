@@ -33,7 +33,7 @@ struct CardFront: View {
         ZStack {
             RoundedRectangle(cornerRadius: 28)
                 .fill(Color("Colors/background/bg2"))
-                .stroke(cardColor, lineWidth: 4)
+                .stroke(cardColor, lineWidth: 2)
                 .aspectRatio(3/4, contentMode: (.fill))
                 .background(
                     GeometryReader { geometry in

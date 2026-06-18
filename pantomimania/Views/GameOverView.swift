@@ -26,45 +26,6 @@ struct GameOverView: View {
             if game.photoPermission {
                 VStack {
                     TitleAndSubtitleView(title: "Melhores Momentos", subtitle: "Confira os melhores momentos de cada rodada")
-//                    Text("Melhores Momentos")
-//                        .font(.largeTitle)
-//                        .fontWeight(.bold)
-//                        .padding(8)
-//                    Text("Confira os melhores momentos de cada rodada")
-//                        .font(.title2)
-//                        .foregroundColor(.secondary)
-//                        .padding(.bottom, 16)
-                    
-//                    TabView {
-//                        ForEach(game.gallery, id: \.self) { photo in
-//                            
-//                            let polaroidColor = colors[game.gallery.firstIndex(of: photo)! % 4]
-//                            
-//                            VStack{
-//                                Image(uiImage: photo)
-//                                    .resizable()
-//                                    .aspectRatio(photo.size.width / photo.size.height, contentMode: .fit)
-//                                    .rotationEffect(Angle(degrees: 90))
-//                                Text("Essa vai virar figurinha!!!")
-//                                    .fontWeight(.bold)
-//                                    .padding()
-//                            }
-//                            .background(polaroidColor)
-//                            .clipShape(
-//                                RoundedRectangle(cornerRadius: 26)
-//                            )
-//                            .overlay(
-//                                RoundedRectangle(cornerRadius: 26)
-//                                    .stroke(polaroidColor, lineWidth: 8)
-//                            )
-//                        }
-//                        .padding(64)
-//                    }
-//                    .navigationBarBackButtonHidden(true)
-//                    .tabViewStyle(.page)
-//                    .buttonStyle(.borderedProminent)
-//                    .foregroundStyle(Color.primary)
-//                    .tint(Color.accentColor)
                     ZStack {
                         ScrollView (.horizontal, showsIndicators: false) {
                             HStack{
@@ -92,25 +53,9 @@ struct GameOverView: View {
                                 }
                             }
                             .scrollTargetLayout()
-//                            .padding()
                             .frame(maxHeight: .infinity)
                         }
                         .scrollTargetBehavior(.viewAligned)
-                        
-//                        HStack {
-//                            
-//                            RoundButton3D(systemImage: "chevron.backward", action: {
-//                                
-//                            })
-//                            
-//                            Spacer()
-//                            
-//                            RoundButton3D(systemImage: "chevron.forward", action: {
-//                                
-//                            })
-//                            
-//                        }
-//                        .padding()
                     }
                 }
             }

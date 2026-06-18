@@ -47,14 +47,6 @@ struct TimerView: View {
         
         VStack {
             TitleAndSubtitleView(title: "Hora de performar", subtitle: "Fique atento(a) no tempo!")
-//            Text("Hora de performar")
-//                .font(.largeTitle)
-//                .fontWeight(.bold)
-//                .foregroundStyle(Color("Colors/text/primary"))
-//            Text("Fique atento(a) no tempo!")
-//                .font(.title)
-//                .foregroundStyle(Color("Colors/text/secondary"))
-//                .padding(.bottom)
             VStack {
                 ZStack{
                     Circle()

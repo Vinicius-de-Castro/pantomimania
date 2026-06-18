@@ -71,19 +71,14 @@ extension CameraManager {
         switch orientation {
             case .portrait:
             imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .up)
-//            print("Portrait")
         case .landscapeLeft:
             imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .right)
-//            print("LandscapeLeft")
         case .landscapeRight:
             imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .left)
-//            print("LandscapeRight")
         case .portraitUpsideDown:
             imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .down)
-//            print("PortraitUpsideDown")
         default:
             imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .right)
-//            print("Unknown")
         }
         
         self.capturedImage = imageOut

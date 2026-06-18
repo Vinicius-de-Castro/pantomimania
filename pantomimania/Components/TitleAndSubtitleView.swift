@@ -24,5 +24,6 @@ struct TitleAndSubtitleView: View {
                 .foregroundStyle(Color("Colors/text/secondary"))
         }
         .padding()
+        .padding(.vertical)
     }
 }

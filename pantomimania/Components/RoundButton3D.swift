@@ -47,12 +47,10 @@ struct RoundButton3D: View {
                 Text(text)
                     .fontWeight(.bold)
                     .foregroundColor(textColor)
-                    .multilineTextAlignment(.center)
+                    .multilineTextAlignment(.leading)
             }
         }
-//        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
-//        .padding(.horizontal)
         .offset(x: 0, y: (isPressed || isVisuallyDisabled) ? -2 : -6)
         .shadow(color: Color(.black.opacity(0.25)), radius: 0, x: 0, y: 2)
         .background(

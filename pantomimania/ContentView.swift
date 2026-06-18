@@ -12,10 +12,6 @@ struct ContentView: View {
                     .padding()
                     .padding(.leading, -200)
                 VStack {
-//                    Text("panto\nparty")
-//                        .font(.largeTitle)
-//                        .fontWeight(.bold)
-//                        .foregroundStyle(Color("Colors/text/primary"))
                     Image("Images/logo")
                         .padding(.vertical)
                     Button3D(text: "Jogar", systemImage: "play.fill") {

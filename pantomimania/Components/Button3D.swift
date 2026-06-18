@@ -52,7 +52,7 @@ struct Button3D: View {
                 Text(text)
                     .fontWeight(.bold)
                     .foregroundColor(textColor)
-                    .multilineTextAlignment(.center)
+                    .multilineTextAlignment(.leading)
             }
         }
         .padding()

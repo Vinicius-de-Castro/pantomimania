@@ -31,14 +31,6 @@ struct PromptSelectionView: View {
     var body: some View {
         VStack {
             TitleAndSubtitleView(title: "Escolha a mímica", subtitle: "Selecione uma mímica para performar")
-//            Text("Escolha a mímica")
-//                .font(.largeTitle)
-//                .fontWeight(.bold)
-////                .padding(8)
-//            Text("Selecione uma mímica para performar")
-//                .font(.title)
-//                .foregroundStyle(Color("Colors/text/secondary"))
-//                .padding(.bottom, 32)
             
             HStack {
                 ForEach(performanceOptions) { perfo in

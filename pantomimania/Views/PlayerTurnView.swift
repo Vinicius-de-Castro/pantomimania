@@ -41,13 +41,6 @@ struct PlayerTurnView: View {
         
         VStack {
             TitleAndSubtitleView(title: "Vez de \(game.playerQueue.first!.name)!", subtitle: "Passe o dispositivo para o jogador da vez")
-//            Text("Vez de \(game.playerQueue.first!.name)!")
-//                .font(.largeTitle)
-//                .fontWeight(.bold)
-//            Text("Passe o dispositivo para o jogador da vez")
-//                .font(.title)
-//                .foregroundStyle(Color("Colors/text/secondary"))
-//                .padding(.bottom, 32)
             
             Spacer()
             
@@ -57,14 +50,6 @@ struct PlayerTurnView: View {
                 .padding(64)
                 .padding(.bottom, -200)
         }
-//        .toolbar {
-//            Button("Continuar") {
-//                nav.navigate(to: .promptSelection)
-//            }
-//            .buttonStyle(.borderedProminent)
-//            .foregroundStyle(Color.primary)
-//            .tint(Color.accentColor)
-//        }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .overlay(alignment: .topTrailing) {
             Button3D(text: "Continuar") {

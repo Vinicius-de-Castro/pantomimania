@@ -9,14 +9,6 @@ struct PlayerListView: View {
     var body: some View {
         VStack (alignment: .center, spacing: 0){
             TitleAndSubtitleView(title: "Jogadores", subtitle: "Adicione entre 2 a 4 jogadores")
-//            Text("Jogadores")
-//                .font(.largeTitle)
-//                .fontWeight(.bold)
-////                .padding(8)
-//            Text("Adicione entre 2 a 4 jogadores")
-//                .font(.title)
-//                .foregroundStyle(Color("Colors/text/secondary"))
-//                .padding(.bottom, 32)
             HStack (alignment: .top){
                 ForEach(playerList) { player in
                     @Bindable var bindablePlayer = player
@@ -36,18 +28,8 @@ struct PlayerListView: View {
                             )
                             .overlay{
                                 RoundedRectangle(cornerRadius: 28)
-                                    .stroke(Color("Colors/background/border"), lineWidth: 4)
+                                    .stroke(Color("Colors/background/border"), lineWidth: 2)
                             }
-//                        Button {
-//                            playerList.removeAll(where: { $0.id == player.id})
-//                        } label: {
-//                            Image(systemName: "xmark.circle.fill")
-//                                .resizable()
-//                                .tint(Color("Colors/general/red1"))
-//                                .aspectRatio(1/1, contentMode: .fit)
-//                                .containerRelativeFrame(.vertical, count: 20, spacing: 0)
-//                                .containerRelativeFrame(.horizontal, count: 20, spacing: 0)
-//                        }
                         RoundButton3D(mainColor: Color("Colors/general/red1"), systemImage: "xmark",
                             action: {
                             playerList.removeAll(where: { $0.id == player.id})
@@ -84,7 +66,7 @@ struct PlayerListView: View {
                         )
                         .overlay {
                             RoundedRectangle(cornerRadius: 28)
-                                .stroke(Color("Colors/background/border"), lineWidth: 4)
+                                .stroke(Color("Colors/background/border"), lineWidth: 2)
                         }
                         
                         
@@ -95,16 +77,6 @@ struct PlayerListView: View {
                                     RoundedRectangle(cornerRadius: 28)
                                         .stroke(.quaternary, lineWidth: 2)
                                 }
-//                            Button {
-//                                
-//                            } label: {
-//                                Image(systemName: "xmark.circle.fill")
-//                                    .resizable()
-//                                    .tint(Color("Colors/general/red1"))
-//                                    .aspectRatio(1/1, contentMode: .fit)
-//                                    .containerRelativeFrame(.vertical, count: 20, spacing: 0)
-//                                    .containerRelativeFrame(.horizontal, count: 20, spacing: 0)
-//                            }
                             
                             RoundButton3D(mainColor: Color("Colors/general/red1"), systemImage: "xmark",
                                 action: {
@@ -141,15 +113,6 @@ struct PlayerListView: View {
                 
             }
         }
-//        .toolbar {
-//            Button("Continuar") {
-//                game.playerList = playerList
-//                nav.navigate(to: .matchOptions)
-//            }
-//            .disabled(playerList.count < 2 || playerList.contains(where: { $0.name.isEmpty }))
-//            .buttonStyle(.borderedProminent)
-//            .foregroundStyle(Color.primary)
-//            .tint(Color.accentColor)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .overlay(alignment: .topTrailing){
             Button3D(text: "Continuar",
@@ -164,8 +127,6 @@ struct PlayerListView: View {
             .padding(.trailing, 24)
             .padding(.top, 16)
         }
-//        }
-//        .navigationTitle("Lista de jogadores")
         .navigationBarBackButtonHidden(true)
     }
 }

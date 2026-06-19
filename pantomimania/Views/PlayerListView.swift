@@ -39,14 +39,14 @@ struct PlayerListView: View {
                     }
                     .containerRelativeFrame(.horizontal, count: 5, spacing: 0)
                 }
-                
+                .animation(.spring(duration: 0.15), value: self.$playerList.count)
                 if playerList.count < 4 {
                     VStack(alignment: .center, spacing: 10) {
                     
                         VStack {
                             Spacer()
                             Text("Adicionar")
-                                .font(.title3)
+                                .font(.title2)
                                 .fontWeight(.bold)
                                 .padding(.top)
                                 .multilineTextAlignment(.center)
@@ -86,6 +86,7 @@ struct PlayerListView: View {
                         }
                         .hidden()
                     }
+                    .animation(.spring(duration: 0.15), value: self.$playerList.count)
                     .containerRelativeFrame(.horizontal, count: 5, spacing: 0)
                     .onTapGesture {
                         
@@ -109,10 +110,12 @@ struct PlayerListView: View {
                                 name: "Jogador \(playerList.count + 1)", mascot: playerMascot())
                         )
                     }
+                    .animation(.spring(duration: 0.15), value: self.$playerList.count)
                 }
                 
             }
         }
+        .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .overlay(alignment: .topTrailing){
             Button3D(text: "Continuar",

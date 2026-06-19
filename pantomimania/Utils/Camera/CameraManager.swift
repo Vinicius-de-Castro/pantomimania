@@ -69,16 +69,24 @@ extension CameraManager {
         var imageOut: UIImage = UIImage()
         
         switch orientation {
-            case .portrait:
-            imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .up)
+        case .portrait:
+            imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .right)
+//            print("portrait")
         case .landscapeLeft:
-            imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .right)
-        case .landscapeRight:
-            imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .left)
-        case .portraitUpsideDown:
             imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .down)
-        default:
+//            print("landscapeLeft")
+        case .landscapeRight:
+            imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .up)
+//            print("landscapeRight")
+        case .portraitUpsideDown:
+            imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .left)
+//            print("portraitUpsideDown")
+        case .faceUp, .faceDown:
             imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .right)
+//            print("faceUp, faceDown")
+        default:
+            imageOut = UIImage(cgImage: cropImage(image: image.cgImage!), scale: 1.0, orientation: .up)
+//            print("default")
         }
         
         self.capturedImage = imageOut
@@ -90,14 +98,17 @@ extension CameraManager {
             image.height
         ) // Em teoria, como o app é pra ser sempre modo landscape, é pra sempre ser a altua
         
-        let xOffset = (image.width - sideLength) / 2
-        let yOffset = (image.height - sideLength) / 2
+        let targetHeigth = sideLength
+        let targetWidth = sideLength * 4 / 3
+        
+        let xOffset = (image.width - targetWidth) / 2
+        let yOffset = (image.height - targetHeigth) / 2
         
         let cropRect = CGRect(
             x: xOffset,
             y: yOffset,
-            width: sideLength,
-            height: sideLength
+            width: targetWidth,
+            height: targetHeigth
         ).integral
         
         let sourceCGImage = image

@@ -20,6 +20,13 @@ struct TimerView: View {
     
     @State private var toastText: String = ""
     
+//    private var toastText: String {
+//        return "Hora da Foto! \(variavel de quanto tempo falta)"
+//    }
+
+    
+    //variavel que conta quanto tempo falta pra proxima foto
+    
     var isAuthorized: Bool {
         get async {
             let status = AVCaptureDevice.authorizationStatus(for: .video)
@@ -69,7 +76,7 @@ struct TimerView: View {
                         .fontWeight(.black)
                         .foregroundStyle(.accent)
                 }
-                .padding()
+                .padding(64)
                 HStack {
                     Button3D(text: game.timerManager.isRunning ? "Pausar" : "Continuar",
                              systemImage: game.timerManager.isRunning ? "pause" : "play") {
@@ -87,7 +94,8 @@ struct TimerView: View {
                 .padding()
             }
         }
-        .frame(maxWidth: .infinity)
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .overlay(alignment: .topLeading) {
             if (showToast){
                 Label(toastText, systemImage: "camera")
@@ -96,10 +104,10 @@ struct TimerView: View {
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity)
                     .background(.quaternary)
-                    .clipShape(RoundedRectangle(cornerRadius: 26))
+                    .clipShape(RoundedRectangle(cornerRadius: 28))
                     .font(.largeTitle)
                     .overlay {
-                        RoundedRectangle(cornerRadius: 26)
+                        RoundedRectangle(cornerRadius: 28)
                             .stroke(.tertiary)
                     }
                     .containerRelativeFrame(.horizontal, count: 3, spacing: 0)
@@ -129,35 +137,40 @@ struct TimerView: View {
         .onDisappear() {
             game.cameraManager.stopSession()
         }
+        //onchange da variavel que controla quando tempo falta pra prox falta
+            //quando faltar 3 seg -> mostra toast
+            //quando faltar 0 seg -> tira foto
+            //quando passar .2 de tirar foto -> esconde toast
         .onChange(of: game.timerManager.getTimeLeft()) { _, newTime in
-            if game.photoPermission {
-                guard newTime != lastProcessedSecond else { return }
-                lastProcessedSecond = newTime
-                let roundLen = game.roundLength
-                let whenToTakePhoto: [Int] = [
-                    roundLen * 3 / 4,
-                    roundLen / 2,
-                    roundLen * 1 / 4,
-                    0
-                ]
-                if game.photoPermission {
-                    if (whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 3)) {
-                        game.cameraManager.takePhoto()
-                        toastText = "Hora da foto! 3.."
-                        showToast.toggle()
-                    }
-                    if whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 2) {
-                        toastText = "Hora da foto! 1..."
-                    }
-                    if whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 1) {
-                        toastText = "Hora da foto! 2..."
-                    }
-                    if whenToTakePhoto.contains(game.timerManager.getTimeLeft()) {
-                        showToast.toggle()
-                        toastText = "Hora da foto! 3..."
-                    }
-                }
+            guard game.photoPermission else  { return }
+            guard newTime != lastProcessedSecond else { return }
+            
+            lastProcessedSecond = newTime
+            let roundLen = game.roundLength
+            let whenToTakePhoto: [Int] = [
+                roundLen,
+                roundLen * 3 / 4,
+                roundLen / 2,
+                roundLen * 1 / 4
+            ]
+            
+            if (whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 3)) {
+                game.cameraManager.takePhoto()
+                toastText = "Hora da foto!"
+                showToast.toggle()
             }
+            if whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 2) {
+                toastText = "Hora da foto! 1"
+            }
+            if whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 1) {
+                toastText = "Hora da foto! 2"
+            }
+            if whenToTakePhoto.contains(game.timerManager.getTimeLeft()) {
+                showToast.toggle()
+                toastText = "Hora da foto! 3"
+            }
+            
+            
         }
         .onChange(of: game.cameraManager.capturedImage) {
             if let img = game.cameraManager.capturedImage {

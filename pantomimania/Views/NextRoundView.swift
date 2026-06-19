@@ -40,6 +40,7 @@ struct NextRoundView: View {
             }
             .padding(-64)
         }
+        .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .navigationBarBackButtonHidden(true)
         .overlay(alignment: .top) {

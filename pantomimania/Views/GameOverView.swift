@@ -20,6 +20,10 @@ struct GameOverView: View {
         Color("Colors/mascot/yellowbummer")
     ]
     
+    var imageArray: [Image] {
+        game.gallery.map({Image(uiImage: $0)})
+    }
+    
     var body: some View {
         
         VStack{
@@ -36,17 +40,17 @@ struct GameOverView: View {
                                             .resizable()
                                             .aspectRatio(photo.size.width / photo.size.height, contentMode: .fit)
                                             .clipped()
-                                            .rotationEffect(Angle(degrees: 90))
-                                        Text("Melhores momentos!")
+                                        Text("")
                                             .fontWeight(.bold)
                                             .padding()
+                                            .padding(.vertical)
                                     }
                                     .background(polaroidColor)
                                     .clipShape(
-                                        RoundedRectangle(cornerRadius: 26)
+                                        RoundedRectangle(cornerRadius: 28)
                                     )
                                     .overlay(
-                                        RoundedRectangle(cornerRadius: 26)
+                                        RoundedRectangle(cornerRadius: 28)
                                             .stroke(polaroidColor, lineWidth: 8)
                                     )
                                     .padding()
@@ -55,6 +59,7 @@ struct GameOverView: View {
                             .scrollTargetLayout()
                             .frame(maxHeight: .infinity)
                         }
+                        .padding()
                         .scrollTargetBehavior(.viewAligned)
                     }
                 }
@@ -90,22 +95,29 @@ struct GameOverView: View {
                     game.gallery.removeAll()
                 }
                 
-                //Aqui virá o botão de salvar imagens
-//                Button3D(mainColor: Color("Colors/mascot/bluealien"), text: "Salvar imagens", systemImage: "square.and.arrow.up"){
-//                    
-//                }
+            #if !targetEnvironment(macCatalyst)
+                ShareLink(items: imageArray) { photo in
+                        SharePreview("", image: photo)
+                    } label: {
+                        Button3D(mainColor: Color("Colors/mascot/bluealien"), text: "Salvar imagens", systemImage: "square.and.arrow.up")
+                            .allowsHitTesting(false)
+                    }
+            #endif
+                
+                
             }
         }
         .navigationBarBackButtonHidden(true)
+        .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .overlay (alignment: .topLeading) {
-            RoundButton3D(systemImage: "chevron.backward", action: {
-                nav.back()
-                }
-            )
-                .padding(.horizontal, 24)
-                .padding(.top, 16)
-        }
+//        .overlay (alignment: .topLeading) {
+//            RoundButton3D(systemImage: "chevron.backward", action: {
+//                nav.back()
+//                }
+//            )
+//                .padding(.horizontal, 24)
+//                .padding(.top, 16)
+//        }
     }
 }
 

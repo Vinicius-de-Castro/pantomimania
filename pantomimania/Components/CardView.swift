@@ -44,7 +44,7 @@ struct CardFront: View {
                     }
                 )
             Text(name)
-                .font(.title)
+                .font(.largeTitle)
                 .fontWeight(.bold)
                 .foregroundStyle(Color("Colors/text/primary"))
                 .padding()

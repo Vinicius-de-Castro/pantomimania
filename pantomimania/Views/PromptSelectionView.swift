@@ -29,71 +29,77 @@ struct PromptSelectionView: View {
     @State var performanceOptions: [Performance] = []
     
     var body: some View {
-        VStack {
-            TitleAndSubtitleView(title: "Escolha a mímica", subtitle: "Selecione uma mímica para performar")
-            
-            HStack {
-                ForEach(performanceOptions) { perfo in
-                    
-                    let isSelected = selectedPrompt?.id == perfo.id
-                    
-                    var difficulty: Difficulty {
-                        switch performanceOptions.firstIndex(where: { $0.id == perfo.id}) {
-                        case 0:
-                            return .easy
-                        case 1:
-                            return .medium
-                        case 2:
-                            return .hard
-                        default:
-                            return .easy
-                        }
-                    }
-                    
-                    CardView(name: perfo.name, isFlipped: isSelected, difficulty: difficulty)
-                        .onTapGesture {
-                            selectedPrompt = perfo
-                        }
-                }
-            }
-            .padding(.bottom, 64)
-            
-            Spacer()
-            
-            ZStack(alignment: .topLeading){
-                RoundedRectangle(cornerRadius: 28)
-                    .foregroundStyle(Color("Colors/background/bg2"))
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 28)
-                            .stroke(Color("Colors/background/border"), lineWidth: 2)
-                    }
+        ZStack {
+            VStack {
+                TitleAndSubtitleView(title: "Escolha a mímica", subtitle: "Selecione uma mímica para performar")
                 
-                Text(selectedPrompt?.description ?? "Selecione um prompt!")
-                    .padding(.horizontal, 32)
-                    .padding(.vertical, 48)
-            }
-            .overlay(alignment: .topLeading) {
-                let diff = performanceOptions.firstIndex(where: { $0.id == selectedPrompt?.id})
-                if diff != nil{
-                    let color = [Color("Colors/level/easy-green"), Color("Colors/level/medium-yellow"), Color("Colors/level/hard-red")][diff!]
-                    let text = ["Fácil", "Médio", "Difícil"][diff!]
-                    Text(text)
-                        .padding()
-                        .bold()
-                        .font(.headline)
-                        .foregroundStyle(.black)
-                        .background(
-                            Capsule()
-                                .fill(color)
-                        )
+                HStack {
+                    ForEach(performanceOptions) { perfo in
+                        
+                        let isSelected = selectedPrompt?.id == perfo.id
+                        
+                        var difficulty: Difficulty {
+                            switch performanceOptions.firstIndex(where: { $0.id == perfo.id}) {
+                            case 0:
+                                return .easy
+                            case 1:
+                                return .medium
+                            case 2:
+                                return .hard
+                            default:
+                                return .easy
+                            }
+                        }
+                        
+                        CardView(name: perfo.name, isFlipped: isSelected, difficulty: difficulty)
+                            .onTapGesture {
+                                selectedPrompt = perfo
+                            }
+                    }
+                }
+                .padding(.bottom, 64)
+                
+                Spacer()
+                
+                ZStack(alignment: .topLeading){
+                    RoundedRectangle(cornerRadius: 28)
+                        .foregroundStyle(Color("Colors/background/bg2"))
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 28)
+                                .stroke(Color("Colors/background/border"), lineWidth: 2)
+                        }
+                        .padding(.bottom)
+                    
+                    Text(selectedPrompt?.description ?? "Selecione um prompt!")
+                        .font(.title2)
                         .padding(.horizontal, 32)
-                        .padding(.vertical, -32)
+                        .padding(.vertical, 48)
+                }
+                .overlay(alignment: .topLeading) {
+                    let diff = performanceOptions.firstIndex(where: { $0.id == selectedPrompt?.id})
+                    if diff != nil{
+                        let color = [Color("Colors/level/easy-green"), Color("Colors/level/medium-yellow"), Color("Colors/level/hard-red")][diff!]
+                        let text = ["Fácil", "Médio", "Difícil"][diff!]
+                        Text(text)
+                            .padding()
+                            .fontWeight(.bold)
+                            .font(.title2)
+                            .foregroundStyle(.black)
+                            .background(
+                                Capsule()
+                                    .fill(color)
+                            )
+                            .padding(.horizontal, 32)
+                            .padding(.vertical, -32)
+                    }
                 }
             }
+            .containerRelativeFrame(.horizontal, count: 10, span: 8, spacing: 0)
         }
+        .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding(.horizontal, 128)
+//        .padding(.horizontal, 128)
 //        .padding(.vertical, 64)
         .overlay(alignment: .topTrailing) {
             Button3D(text: "Continuar", disableMode: (selectedPrompt == nil ? .disabled : .none)) {

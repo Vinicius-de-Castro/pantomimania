@@ -62,7 +62,7 @@ struct Button3D: View {
         .shadow(color: Color(.black.opacity(0.25)), radius: 0, x: 0, y: 2)
         .background(
             ZStack {
-                RoundedRectangle(cornerRadius: 26)
+                RoundedRectangle(cornerRadius: 28)
                     .foregroundStyle(
                         backgroundColor
                             .mix(with: shadowColor, by: isEnabled ? 0.6 : 1)

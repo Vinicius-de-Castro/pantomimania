@@ -169,6 +169,7 @@ struct MatchOptionsView: View {
                 .containerRelativeFrame(.horizontal, count: 10, span: 6, spacing: 0)
                 .navigationBarBackButtonHidden(true)
             }
+            .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .overlay(alignment: .top) {
                 HStack{

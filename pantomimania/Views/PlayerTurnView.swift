@@ -50,6 +50,7 @@ struct PlayerTurnView: View {
                 .padding(64)
                 .padding(.bottom, -200)
         }
+        .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .overlay(alignment: .topTrailing) {
             Button3D(text: "Continuar") {

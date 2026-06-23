@@ -73,7 +73,7 @@ struct MatchOptionsView: View {
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundStyle(Color("Colors/text/primary"))
-                        Text("Quanto tempo deve durar cada rodada para performar a mímica? (Máx: 60s)")
+                        Text("Quanto tempo deve durar cada performance? (Máx: 60s)")
                             .foregroundStyle(Color("Colors/text/primary"))
                         HStack{
                             RoundButton3D(systemImage: "minus", disableMode: (roundLength <= 20 ? .disabled : .none)) {
@@ -125,9 +125,9 @@ struct MatchOptionsView: View {
                             .foregroundStyle(Color("Colors/text/primary"))
                         
                         let columns: [GridItem] = [
-                            GridItem(.flexible(minimum: 100)),
-                            GridItem(.flexible(minimum: 100)),
-                            GridItem(.flexible(minimum: 100))
+                            GridItem(.adaptive(minimum: 200)),
+//                            GridItem(.adaptive(minimum: 300)),
+//                            GridItem(.adaptive(minimum: 300))
                         ]
                         
                         LazyVGrid(columns: columns) {

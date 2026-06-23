@@ -15,14 +15,10 @@ struct TimerView: View {
     @Environment(GameState.self) var game
     
     @State private var lastProcessedSecond: Int?
-    
-    @State private var showToast: Bool = false
-    
+        
     @State private var toastText: String = ""
     
-//    private var toastText: String {
-//        return "Hora da Foto! \(variavel de quanto tempo falta)"
-//    }
+    @State var whenToTakePhoto: [Int] = []
 
     
     //variavel que conta quanto tempo falta pra proxima foto
@@ -97,7 +93,7 @@ struct TimerView: View {
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .overlay(alignment: .topLeading) {
-            if (showToast){
+            if !toastText.isEmpty {
                 Label(toastText, systemImage: "camera")
                     .padding()
                     .padding()
@@ -137,6 +133,22 @@ struct TimerView: View {
         .onDisappear() {
             game.cameraManager.stopSession()
         }
+        .onAppear {
+            let roundLen = game.roundLength
+            
+            whenToTakePhoto = [
+                roundLen,
+                roundLen * 3 / 4,
+                roundLen / 2,
+                roundLen * 1 / 4
+            ]
+            
+            //FIXME: Descobrir o porque não esta caindo no onchange e tirar essa parte
+            if game.playerQueue.count != game.playerList.count {
+                toastText = "Hora da foto! 3"
+            }
+            
+        }
         //onchange da variavel que controla quando tempo falta pra prox falta
             //quando faltar 3 seg -> mostra toast
             //quando faltar 0 seg -> tira foto
@@ -146,18 +158,11 @@ struct TimerView: View {
             guard newTime != lastProcessedSecond else { return }
             
             lastProcessedSecond = newTime
-            let roundLen = game.roundLength
-            let whenToTakePhoto: [Int] = [
-                roundLen,
-                roundLen * 3 / 4,
-                roundLen / 2,
-                roundLen * 1 / 4
-            ]
+            
             
             if (whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 3)) {
                 game.cameraManager.takePhoto()
-                toastText = "Hora da foto!"
-                showToast.toggle()
+                toastText = ""
             }
             if whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 2) {
                 toastText = "Hora da foto! 1"
@@ -165,8 +170,9 @@ struct TimerView: View {
             if whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 1) {
                 toastText = "Hora da foto! 2"
             }
+            
+            //TODO: O primeiro segundo da rodada só funciona e cai aqui na primeira rodada, descobrir o porque
             if whenToTakePhoto.contains(game.timerManager.getTimeLeft()) {
-                showToast.toggle()
                 toastText = "Hora da foto! 3"
             }
             

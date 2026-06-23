@@ -5,67 +5,152 @@
     "performances": [
       {
         "name": "Cachorro",
-        "description": "Abanar o rabo e pedir carinho como um cachorro.",
+        "description": "Um cachorro abanando o rabo e pedindo carinho.",
         "difficulty": "easy"
       },
       {
         "name": "Gato",
-        "description": "Limpar-se como um gato e derrubar algo da mesa de propósito.",
+        "description": "Um gato se limpando e derrubando algo da mesa de propósito.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Macaco",
+        "description": "Um macaco coçando a cabeça, as axilas e pulando sem parar.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Pássaro",
+        "description": "Um pássaro batendo as asas rapidamente para tentar voar.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Elefante",
+        "description": "Um elefante balançando um dos braços como se fosse uma tromba gigante.",
         "difficulty": "easy"
       },
       {
         "name": "Tartaruga",
-        "description": "Andar com passos bem lentos como uma tartaruga.",
+        "description": "Uma tartaruga andando com passos bem lentos.",
         "difficulty": "easy"
       },
       {
         "name": "Pinguim",
-        "description": "Andar com passos curtos e desengonçados como um pinguim.",
+        "description": "Um pinguim andando com passos curtos e desengonçados.",
         "difficulty": "easy"
       },
       {
         "name": "Sapo",
-        "description": "Pular no chão e caçar moscas como um sapo.",
+        "description": "Um sapo pulando no chão e caçando moscas.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Galinha",
+        "description": "Uma galinha ciscando o chão, batendo as asas curtas e bicando o milho.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Coelho",
+        "description": "Um coelho comendo uma cenoura rápido e dando pulinhos curtos.",
         "difficulty": "easy"
       },
       {
         "name": "Urso",
-        "description": "Coçar as costas em uma árvore como um urso grande.",
+        "description": "Um urso grande coçando as costas em uma árvore.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Leão",
+        "description": "Um leão mostrando as garras e rugindo ferozmente para marcar território.",
         "difficulty": "medium"
       },
       {
         "name": "Lagarto",
-        "description": "Subir rapidamente em uma parede imaginária como um lagarto.",
+        "description": "Um lagarto subindo rapidamente em uma parede.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Canguru",
+        "description": "Um canguru pulando com as mãos curtas recolhidas no peito.",
         "difficulty": "medium"
       },
       {
         "name": "Avestruz",
-        "description": "Correr rápido e enfiar a cabeça na terra como um avestruz.",
+        "description": "Uma ave grande correndo rápido e enfiando a cabeça na terra.",
         "difficulty": "medium"
       },
       {
         "name": "Camaleão",
-        "description": "Andar de forma travada e mover os olhos para direções diferentes.",
+        "description": "Um réptil andando de forma travada e movendo os olhos para direções diferentes.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Caranguejo",
+        "description": "Um caranguejo andando de lado e abrindo e fechando as pinças.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Jacaré",
+        "description": "Um jacaré abrindo e fechando os braços retos como se fosse uma boca enorme.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Cobra",
+        "description": "Uma cobra rastejando silenciosamente no chão e dando um bote rápido.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Porco",
+        "description": "Um porco rolando feliz em uma poça de lama imaginária.",
         "difficulty": "medium"
       },
       {
         "name": "Bicho-Preguiça",
-        "description": "Mover-se em câmera lenta como um bicho-preguiça.",
+        "description": "Um bicho-preguiça se movendo em câmera lenta.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Morcego",
+        "description": "Um morcego dormindo de cabeça para baixo e se cobrindo com as asas.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Pica-pau",
+        "description": "Um pássaro bicando o tronco de uma árvore freneticamente com a cabeça.",
         "difficulty": "hard"
       },
       {
         "name": "Polvo",
-        "description": "Mover os braços e pernas de forma fluida simulando vários tentáculos.",
+        "description": "Alguém movendo os braços e pernas de forma fluida simulando vários tentáculos.",
         "difficulty": "hard"
       },
       {
         "name": "Cavalo-marinho",
-        "description": "Nadar na vertical com as mãos próximas ao peito.",
+        "description": "Alguém nadando na vertical com as mãos próximas ao peito.",
         "difficulty": "hard"
       },
       {
         "name": "Ornitorrinco",
-        "description": "Bater um rabo achatado na água e nadar com um bico de pato imaginário.",
+        "description": "Um animal nadando com bico de pato e batendo um rabo achatado na água.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Touro",
+        "description": "Um touro bufando e raspando o pé no chão antes de atacar.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Minhoca",
+        "description": "Um animal deitando no chão e se contorcendo para conseguir avançar.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Girafa",
+        "description": "Um animal esticando muito o pescoço para tentar mastigar as folhas no topo de uma árvore.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Formiga",
+        "description": "Um inseto minúsculo carregando uma folha que é dez vezes mais pesada que ele.",
         "difficulty": "hard"
       }
     ]
@@ -76,62 +161,142 @@
     "performances": [
       {
         "name": "Livro",
-        "description": "Folhear e ler um livro.",
+        "description": "Alguém folheando e lendo um livro.",
         "difficulty": "easy"
       },
       {
         "name": "Relógio",
-        "description": "Apontar para o pulso para mostrar a hora.",
+        "description": "Alguém apontando para o pulso para mostrar a hora.",
         "difficulty": "easy"
       },
       {
         "name": "Televisão",
-        "description": "Usar um controle remoto para mudar de canal.",
+        "description": "Alguém usando um controle remoto para mudar de canal.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Escova de Dentes",
+        "description": "Alguém escovando os dentes e cuspindo a pasta na pia.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Vassoura",
+        "description": "Alguém varrendo a casa e juntando a sujeira.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Cadeira",
+        "description": "Alguém puxando uma cadeira e sentando nela.",
         "difficulty": "easy"
       },
       {
         "name": "Tesoura",
-        "description": "Cortar um papel com uma tesoura imaginária.",
+        "description": "Alguém cortando um papel com tesoura.",
         "difficulty": "easy"
       },
       {
         "name": "Óculos",
-        "description": "Ajeitar os óculos no rosto e limpar as lentes.",
+        "description": "Alguém ajeitando os óculos no rosto e limpando as lentes.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Mochila",
+        "description": "Alguém colocando uma mochila pesada nas costas e ajustando as alças.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Travesseiro",
+        "description": "Alguém abraçando um travesseiro macio, fechando os olhos e caindo no sono.",
         "difficulty": "easy"
       },
       {
         "name": "Ventilador",
-        "description": "Virar o rosto de um lado para o outro como um ventilador.",
+        "description": "Um ventilador virando de um lado para o outro.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Ferro de Passar",
+        "description": "Alguém esticando uma roupa e passando o ferro quente por cima.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Liquidificador",
+        "description": "Alguém apertando um botão e tremendo todo com o motor batendo a vitamina.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Secador de Cabelo",
+        "description": "Alguém apontando o secador para o rosto e jogando o cabelo ao vento.",
         "difficulty": "medium"
       },
       {
         "name": "Caixa de Som",
-        "description": "Vibrar o corpo como uma caixa de som tocando música alta.",
+        "description": "Uma caixa de som tocando música alta e vibrando.",
         "difficulty": "medium"
       },
       {
         "name": "Saca-rolhas",
-        "description": "Girar um saca-rolhas e fazer força para puxar a rolha.",
+        "description": "Alguém girando um saca-rolhas e fazendo força para puxar a rolha.",
         "difficulty": "medium"
       },
       {
         "name": "Guarda-chuva",
-        "description": "Abrir um guarda-chuva e tentar segurar quando o vento vira ele ao avesso.",
+        "description": "Alguém abrindo um guarda-chuva que vira ao avesso com o vento.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Ioiô",
+        "description": "Alguém jogando um ioiô para baixo e puxando de volta com o dedo.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Lanterna",
+        "description": "Alguém ligando uma lanterna no escuro e procurando algo pelo chão.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Martelo",
+        "description": "Alguém batendo um prego na parede e acertando o próprio dedo por acidente.",
         "difficulty": "medium"
       },
       {
         "name": "Máquina de Costura",
-        "description": "Pisar rápido num pedal enquanto guia o tecido na agulha.",
+        "description": "Alguém pisando rápido num pedal enquanto guia o tecido na agulha.",
         "difficulty": "hard"
       },
       {
         "name": "Desentupidor",
-        "description": "Fazer muita força para desentupir uma pia ou privada.",
+        "description": "Alguém fazendo muita força para desentupir uma pia ou privada.",
         "difficulty": "hard"
       },
       {
         "name": "Batedeira",
-        "description": "Segurar uma tigela enquanto a outra mão faz giros frenéticos imitando a batedeira.",
+        "description": "Alguém segurando uma tigela enquanto a outra mão faz giros frenéticos.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Máquina de Escrever",
+        "description": "Alguém digitando com força nas teclas e empurrando o carro de volta quando faz 'plim'.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Bússola",
+        "description": "Uma bússola cujo ponteiro fica girando até parar apontando para o norte.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Fósforo",
+        "description": "Alguém riscando um palito, vendo a chama crescer e queimando o próprio dedo.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Chave de Fenda",
+        "description": "Alguém fazendo muita força girando o pulso para apertar um parafuso emperrado.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Sabonete",
+        "description": "Alguém tomando banho e tentando pegar o sabonete que escorrega das mãos o tempo todo.",
         "difficulty": "hard"
       }
     ]
@@ -142,52 +307,122 @@
     "performances": [
       {
         "name": "Smartphone",
-        "description": "Digitar uma mensagem na tela do celular.",
+        "description": "Alguém digitando uma mensagem no celular.",
         "difficulty": "easy"
       },
       {
         "name": "Fone de Ouvido",
-        "description": "Desenrolar o fio embolado de um fone de ouvido.",
+        "description": "Alguém desenrolando o fio de um fone de ouvido.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Mouse",
+        "description": "Alguém segurando o mouse, clicando freneticamente e rodando o scroll.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Controle de Videogame",
+        "description": "Alguém apertando os botões de um controle e virando o corpo enquanto joga.",
         "difficulty": "easy"
       },
       {
         "name": "Programador",
-        "description": "Digitar rápido no computador com muita atenção fixada na tela.",
+        "description": "Alguém digitando rápido no computador e prestando atenção na tela.",
         "difficulty": "easy"
       },
       {
         "name": "Notebook",
-        "description": "Abrir a tampa de um notebook e começar a trabalhar.",
+        "description": "Alguém abrindo um notebook e começando a trabalhar.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Tablet",
+        "description": "Alguém segurando uma tela grande com uma mão e rolando o feed com o indicador da outra.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Calculadora",
+        "description": "Alguém digitando rápido em botões pequenos e coçando a cabeça confuso com o resultado.",
         "difficulty": "easy"
       },
       {
         "name": "Realidade Virtual",
-        "description": "Usar óculos de realidade virtual e tentar tocar coisas no ar.",
+        "description": "Alguém usando óculos de realidade virtual e tentando tocar coisas no ar.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Câmera Digital",
+        "description": "Alguém trocando a lente da câmera, ajustando o foco e tirando uma foto com flash.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Smartwatch",
+        "description": "Alguém olhando para o relógio de pulso e falando diretamente com ele.",
         "difficulty": "medium"
       },
       {
         "name": "Drone",
-        "description": "Controlar um drone com as mãos e acompanhar o voo com os olhos e o pescoço.",
+        "description": "Alguém controlando um drone com um controle e acompanhando ele voar.",
         "difficulty": "medium"
       },
       {
         "name": "Roteador",
-        "description": "Ajustar pequenas antenas e procurar sinal de internet imaginário.",
+        "description": "Alguém ajustando pequenas antenas e procurando sinal de internet.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Ar-condicionado",
+        "description": "Alguém apontando um controle para o alto, apertando um botão e sentindo frio logo depois.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Micro-ondas",
+        "description": "Alguém apertando os botões, esperando impaciente e tirando o prato muito quente.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Aspirador de Pó",
+        "description": "Alguém passando o aspirador na sala e enroscando o fio no pé do sofá.",
         "difficulty": "medium"
       },
       {
         "name": "Cabo USB",
-        "description": "Tentar encaixar um cabo, virar de lado e tentar de novo até acertar a posição.",
+        "description": "Alguém tentando encaixar um cabo, virando de lado, e virando de novo até acertar.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Fita Cassete",
+        "description": "Alguém usando uma caneta para tentar rebobinar a fita que embaraçou toda.",
         "difficulty": "hard"
       },
       {
         "name": "Impressora",
-        "description": "Puxar o papel como uma impressora e engasgar no meio do processo.",
+        "description": "Uma impressora puxando papel e engasgando no meio do processo.",
         "difficulty": "hard"
       },
       {
         "name": "Antena de TV",
-        "description": "Girar uma antena de metal devagar e gritar para perguntar se a imagem melhorou.",
+        "description": "Alguém no telhado girando uma antena de metal devagar enquanto grita perguntando se a imagem melhorou.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Projetor",
+        "description": "Um projetor emitindo luz enquanto alguém tenta arrumar o foco girando a lente.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Pen Drive",
+        "description": "Alguém colocando um pen drive, percebendo que está ao contrário, virando e inserindo de novo.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Telescópio",
+        "description": "Alguém fechando um olho, olhando por um tubo comprido apontado para o céu e ajustando a lente.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Máquina de Lavar",
+        "description": "Alguém jogando roupas dentro, apertando os botões e balançando como se a máquina estivesse centrifugando.",
         "difficulty": "hard"
       }
     ]
@@ -198,52 +433,122 @@
     "performances": [
       {
         "name": "Bicicleta",
-        "description": "Pedalar uma bicicleta segurando o guidão.",
+        "description": "Alguém pedalando uma bicicleta.",
         "difficulty": "easy"
       },
       {
         "name": "Carro",
-        "description": "Dirigir um carro e virar o volante.",
+        "description": "Alguém dirigindo um carro e virando o volante.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Avião",
+        "description": "Alguém abrindo os braços como asas e correndo imitando um avião decolando.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Ônibus",
+        "description": "Alguém em pé segurando no ferro de cima e balançando com os buracos da rua.",
         "difficulty": "easy"
       },
       {
         "name": "Moto",
-        "description": "Acelerar uma moto girando a manopla do guidão.",
+        "description": "Alguém acelerando uma moto no guidão.",
         "difficulty": "easy"
       },
       {
         "name": "Patinete",
-        "description": "Andar de patinete dando impulso com um pé só.",
+        "description": "Alguém andando de patinete com um pé só.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Trem",
+        "description": "Alguém imitando o movimento circular das rodas de um trem com os braços.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Patins",
+        "description": "Alguém tentando andar com rodinhas nos pés e quase caindo para trás.",
         "difficulty": "easy"
       },
       {
         "name": "Monociclo",
-        "description": "Tentar se equilibrar e pedalar em um monociclo.",
+        "description": "Alguém tentando se equilibrar em um monociclo.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Barco a Remo",
+        "description": "Alguém sentado puxando dois remos com muita força.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Caminhão",
+        "description": "Um motorista segurando um volante gigante e puxando a corda da buzina de ar.",
         "difficulty": "medium"
       },
       {
         "name": "Helicóptero",
-        "description": "Girar o braço em cima da cabeça imitando uma hélice.",
+        "description": "Alguém girando o braço em cima da cabeça imitando uma hélice.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Trator",
+        "description": "Alguém pulando sem parar no banco do motorista enquanto dirige em estrada de terra.",
         "difficulty": "medium"
       },
       {
         "name": "Submarino",
-        "description": "Olhar por um periscópio e afundar lentamente agachando o corpo.",
+        "description": "Alguém olhando por um periscópio e afundando lentamente.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Ambulância",
+        "description": "Alguém dirigindo rápido e fazendo o movimento da sirene piscando em cima da cabeça.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Caminhão de Lixo",
+        "description": "Alguém pendurado na traseira de um caminhão imaginário, pulando e jogando um saco pesado para dentro.",
         "difficulty": "medium"
       },
       {
         "name": "Balão de Ar Quente",
-        "description": "Puxar a corda do fogo e olhar a paisagem por cima da borda do cesto.",
+        "description": "Alguém puxando a corda do fogo e olhando por cima do cesto.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Paraquedas",
+        "description": "Alguém em queda livre que puxa a cordinha e é puxado violentamente para cima.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Skate",
+        "description": "Alguém dando impulso, pulando para fazer uma manobra e tentando cair de pé na prancha.",
         "difficulty": "hard"
       },
       {
         "name": "Empilhadeira",
-        "description": "Dirigir e controlar alavancas para levantar um peso enorme.",
+        "description": "Alguém dirigindo e controlando alavancas para levantar um peso.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Foguete",
+        "description": "Alguém tremendo o corpo todo com a contagem regressiva e subindo muito rápido.",
         "difficulty": "hard"
       },
       {
         "name": "Segway",
-        "description": "Segurar um guidão em pé e inclinar o corpo reto para frente e para trás para andar.",
+        "description": "Alguém em pé segurando um guidão e inclinando o corpo para frente e para trás para andar.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Jet Ski",
+        "description": "Alguém acelerando no guidão, abaixado e quicando forte nas ondas da água.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Disco Voador",
+        "description": "Uma nave alienígena pairando no ar e abduzindo uma vaca com um raio de luz.",
         "difficulty": "hard"
       }
     ]
@@ -254,52 +559,127 @@
     "performances": [
       {
         "name": "Violão",
-        "description": "Tocar os acordes de um violão.",
+        "description": "Alguém tocando violão.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Cantor",
+        "description": "Alguém segurando um microfone e cantando com muita emoção.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Piano",
+        "description": "Alguém deslizando as duas mãos sobre as teclas de um piano imaginário.",
         "difficulty": "easy"
       },
       {
         "name": "Bateria",
-        "description": "Tocar bateria usando baquetas imaginárias.",
+        "description": "Alguém tocando bateria com baquetas.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Dançarino",
+        "description": "Alguém fazendo passos de dança muito bem ensaiados no ritmo da música.",
         "difficulty": "easy"
       },
       {
         "name": "Flauta",
-        "description": "Tocar uma flauta doce usando os dedos das duas mãos.",
+        "description": "Alguém tocando uma flauta doce com as duas mãos.",
         "difficulty": "easy"
       },
       {
         "name": "DJ",
-        "description": "Tocar música com fones de ouvido e mexer em discos.",
+        "description": "Um DJ tocando música e mexendo nos discos.",
         "difficulty": "easy"
       },
       {
+        "name": "Bate-cabeça",
+        "description": "Alguém ouvindo rock pesado e balançando a cabeça freneticamente para cima e para baixo.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Guitarra",
+        "description": "Alguém fazendo um solo de guitarra cheio de marra e jogando o cabelo.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Trompete",
+        "description": "Alguém assoprando com bochechas cheias e apertando três botões rápidos.",
+        "difficulty": "medium"
+      },
+      {
         "name": "Maestro",
-        "description": "Reger uma orquestra agitando uma batuta.",
+        "description": "Um maestro regendo uma orquestra com a batuta.",
         "difficulty": "medium"
       },
       {
         "name": "Sanfona",
-        "description": "Abrir e fechar uma sanfona apertando os botões.",
+        "description": "Alguém abrindo e fechando uma sanfona.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Pandeiro",
+        "description": "Alguém batendo o pandeiro na mão, no joelho e girando no dedo.",
         "difficulty": "medium"
       },
       {
         "name": "Violoncelo",
-        "description": "Tocar um instrumento grande apoiado entre as pernas usando um arco.",
+        "description": "Alguém tocando um instrumento grande entre as pernas com um arco.",
         "difficulty": "medium"
       },
       {
-        "name": "Afinação",
-        "description": "Tocar uma corda várias vezes com o ouvido perto do braço do violão e girar a tarraxa.",
+        "name": "Harpa",
+        "description": "Alguém dedilhando com graciosidade as várias cordas de uma harpa grande.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Violino",
+        "description": "Alguém apoiando o instrumento no queixo e passando o arco com delicadeza.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Canto Lírico",
+        "description": "Uma cantora de ópera cruzando as mãos no peito e cantando notas absurdamente agudas.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Afinar Violão",
+        "description": "Alguém tocando uma corda repetidamente, botando o ouvido perto e girando a tarraxa.",
         "difficulty": "hard"
       },
       {
         "name": "Triângulo",
-        "description": "Segurar um triângulo de metal e tocar um ritmo bem rápido com a baqueta de aço.",
+        "description": "Alguém segurando um triângulo de metal e tocando um ritmo rápido.",
         "difficulty": "hard"
       },
       {
         "name": "Gaita de Foles",
-        "description": "Apertar um saco debaixo do braço e assoprar em um tubo ao mesmo tempo.",
+        "description": "Alguém apertando um saco debaixo do braço e assoprando em um tubo.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Contrabaixo Acústico",
+        "description": "Alguém tocando em pé um instrumento muito alto e pesado batendo nas cordas grossas.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Tocar Pratos",
+        "description": "Alguém esperando tenso o momento certo para bater dois pratos gigantes em uma orquestra.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Castanholas",
+        "description": "Uma dançarina batendo as pecinhas de madeira escondidas nas mãos enquanto dança flamenco.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Saxofone",
+        "description": "Alguém tocando um instrumento curvo de sopro, apertando botões e balançando o corpo de olhos fechados.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Gongo",
+        "description": "Alguém segurando um bastão gigante forrado e batendo com força em um disco de metal imaginário.",
         "difficulty": "hard"
       }
     ]
@@ -310,52 +690,127 @@
     "performances": [
       {
         "name": "Cabeleireiro",
-        "description": "Cortar o cabelo de alguém com tesoura e pente.",
+        "description": "Um cabeleireiro cortando o cabelo de alguém.",
         "difficulty": "easy"
       },
       {
         "name": "Garçom",
-        "description": "Servir mesas equilibrando uma bandeja em uma das mãos.",
+        "description": "Um garçom servindo mesas com uma bandeja.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Professor",
+        "description": "Alguém explicando a matéria e escrevendo com giz na lousa.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Fotógrafo",
+        "description": "Alguém focando a lente da câmera e pedindo para a pessoa sorrir para a foto.",
         "difficulty": "easy"
       },
       {
         "name": "Pintor",
-        "description": "Usar um rolo grande para pintar uma parede.",
+        "description": "Um pintor usando um rolo para pintar uma parede.",
         "difficulty": "easy"
       },
       {
         "name": "Policial",
-        "description": "Apitar e parar o trânsito esticando a mão.",
+        "description": "Alguém apitando e parando o trânsito com a mão.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Bombeiro",
+        "description": "Alguém segurando uma mangueira muito pesada que está jogando água longe.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Pescador",
+        "description": "Alguém jogando a vara de pescar na água e fazendo muita força para puxar o peixe.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Carteiro",
+        "description": "Alguém carregando uma bolsa de lado, entregando uma carta e fugindo de um cachorro.",
         "difficulty": "easy"
       },
       {
         "name": "Médico",
-        "description": "Colocar as pontas de um estetoscópio nas orelhas e examinar o peito de um paciente.",
+        "description": "Um médico usando um estetoscópio para examinar o peito de um paciente.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Mecânico",
+        "description": "Alguém deitado em uma prancha de rodinhas mexendo com uma chave de boca embaixo do carro.",
         "difficulty": "medium"
       },
       {
         "name": "Astronauta",
-        "description": "Flutuar no espaço dando passos em gravidade zero.",
+        "description": "Um astronauta flutuando no espaço.",
         "difficulty": "medium"
       },
       {
         "name": "Juiz",
-        "description": "Bater um martelo de madeira na mesa para exigir silêncio no tribunal.",
+        "description": "Um juiz batendo o martelo de madeira na mesa exigindo silêncio.",
         "difficulty": "medium"
       },
       {
+        "name": "Dentista",
+        "description": "Alguém mandando o paciente abrir bem a boca e usando aquele motorzinho que faz barulho agudo.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Piloto de Avião",
+        "description": "Alguém mexendo em dezenas de botões no teto e puxando o manche para decolar.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Salva-vidas",
+        "description": "Alguém olhando pelo binóculo, correndo em câmera lenta e nadando para resgatar a vítima.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Padeiro",
+        "description": "Alguém sovando uma massa de pão gigante e abrindo com um rolo de madeira.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Mágico",
+        "description": "Alguém fazendo um truque com as mãos e puxando um coelho da cartola.",
+        "difficulty": "hard"
+      },
+      {
         "name": "Árbitro de Vídeo",
-        "description": "Desenhar um quadrado no ar com os dedos e colocar a mão no ouvido para escutar a cabine.",
+        "description": "Alguém desenhando um quadrado no ar e colocando a mão no ouvido para escutar o ponto.",
         "difficulty": "hard"
       },
       {
         "name": "Soprador de Vidro",
-        "description": "Girar um cano longo e assoprar na ponta para moldar uma peça de vidro quente.",
+        "description": "Alguém girando um cano longo e assoprando na ponta para moldar vidro quente.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Malabarista",
+        "description": "Alguém jogando três bolinhas para o alto sem deixar nenhuma cair no chão.",
         "difficulty": "hard"
       },
       {
         "name": "Apicultor",
-        "description": "Espantar abelhas ao redor do rosto enquanto mexe em placas de uma colmeia.",
+        "description": "Alguém usando uma roupa grossa espantando abelhas enquanto mexe em uma colmeia.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Minerador",
+        "description": "Alguém batendo uma picareta na pedra usando um capacete com lanterna na testa.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Adestrador de Cães",
+        "description": "Alguém dando comandos duros com a mão e jogando um petisco para o cachorro invisível.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Detetive",
+        "description": "Alguém olhando através de uma lupa para o chão procurando pegadas secretas.",
         "difficulty": "hard"
       }
     ]
@@ -366,52 +821,132 @@
     "performances": [
       {
         "name": "Futebol",
-        "description": "Driblar e chutar uma bola de futebol.",
+        "description": "Alguém driblando e chutando uma bola de futebol.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Basquete",
+        "description": "Alguém quicando a bola, correndo e arremessando na cesta.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Vôlei",
+        "description": "Alguém levantando a bola e dando uma cortada violenta por cima da rede.",
         "difficulty": "easy"
       },
       {
         "name": "Natação",
-        "description": "Nadar estilo crawl em uma piscina.",
+        "description": "Alguém nadando em uma piscina.",
         "difficulty": "easy"
       },
       {
         "name": "Pingue-Pongue",
-        "description": "Jogar pingue-pongue e rebater a bolinha rapidamente.",
+        "description": "Alguém jogando pingue-pongue e rebatendo a bolinha.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Corrida",
+        "description": "Alguém correndo, olhando para o relógio e limpando o suor.",
         "difficulty": "easy"
       },
       {
         "name": "Tênis",
-        "description": "Jogar a bola para o alto e dar um saque forte com a raquete.",
+        "description": "Alguém jogando a bola pro alto e dando um saque com a raquete.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Levantamento de Peso",
+        "description": "Alguém fazendo muita força para levantar um peso enorme acima da cabeça.",
         "difficulty": "easy"
       },
       {
         "name": "Esgrima",
-        "description": "Avançar e recuar lutando esgrima com uma espada reta.",
+        "description": "Alguém lutando esgrima com uma espada.",
         "difficulty": "medium"
       },
       {
         "name": "Surfe",
-        "description": "Remar deitado em uma prancha e pular para ficar de pé surfando a onda.",
+        "description": "Alguém remando em uma prancha e ficando de pé na onda.",
         "difficulty": "medium"
       },
       {
         "name": "Salto com Vara",
-        "description": "Correr com uma vara longa, fincar a ponta no chão e saltar de costas por cima de uma barra.",
+        "description": "Alguém correndo com uma vara longa, fincando no chão e se jogando por cima de uma barra.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Boliche",
+        "description": "Alguém segurando uma bola pesada, dando três passos e jogando na pista para derrubar os pinos.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Boxe",
+        "description": "Alguém protegendo o rosto com as luvas e soltando jabs rápidos.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Arco e Flecha",
+        "description": "Alguém puxando a corda do arco para trás, mirando com um olho fechado e soltando.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Ginástica Artística",
+        "description": "Um ginasta dando saltos mortais e cravando os pés no chão com os braços pro alto.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Karatê",
+        "description": "Alguém dando socos rápidos no ar, chutando alto e quebrando uma tábua imaginária com a mão.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Judô",
+        "description": "Alguém segurando a gola do adversário, girando o corpo e arremessando-o no tatame.",
         "difficulty": "medium"
       },
       {
         "name": "Xadrez",
-        "description": "Apoiar a mão no queixo, pensar bastante e mover uma peça pequena no tabuleiro.",
+        "description": "Alguém com a mão no queixo pensando profundamente antes de mover uma peça delicadamente.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Golfe",
+        "description": "Alguém calculando o vento, arrumando a postura e dando uma tacada suave.",
         "difficulty": "hard"
       },
       {
         "name": "Curling",
-        "description": "Varrer o chão de gelo com muita força usando uma vassoura na frente de uma pedra.",
+        "description": "Alguém varrendo o chão de gelo freneticamente com uma vassoura na frente de uma pedra.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Hipismo",
+        "description": "Alguém cavalgando e dando um salto alto junto com o cavalo por cima de um obstáculo.",
         "difficulty": "hard"
       },
       {
         "name": "Nado Sincronizado",
-        "description": "Prender a respiração, dar um sorriso fixo e fazer movimentos simétricos como uma dança na água.",
+        "description": "Alguém prendendo a respiração com um sorriso fixo e fazendo movimentos simétricos com as mãos e pernas.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Arremesso de Peso",
+        "description": "Alguém apoiando uma bola de ferro no pescoço, girando o corpo e arremessando longe.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Beisebol",
+        "description": "Alguém rebatendo a bola com um taco e correndo desesperado pelas bases.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Capoeira",
+        "description": "Alguém gingando com as mãos no chão e dando uma meia-lua no ar.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Esqui",
+        "description": "Alguém segurando dois bastões, agachado e desviando de bandeirinhas descendo a montanha.",
         "difficulty": "hard"
       }
     ]
@@ -421,53 +956,128 @@
     "label": "frying.pan",
     "performances": [
       {
-        "name": "Sorvete",
-        "description": "Lamber um sorvete derretendo em uma casquinha.",
+        "name": "Beber Água",
+        "description": "Alguém virando um copo cheio de água muito rápido.",
         "difficulty": "easy"
       },
       {
-        "name": "Pimenta",
-        "description": "Comer algo muito apimentado e abanar a boca em desespero por água.",
+        "name": "Tomar Sorvete",
+        "description": "Alguém lambendo um sorvete de casquinha.",
         "difficulty": "easy"
       },
       {
-        "name": "Cebola",
-        "description": "Cortar algo com a faca em uma tábua e enxugar as lágrimas.",
+        "name": "Comer Pimenta",
+        "description": "Alguém comendo algo muito apimentado e abanando a boca.",
         "difficulty": "easy"
       },
       {
-        "name": "Pote",
-        "description": "Fazer força para tentar desenroscar a tampa de um pote de vidro muito apertado.",
+        "name": "Comer Hambúrguer",
+        "description": "Alguém segurando um lanche gigante com as duas mãos e abrindo muito a boca para morder.",
         "difficulty": "easy"
       },
       {
-        "name": "Panqueca",
-        "description": "Jogar uma panqueca para o alto usando a frigideira e tentar aparar de volta.",
+        "name": "Cortar Cebola",
+        "description": "Alguém cortando algo com a faca na tábua e chorando.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Mastigar Chiclete",
+        "description": "Alguém mastigando de boca aberta e enchendo uma bola de chiclete que estoura na cara.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Abrir Pote",
+        "description": "Alguém tentando abrir um pote de vidro apertado.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Cortar Pizza",
+        "description": "Alguém usando um cortador redondo para fatiar a massa e puxando um pedaço com muito queijo.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Lamber Tampa",
+        "description": "Alguém abrindo a embalagem de um iogurte e lambendo a tampa com vontade.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Ralar Queijo",
+        "description": "Alguém passando um pedaço de queijo em um ralador de metal e quase ralando o dedo.",
         "difficulty": "medium"
       },
       {
-        "name": "Espaguete",
-        "description": "Enrolar o macarrão no garfo e sugar um fio comprido até o fim.",
+        "name": "Virar Panqueca",
+        "description": "Alguém jogando uma panqueca para o alto na frigideira.",
         "difficulty": "medium"
       },
       {
-        "name": "Ovo",
-        "description": "Bater um ovo na quina da mesa e abrir a casca usando apenas uma mão.",
+        "name": "Comer Espaguete",
+        "description": "Alguém enrolando o macarrão no garfo e sugando um fio comprido.",
         "difficulty": "medium"
       },
       {
-        "name": "Algodão Doce",
-        "description": "Girar um palito grande dentro de uma máquina redonda para enrolar os fios de açúcar.",
+        "name": "Espremer Limão",
+        "description": "Alguém apertando metade de um limão com força e desviando o rosto do suco espirrando.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Descascar Batata",
+        "description": "Alguém usando um descascador rapidamente para tirar a casca de uma batata girando ela na mão.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Fritar Salgado",
+        "description": "Alguém jogando algo na panela com óleo e pulando para trás fugindo dos respingos quentes.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Quebrar Ovo",
+        "description": "Alguém batendo um ovo na quina da mesa e abrindo com uma mão só.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Beber Sopa",
+        "description": "Alguém assoprando a colher, tomando a sopa quente e queimando a língua.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Abrir Lata",
+        "description": "Alguém sofrendo para girar um abridor de latas manual sem muito sucesso.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Fazer Algodão Doce",
+        "description": "Alguém girando um palito grande dentro de uma máquina redonda para pegar o açúcar.",
         "difficulty": "hard"
       },
       {
-        "name": "Pudim",
-        "description": "Virar uma forma redonda no prato com muito cuidado e chorar ao ver que quebrou.",
+        "name": "Comer Sushi",
+        "description": "Alguém tentando pegar uma peça com hashis, deixando cair no molho shoyu e espirrando na roupa.",
         "difficulty": "hard"
       },
       {
-        "name": "Máquina de Expresso",
-        "description": "Bater o pó no filtro, encaixar girando na máquina e usar o vaporizador de leite.",
+        "name": "Flambar Prato",
+        "description": "Alguém jogando bebida na frigideira, subindo um fogo gigante e assustando a si mesmo.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Abrir Coco",
+        "description": "Alguém batendo com um facão gigante em um coco verde apoiado na mão.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Desenformar Pudim",
+        "description": "Alguém virando uma forma no prato com muito cuidado e chorando porque o pudim quebrou.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Fazer Churrasco",
+        "description": "Alguém espetando carne em um espeto de metal e abanando o carvão com a tábua de carne.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Bater Bolo",
+        "description": "Alguém mexendo uma massa grossa em uma bacia grande com uma colher de pau até suar.",
         "difficulty": "hard"
       }
     ]
@@ -478,52 +1088,132 @@
     "performances": [
       {
         "name": "Filme de Terror",
-        "description": "Tomar um susto repentino e tampar os olhos com as mãos espiando pelos dedos.",
+        "description": "Alguém tomando um susto e tampando os olhos com as mãos.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Comer Pipoca",
+        "description": "Alguém pegando punhados de pipoca do balde e comendo sem tirar os olhos da tela.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Super-herói",
+        "description": "Alguém fazendo pose de herói com as mãos na cintura e voando com um braço esticado.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Pirata",
+        "description": "Alguém arrumando um tapa-olho imaginário e andando mancando com perna de pau.",
         "difficulty": "easy"
       },
       {
         "name": "Zumbi",
-        "description": "Andar mancando devagar com os braços esticados para frente.",
+        "description": "Alguém andando devagar com os braços esticados para frente.",
         "difficulty": "easy"
       },
       {
         "name": "Cowboy",
-        "description": "Montar em um cavalo e girar um laço no ar acima da cabeça.",
+        "description": "Alguém montando em um cavalo e girando um laço no ar.",
         "difficulty": "easy"
       },
       {
         "name": "Robô",
-        "description": "Andar travado e mover a cabeça fazendo movimentos bem mecânicos.",
+        "description": "Alguém andando fazendo movimentos duros e bem mecânicos.",
+        "difficulty": "easy"
+      },
+      {
+        "name": "Comercial de Shampoo",
+        "description": "Alguém lavando o cabelo, jogando ele de lado e sorrindo brilhantemente para a câmera.",
         "difficulty": "easy"
       },
       {
         "name": "Ninja",
-        "description": "Jogar estrelas imaginárias rapidamente e fazer posições de luta em silêncio.",
+        "description": "Alguém jogando estrelas imaginárias e fazendo poses de luta.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Vampiro",
+        "description": "Alguém se cobrindo com a capa para esconder o rosto da luz e mordendo o pescoço de uma vítima.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Alienígena",
+        "description": "Uma criatura com movimentos estranhos tateando o próprio rosto como se não entendesse a gravidade.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Múmia",
+        "description": "Um monstro enrolado em ataduras andando duro e com os braços cruzados no peito.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Gladiador",
+        "description": "Alguém lutando na arena de escudo e espada e pedindo os aplausos do imperador.",
         "difficulty": "medium"
       },
       {
         "name": "Diretor de Cinema",
-        "description": "Bater uma claquete e gritar a palavra 'ação' segurando um megafone.",
+        "description": "Alguém batendo uma claquete e gritando 'ação' com um megafone.",
         "difficulty": "medium"
       },
       {
         "name": "Matrix",
-        "description": "Inclinar o tronco muito para trás em câmera lenta para desviar de tiros imaginários.",
+        "description": "Alguém se inclinando muito para trás em câmera lenta para desviar de balas.",
         "difficulty": "medium"
       },
       {
-        "name": "Novela Mexicana",
-        "description": "Dar um tapa dramático no rosto do colega e chorar de forma absurdamente exagerada.",
+        "name": "Previsão do Tempo",
+        "description": "Alguém apontando para um mapa imaginário nas costas e mostrando com as mãos que vai chover.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "Apresentador de Telejornal",
+        "description": "Alguém ajeitando a gravata, embaralhando uns papéis na mesa e falando muito sério com a câmera.",
+        "difficulty": "medium"
+      },
+      {
+        "name": "T-Rex de Cinema",
+        "description": "Um tiranossauro rex gigante fazendo a água do copo tremer com seus passos fortes.",
         "difficulty": "hard"
       },
       {
-        "name": "Dublê",
-        "description": "Fingir receber um soco invisível no queixo, voar para trás e rolar no chão.",
+        "name": "Filme Mudo",
+        "description": "Alguém andando acelerado de um jeito bem antigo e gesticulando exageradamente sem emitir som.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Monstro Gigante",
+        "description": "Um monstro do tamanho de um arranha-céu pisoteando a cidade e soltando fogo pela boca.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Câmera Lenta",
+        "description": "Alguém correndo dramaticamente e gritando 'NÃÃÃO' em câmera hiper lenta para tentar salvar alguém.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Novela Mexicana",
+        "description": "Alguém dando um tapa dramático no rosto do outro e chorando de forma exagerada.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Dublê de Ação",
+        "description": "Alguém fingindo receber um soco, voando longe e rolando no chão.",
         "difficulty": "hard"
       },
       {
         "name": "Tela Azul",
-        "description": "Congelar completamente o corpo no meio de um movimento rápido, como se a TV tivesse travado.",
+        "description": "Alguém congelando completamente no meio de uma ação como se a TV tivesse travado.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Bruxo",
+        "description": "Alguém sacando uma varinha, girando no ar e lançando um feitiço que joga o inimigo para trás.",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Espada de Luz",
+        "description": "Alguém ligando um bastão brilhante imaginário que faz 'vruum' e lutando no espaço.",
         "difficulty": "hard"
       }
     ]

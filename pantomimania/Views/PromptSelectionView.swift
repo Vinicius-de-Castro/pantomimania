@@ -31,30 +31,32 @@ struct PromptSelectionView: View {
     var body: some View {
         ZStack {
             VStack {
-                TitleAndSubtitleView(title: "Escolha a mímica", subtitle: "Selecione uma mímica para performar")
+                TitleAndSubtitleView(title: "Escolha sua performance", subtitle: "Selecione uma carta")
+                Spacer()
                 
                 HStack {
                     ForEach(performanceOptions) { perfo in
                         
                         let isSelected = selectedPrompt?.id == perfo.id
                         
-                        var difficulty: Difficulty {
-                            switch performanceOptions.firstIndex(where: { $0.id == perfo.id}) {
-                            case 0:
-                                return .easy
-                            case 1:
-                                return .medium
-                            case 2:
-                                return .hard
-                            default:
-                                return .easy
+                        let defaultIndex = {
+                            switch perfo.difficulty {
+                            case .easy:
+                                0
+                            case .medium:
+                                1
+                            case .hard:
+                                2
                             }
-                        }
+                        }()
                         
-                        CardView(name: perfo.name, isFlipped: isSelected, difficulty: difficulty)
+                        CardView(name: perfo.name, isFlipped: isSelected, difficulty: perfo.difficulty)
                             .onTapGesture {
                                 selectedPrompt = perfo
                             }
+                            .containerRelativeFrame(.horizontal, count: 4, spacing: 10)
+                            .containerRelativeFrame(.vertical, count: 3, spacing: 10)
+                            .zIndex(Double((isSelected ? 3 : defaultIndex)))
                     }
                 }
                 .padding(.bottom, 64)
@@ -62,19 +64,31 @@ struct PromptSelectionView: View {
                 Spacer()
                 
                 ZStack(alignment: .topLeading){
-                    RoundedRectangle(cornerRadius: 28)
-                        .foregroundStyle(Color("Colors/background/bg2"))
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 28)
-                                .stroke(Color("Colors/background/border"), lineWidth: 2)
-                        }
-                        .padding(.bottom)
+//                        .padding(.bottom)
                     
-                    Text(selectedPrompt?.description ?? "Selecione um prompt!")
-                        .font(.title2)
-                        .padding(.horizontal, 32)
-                        .padding(.vertical, 48)
+                    HStack{
+                        Text(selectedPrompt?.description ?? "Selecione um prompt!")
+                            .font(.title2)
+                            .padding(.horizontal)
+                        Spacer()
+                        
+                        RoundButton3D(systemImage: "play.fill", disableMode: (selectedPrompt == nil ? .disabled : .none),
+                                      action: {
+                            nav.navigate(to: .timer)
+                        })
+                        .scaleEffect(1.5)
+                        .padding()
+                    }
+                    .padding()
+                }
+                .background {
+                        RoundedRectangle(cornerRadius: 28)
+                            .foregroundStyle(Color("Colors/background/bg2"))
+                            .frame(maxWidth: .infinity)
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 28)
+                                    .stroke(Color("Colors/background/border"), lineWidth: 2)
+                            }
                 }
                 .overlay(alignment: .topLeading) {
                     let diff = performanceOptions.firstIndex(where: { $0.id == selectedPrompt?.id})
@@ -94,20 +108,19 @@ struct PromptSelectionView: View {
                             .padding(.vertical, -32)
                     }
                 }
+                Spacer()
             }
-            .containerRelativeFrame(.horizontal, count: 10, span: 8, spacing: 0)
         }
+        .containerRelativeFrame(.horizontal, count: 10, span: 8, spacing: 0)
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-//        .padding(.horizontal, 128)
-//        .padding(.vertical, 64)
-        .overlay(alignment: .topTrailing) {
-            Button3D(text: "Continuar", disableMode: (selectedPrompt == nil ? .disabled : .none)) {
-                nav.navigate(to: .timer)
-            }
-            .padding(.trailing, 24)
-            .padding(.top, 16)
-        }
+        //        .overlay(alignment: .topTrailing) {
+        //            Button3D(text: "Continuar", disableMode: (selectedPrompt == nil ? .disabled : .none)) {
+        //                nav.navigate(to: .timer)
+        //            }
+        //            .padding(.trailing, 24)
+        //            .padding(.top, 16)
+        //        }
         .navigationBarBackButtonHidden(true)
         .onAppear {
             performanceOptions = [

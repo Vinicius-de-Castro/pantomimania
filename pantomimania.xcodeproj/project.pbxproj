@@ -272,8 +272,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = pantomimania/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Panto Party";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Camera Usage";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photo Library Usage";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Panto Party usa a câmera para fotografar momentos das performances dos jogadores";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Panto Party permite que os jogadores salvem as fotos capturadas durante as partidas ";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -298,7 +298,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "2,6";
 			};
 			name = Debug;
 		};
@@ -315,8 +315,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = pantomimania/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Panto Party";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Camera Usage";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photo Library Usage";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Panto Party usa a câmera para fotografar momentos das performances dos jogadores";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Panto Party permite que os jogadores salvem as fotos capturadas durante as partidas ";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -341,7 +341,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "2,6";
 			};
 			name = Release;
 		};

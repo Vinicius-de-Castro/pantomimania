@@ -90,24 +90,33 @@ struct PlayerListView: View {
                     .containerRelativeFrame(.horizontal, count: 5, spacing: 0)
                     .onTapGesture {
                         
-                        let playerMascot = {
-                            switch playerList.count {
-                            case 0:
-                                return Image("Images/characters/blue/blueCard")
-                            case 1:
-                                return Image("Images/characters/yellow/yellowCard")
-                            case 2:
-                                return Image("Images/characters/pink/pinkCard")
-                            case 3:
-                                return Image("Images/characters/orange/orangeCard")
-                            default:
-                                return Image("Images/characters/blue/blueCard")
-                            }
+                        
+                        let playerMascot: Image
+                        let playerColor: Color
+                        switch playerList.count {
+                        case 0:
+                            playerMascot = Image("Images/characters/blue/blueCard")
+                            playerColor = Color("Colors/mascot/bluealien")
+                        case 1:
+                            playerMascot = Image("Images/characters/yellow/yellowCard")
+                            playerColor = Color("Colors/mascot/yellowbummer")
+                        case 2:
+                            playerMascot = Image("Images/characters/pink/pinkCard")
+                            playerColor =  Color("Colors/mascot/pinkheart")
+                        case 3:
+                            playerMascot = Image("Images/characters/orange/orangeCard")
+                            playerColor = Color("Colors/mascot/redtooth")
+                        default:
+                            playerMascot = Image("Images/characters/blue/blueCard")
+                            playerColor = Color("Colors/mascot/bluealien")
                         }
                         
                         playerList.append(
                             Player(
-                                name: "Jogador \(playerList.count + 1)", mascot: playerMascot())
+                                name: "Jogador \(playerList.count + 1)",
+                                mascot: playerMascot,
+                                color: playerColor
+                            )
                         )
                     }
                     .animation(.spring(duration: 0.15), value: self.$playerList.count)
@@ -121,7 +130,7 @@ struct PlayerListView: View {
             Button3D(text: "Continuar",
                      disableMode: (
                         (playerList.count < 2 || playerList.contains(where: { $0.name.isEmpty })) ?
-                            .visually : .none
+                            .disabled : .none
                      )
             ) {
                 game.playerList = playerList

@@ -12,9 +12,11 @@ class Player: Identifiable {
     var id = UUID()
     var name: String
     var mascot: Image?
+    var color: Color = .blue
     
-    init(name: String, mascot: Image? = nil) {
+    init(name: String, mascot: Image? = nil, color: Color) {
         self.name = name
         self.mascot = mascot
+        self.color = color
     }
 }

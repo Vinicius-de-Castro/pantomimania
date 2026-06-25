@@ -1,6 +1,6 @@
 //
 //  PlayerTurnView.swift
-//  pantomimania
+//  Panto Party
 //
 //  Created by Vinicius Rodrigues de Castro on 03/06/26.
 //
@@ -40,7 +40,14 @@ struct PlayerTurnView: View {
 
         
         VStack {
-            TitleAndSubtitleView(title: "Vez de \(game.playerQueue.first!.name)!", subtitle: "Passe o dispositivo para o jogador da vez")
+            PantoTopBar(
+                title: "Vez de \(game.playerQueue.first!.name)!",
+                subtitle: "Passe o dispositivo para o jogador da vez",
+                continueButtonAction: {
+                    nav.navigate(to: .promptSelection)
+                },
+                continueButtonTitle: "Continuar"
+            )
             
             Spacer()
             
@@ -52,13 +59,13 @@ struct PlayerTurnView: View {
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .overlay(alignment: .topTrailing) {
-            Button3D(text: "Continuar") {
-                nav.navigate(to: .promptSelection)
-            }
-            .padding(.trailing, 24)
-            .padding(.top, 16)
-        }
+//        .overlay(alignment: .topTrailing) {
+//            Button3D(text: "Continuar") {
+//                nav.navigate(to: .promptSelection)
+//            }
+//            .padding(.trailing, 24)
+//            .padding(.top, 16)
+//        }
         .navigationBarBackButtonHidden(true)
     }
 }

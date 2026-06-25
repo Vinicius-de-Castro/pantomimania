@@ -1,6 +1,6 @@
 //
 //  MatchOptionsView.swift
-//  pantomimania
+//  Panto Party
 //
 //  Created by Vinicius Rodrigues de Castro on 03/06/26.
 //
@@ -23,11 +23,26 @@ struct MatchOptionsView: View {
         ScrollView {
             ZStack {
                 VStack {
-                    Text("Configurações da Partida")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .padding()
-                        .padding(.top)
+                    PantoTopBar(
+                        title: "Configurações da Partida",
+                        backButtonAction: {
+                            nav.back()
+                        },
+                        continueButtonAction: {
+                            game.roundCount = roundCount
+                            game.roundLength = roundLength
+                            game.selectedCategories = selectedCategories
+                            game.playerQueue = game.playerList.shuffled()
+                            nav.navigate(to: .nextRound)
+                        },
+                        continueButtonTitle: "Jogar",
+                        continueButtonDisableMode: (selectedCategories.isEmpty ? .disabled : .none)
+                    )
+//                    Text("Configurações da Partida")
+//                        .font(.largeTitle)
+//                        .fontWeight(.bold)
+//                        .padding()
+//                        .padding(.top)
                     
                     VStack(alignment: .leading) {
                         Text("Quantidades de rodadas")
@@ -171,26 +186,26 @@ struct MatchOptionsView: View {
             }
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .overlay(alignment: .top) {
-                HStack{
-                    RoundButton3D(systemImage: "chevron.backward", action: {
-                        nav.back()
-                    }
-                    )
-                    
-                    Spacer()
-                    
-                    Button3D(text: "Jogar", disableMode: (selectedCategories.isEmpty ? .disabled : .none)) {
-                        game.roundCount = roundCount
-                        game.roundLength = roundLength
-                        game.selectedCategories = selectedCategories
-                        game.playerQueue = game.playerList.shuffled()
-                        nav.navigate(to: .nextRound)
-                    }
-                }
-                .padding(.horizontal, 24)
-                .padding(.top, 16)
-            }
+//            .overlay(alignment: .top) {
+//                HStack{
+//                    RoundButton3D(systemImage: "chevron.backward", action: {
+//                        nav.back()
+//                    }
+//                    )
+//                    
+//                    Spacer()
+//                    
+//                    Button3D(text: "Jogar", disableMode: (selectedCategories.isEmpty ? .disabled : .none)) {
+//                        game.roundCount = roundCount
+//                        game.roundLength = roundLength
+//                        game.selectedCategories = selectedCategories
+//                        game.playerQueue = game.playerList.shuffled()
+//                        nav.navigate(to: .nextRound)
+//                    }
+//                }
+//                .padding(.horizontal, 24)
+//                .padding(.top, 16)
+//            }
             .onAppear{
                 selectedCategories.append(game.performanceCategories[0])
             }

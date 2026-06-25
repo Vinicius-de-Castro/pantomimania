@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4FA1C9CF2FD044B3005AEE83"
-               BuildableName = "pantomimania.app"
-               BlueprintName = "pantomimania"
+               BuildableName = "Panto Party.app"
+               BlueprintName = "Panto Party"
                ReferencedContainer = "container:pantomimania.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,8 +46,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4FA1C9CF2FD044B3005AEE83"
-            BuildableName = "pantomimania.app"
-            BlueprintName = "pantomimania"
+            BuildableName = "Panto Party.app"
+            BlueprintName = "Panto Party"
             ReferencedContainer = "container:pantomimania.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -63,8 +63,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4FA1C9CF2FD044B3005AEE83"
-            BuildableName = "pantomimania.app"
-            BlueprintName = "pantomimania"
+            BuildableName = "Panto Party.app"
+            BlueprintName = "Panto Party"
             ReferencedContainer = "container:pantomimania.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

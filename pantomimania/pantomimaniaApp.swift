@@ -1,6 +1,6 @@
 //
-//  pantomimaniaApp.swift
-//  pantomimania
+//  Panto PartyApp.swift
+//  Panto Party
 //
 //  Created by Vinicius Rodrigues de Castro on 03/06/26.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct pantomimaniaApp: App {
+struct PantoPartyApp: App {
     @State private var navMan = NavManager()
     @State private var gameState = GameState()
     var body: some Scene {

@@ -1,6 +1,6 @@
 import SwiftUI
 
-enum disableMode {
+enum DisableMode {
     case none
     case disabled
     case visually
@@ -18,7 +18,7 @@ struct Button3D: View {
     
     var systemImage: String = ""
     
-    var disableMode: disableMode = .none
+    var disableMode: DisableMode = .none
     
     @State var isPressed: Bool = false
     

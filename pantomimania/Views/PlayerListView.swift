@@ -8,7 +8,22 @@ struct PlayerListView: View {
     
     var body: some View {
         VStack (alignment: .center, spacing: 0){
-            TitleAndSubtitleView(title: "Jogadores", subtitle: "Adicione entre 2 a 4 jogadores")
+            PantoTopBar(
+                title: "Jogadores",
+                subtitle: "Adicione entre 2 a 4 jogadores",
+            
+                continueButtonAction: {
+                    game.playerList = playerList
+                    nav.navigate(to: .matchOptions)
+                },
+                continueButtonTitle: "Continuar",
+                continueButtonDisableMode: (
+                    (playerList.count < 2 || playerList.contains(where: { $0.name.isEmpty })) ?
+                        .disabled : .none
+                 )
+            
+            )
+            Spacer()
             HStack (alignment: .top){
                 ForEach(playerList) { player in
                     @Bindable var bindablePlayer = player
@@ -35,30 +50,31 @@ struct PlayerListView: View {
                             playerList.removeAll(where: { $0.id == player.id})
                         }
                         )
-                        .padding(.top, 4)
+                        .padding(.top, 8)
                     }
                     .containerRelativeFrame(.horizontal, count: 5, spacing: 0)
                 }
                 .animation(.spring(duration: 0.15), value: self.$playerList.count)
                 if playerList.count < 4 {
                     VStack(alignment: .center, spacing: 10) {
-                    
-                        VStack {
-                            Spacer()
-                            Text("Adicionar")
-                                .font(.title2)
-                                .fontWeight(.bold)
-                                .padding(.top)
-                                .multilineTextAlignment(.center)
-                            
-                            Image(systemName: "plus.circle.fill")
-                                .resizable()
-                                .aspectRatio(1/1, contentMode: .fit)
-                                .foregroundStyle(.white, .accent)
-                                .padding(.horizontal, 64)
-                            Spacer()
+                        GeometryReader { geo in
+                            VStack (alignment: .center) {
+                                Spacer()
+                                Text("Adicionar")
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                    .padding(.top)
+                                    .multilineTextAlignment(.center)
+                                
+                                Image(systemName: "plus.circle.fill")
+                                    .resizable()
+                                    .aspectRatio(1/1, contentMode: .fit)
+                                    .foregroundStyle(.white, .accent)
+                                    .frame(width: geo.size.width * 0.3)
+                                Spacer()
+                            }
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                         }
-                        .frame(maxWidth: .infinity)
                         .aspectRatio(3/4, contentMode: .fit)
                         .background(
                             RoundedRectangle(cornerRadius: 28)
@@ -82,9 +98,11 @@ struct PlayerListView: View {
                                 action: {
                             }
                             )
-                            .padding(.top, 4)
+                            .padding(.top, 8)
                         }
                         .hidden()
+                        .accessibilityHidden(true)
+                        .allowsHitTesting(false)
                     }
                     .animation(.spring(duration: 0.15), value: self.$playerList.count)
                     .containerRelativeFrame(.horizontal, count: 5, spacing: 0)
@@ -123,22 +141,23 @@ struct PlayerListView: View {
                 }
                 
             }
+            Spacer()
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .overlay(alignment: .topTrailing){
-            Button3D(text: "Continuar",
-                     disableMode: (
-                        (playerList.count < 2 || playerList.contains(where: { $0.name.isEmpty })) ?
-                            .disabled : .none
-                     )
-            ) {
-                game.playerList = playerList
-                nav.navigate(to: .matchOptions)
-            }
-            .padding(.trailing, 24)
-            .padding(.top, 16)
-        }
+//        .overlay(alignment: .topTrailing){
+//            Button3D(text: "Continuar",
+//                     disableMode: (
+//                        (playerList.count < 2 || playerList.contains(where: { $0.name.isEmpty })) ?
+//                            .disabled : .none
+//                     )
+//            ) {
+//                game.playerList = playerList
+//                nav.navigate(to: .matchOptions)
+//            }
+//            .padding(.trailing, 24)
+//            .padding(.top, 16)
+//        }
         .navigationBarBackButtonHidden(true)
     }
 }

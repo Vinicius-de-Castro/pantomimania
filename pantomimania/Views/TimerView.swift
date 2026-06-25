@@ -1,6 +1,6 @@
 //
 //  TimerView.swift
-//  pantomimania
+//  Panto Party
 //
 //  Created by Vinicius Rodrigues de Castro on 03/06/26.
 //
@@ -39,18 +39,17 @@ struct TimerView: View {
         }
     }
     
-    
-    func setUpCaptureSession() async {
-        guard await isAuthorized else { return }
-    }
-    
     var body: some View {
         
-        let progress = CGFloat(game.timerManager.getTimeLeft())/CGFloat(game.roundLength)
+        let timeLeft = game.timerManager.getTimeLeft()
+        
+        let progress = CGFloat(timeLeft)/CGFloat(game.roundLength)
         
         VStack {
-            TitleAndSubtitleView(title: "Hora de performar", subtitle: "Fique atento(a) no tempo!")
-            VStack {
+            PantoTopBar(
+                title: "Hora de performar",
+                subtitle: "Fique atento(a) no tempo!"
+            )
                 ZStack{
                     Circle()
                         .trim(
@@ -67,7 +66,7 @@ struct TimerView: View {
                         .rotationEffect(.degrees(270))
                         .animation(.easeInOut, value: progress)
                     
-                    Text("\(game.timerManager.getTimeLeft())")
+                    Text("\(timeLeft)")
                         .font(.system(size: 120))
                         .fontWeight(.black)
                         .foregroundStyle(.accent)
@@ -88,14 +87,11 @@ struct TimerView: View {
                     }
                 }
                 .padding()
-            }
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .overlay(alignment: .topLeading) {
-            if !toastText.isEmpty {
                 Label(toastText, systemImage: "camera")
-                    .padding()
                     .padding()
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity)
@@ -108,7 +104,11 @@ struct TimerView: View {
                     }
                     .containerRelativeFrame(.horizontal, count: 3, spacing: 0)
                     .padding()
-            }
+                    .opacity(toastText.isEmpty ? 0 : 1)
+                    .offset(y: toastText.isEmpty ? -100 : 0)
+                    .animation(.bouncy(duration: 0.5), value: toastText.isEmpty)
+                    .contentTransition(.numericText())
+                    .animation(.snappy, value: toastText)
         }
         .task {
             _ = await isAuthorized
@@ -153,26 +153,26 @@ struct TimerView: View {
             //quando faltar 3 seg -> mostra toast
             //quando faltar 0 seg -> tira foto
             //quando passar .2 de tirar foto -> esconde toast
-        .onChange(of: game.timerManager.getTimeLeft()) { _, newTime in
+        .onChange(of: timeLeft) { _, newTime in
             guard game.photoPermission else  { return }
             guard newTime != lastProcessedSecond else { return }
             
             lastProcessedSecond = newTime
             
             
-            if (whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 3)) {
+            if (whenToTakePhoto.contains(timeLeft + 3)) {
                 game.cameraManager.takePhoto()
                 toastText = ""
             }
-            if whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 2) {
+            if whenToTakePhoto.contains(timeLeft + 2) {
                 toastText = "Hora da foto! 1"
             }
-            if whenToTakePhoto.contains(game.timerManager.getTimeLeft() + 1) {
+            if whenToTakePhoto.contains(timeLeft + 1) {
                 toastText = "Hora da foto! 2"
             }
             
             //TODO: O primeiro segundo da rodada só funciona e cai aqui na primeira rodada, descobrir o porque
-            if whenToTakePhoto.contains(game.timerManager.getTimeLeft()) {
+            if whenToTakePhoto.contains(timeLeft) {
                 toastText = "Hora da foto! 3"
             }
             

@@ -1,6 +1,6 @@
 //
 //  Performance.swift
-//  pantomimania
+//  Panto Party
 //
 //  Created by Vinicius Rodrigues de Castro on 08/06/26.
 //

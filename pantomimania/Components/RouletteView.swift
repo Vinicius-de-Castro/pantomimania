@@ -1,6 +1,6 @@
 //
 //  RouletteView.swift
-//  pantomimania
+//  Panto Party
 //
 //  Created by Vinicius Rodrigues de Castro on 22/06/26.
 //
@@ -25,12 +25,12 @@ struct RouletteView: View {
         
         
         ZStack {
-            ForEach(colors, id: \.self) { color in
-                let quadrant = colors.firstIndex(of: color)!
+            ForEach(Array(colors.enumerated()), id: \.offset) {index, color in
+//                let quadrant = colors.firstIndex(of: color)!
                 
-                Quadrant(count: colors.count/*, radius: radius*/)
+                Quadrant(count: colors.count)
                     .fill(color)
-                    .rotationEffect(Angle(degrees: quadrantArc * Double(quadrant)))
+                    .rotationEffect(Angle(degrees: quadrantArc * Double(index)))
                     .frame(width: radius*2, height: radius*2)
                 
             }
@@ -105,41 +105,40 @@ struct Triangle: Shape {
     }
 }
 
-#Preview {
-    let colors1 = [Color.blue, Color.red]
-    let colors2 = [Color.blue, Color.red, Color.yellow]
-    let colors3 = [Color.blue, Color.red, Color.yellow, Color.green]
-    let selected = colors3.randomElement()
-    HStack {
-        
-        VStack {
-            ForEach(colors1, id: \.self) { color in
-                RouletteView(
-                    colors: colors1,
-                    selectedColor: color
-                )
-            }
-        }
-        
-        //        VStack {
-        //
-        //            ForEach(colors2, id: \.self) { color in
-        //                RouletteView(
-        //                    colors: colors2,
-        //                    selectedColor: color
-        //                )
-        //            }
-        //        }
-        //        VStack {
-        //            ForEach(colors3, id: \.self) { color in
-        //                RouletteView(
-        //                    colors: colors3,
-        //                    selectedColor: color
-        //                )
-        //            }
-        //        }
-        //
-    }
-    .background(.black)
-    
-}
+//#Preview {
+//    let colors1 = [Color.blue, Color.red]
+//    let colors2 = [Color.blue, Color.red, Color.yellow]
+//    let colors3 = [Color.blue, Color.red, Color.yellow, Color.green]
+//    let selected = colors3.randomElement()
+//    HStack {
+//        
+//        VStack {
+//            ForEach(colors1, id: \.self) { color in
+//                RouletteView(
+//                    colors: colors1,
+//                    selectedColor: color
+//                )
+//            }
+//        }
+//                VStack {
+//        
+//                    ForEach(colors2, id: \.self) { color in
+//                        RouletteView(
+//                            colors: colors2,
+//                            selectedColor: color
+//                        )
+//                    }
+//                }
+//                VStack {
+//                    ForEach(colors3, id: \.self) { color in
+//                        RouletteView(
+//                            colors: colors3,
+//                            selectedColor: color
+//                        )
+//                    }
+//                }
+//        
+//    }
+//    .background(.black)
+//    
+//}

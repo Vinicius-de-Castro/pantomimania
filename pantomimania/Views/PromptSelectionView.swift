@@ -1,6 +1,6 @@
 //
 //  PromptSelectionView.swift
-//  pantomimania
+//  Panto Party
 //
 //  Created by Vinicius Rodrigues de Castro on 03/06/26.
 //
@@ -11,7 +11,7 @@ func getPerformance(difficulty: Difficulty, game: GameState) -> Performance {
     var options: [Performance] = []
     for category in game.selectedCategories.shuffled() {
         let performances: [Performance] = category.performances.filter({$0.difficulty == difficulty})
-        options.insert(contentsOf: performances, at: options.count)
+        options.append(contentsOf: performances)
     }
     return options.randomElement()!
 }
@@ -22,16 +22,16 @@ struct PromptSelectionView: View {
     
     @Environment(GameState.self) var game
     
-    @Environment(\.horizontalSizeClass) var orientation
-    
     @State var selectedPrompt: Performance? = nil
     
     @State var performanceOptions: [Performance] = []
     
     var body: some View {
-        ZStack {
             VStack {
-                TitleAndSubtitleView(title: "Escolha sua performance", subtitle: "Selecione uma carta")
+                PantoTopBar(
+                    title: "Escolha sua performance",
+                    subtitle: "Selecione uma carta"
+                )
                 Spacer()
                 
                 HStack {
@@ -51,25 +51,22 @@ struct PromptSelectionView: View {
                         }()
                         
                         CardView(name: perfo.name, isFlipped: isSelected, difficulty: perfo.difficulty)
+                            .aspectRatio(3/4, contentMode: .fit)
                             .onTapGesture {
                                 selectedPrompt = perfo
                             }
-                            .containerRelativeFrame(.horizontal, count: 4, spacing: 10)
-                            .containerRelativeFrame(.vertical, count: 3, spacing: 10)
                             .zIndex(Double((isSelected ? 3 : defaultIndex)))
                     }
                 }
-                .padding(.bottom, 64)
+                .padding(.bottom, 20)
                 
                 Spacer()
                 
                 ZStack(alignment: .topLeading){
-//                        .padding(.bottom)
                     
                     HStack{
                         Text(selectedPrompt?.description ?? "Selecione um prompt!")
-                            .font(.title2)
-                            .padding(.horizontal)
+                            .font(.title)
                         Spacer()
                         
                         RoundButton3D(systemImage: "play.fill", disableMode: (selectedPrompt == nil ? .disabled : .none),
@@ -77,9 +74,8 @@ struct PromptSelectionView: View {
                             nav.navigate(to: .timer)
                         })
                         .scaleEffect(1.5)
-                        .padding()
                     }
-                    .padding()
+                    .padding(32)
                 }
                 .background {
                         RoundedRectangle(cornerRadius: 28)
@@ -104,23 +100,16 @@ struct PromptSelectionView: View {
                                 Capsule()
                                     .fill(color)
                             )
-                            .padding(.horizontal, 32)
-                            .padding(.vertical, -32)
+//                            .padding(.horizontal, 32)
+//                            .padding(.vertical, -32)
+                            .offset(x: 32, y: -32)
                     }
                 }
-                Spacer()
+                .padding(.bottom)
             }
-        }
         .containerRelativeFrame(.horizontal, count: 10, span: 8, spacing: 0)
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        //        .overlay(alignment: .topTrailing) {
-        //            Button3D(text: "Continuar", disableMode: (selectedPrompt == nil ? .disabled : .none)) {
-        //                nav.navigate(to: .timer)
-        //            }
-        //            .padding(.trailing, 24)
-        //            .padding(.top, 16)
-        //        }
         .navigationBarBackButtonHidden(true)
         .onAppear {
             performanceOptions = [
@@ -135,7 +124,7 @@ struct PromptSelectionView: View {
 
 
 #Preview {
-    PlayerTurnView()
+    PromptSelectionView()
         .environment(NavManager())
         .environment(GameState())
 }

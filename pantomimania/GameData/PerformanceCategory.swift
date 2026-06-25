@@ -1,6 +1,6 @@
 //
 //  PerformanceCategory.swift
-//  pantomimania
+//  Panto Party
 //
 //  Created by Vinicius Rodrigues de Castro on 08/06/26.
 //
@@ -20,11 +20,8 @@ class PerformanceCategory: Identifiable, Codable {
     }
 }
 
-extension PerformanceCategory: Equatable{
+extension PerformanceCategory: Equatable {
     static func == (lhs: PerformanceCategory, rhs: PerformanceCategory) -> Bool {
-        return {
-            lhs.id == rhs.id &&
-            lhs.name == rhs.name
-        }()
+        return lhs.id == rhs.id && lhs.name == rhs.name
     }
 }

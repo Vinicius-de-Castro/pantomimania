@@ -1,6 +1,6 @@
 //
 //  NextRoundView.swift
-//  pantomimania
+//  Panto Party
 //
 //  Created by Vinicius Rodrigues de Castro on 17/06/26.
 //
@@ -20,11 +20,8 @@ struct NextRoundView: View {
         let playerColors = game.playerList.map({$0.color})
         
         VStack {
-//            Text("\(game.nextRound)ª rodada!")
-//                .font(.system(size: fontSize * 3))
-//                .fontWeight(.bold)
-//                .padding(.top, 32)
-            TitleAndSubtitleView(
+            
+            PantoTopBar(
                 title: "Começou a \(game.nextRound)ª rodada!",
                 subtitle: "Quem será o primeiro a performar?"
             )
@@ -34,26 +31,6 @@ struct NextRoundView: View {
                 colors: playerColors, selectedColor: game.playerQueue.first!.color
             )
             Spacer()
-//            Spacer()
-//            HStack{
-//                Image("Images/characters/blue/blueMon")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .padding(-32)
-//                Image("Images/characters/yellow/yellowMon")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .padding(-32)
-//                Image("Images/characters/pink/pinkMon")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .padding(-32)
-//                Image("Images/characters/orange/orangeMon")
-//                    .resizable()
-//                    .aspectRatio(1/1, contentMode: .fit)
-//                    .padding(-32)
-//            }
-//            .padding(-64)
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -74,7 +51,7 @@ struct NextRoundView: View {
                 
 //                Spacer()
 //                
-//                Button3D(text: "Continuar", disableMode: .none) {
+//                Button3D(text: "Continuar", DisableMode: .none) {
 //                    nav.navigate(to: .playerTurn)
 //                }
 //            }

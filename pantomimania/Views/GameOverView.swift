@@ -1,6 +1,6 @@
 //
 //  GameOverView.swift
-//  pantomimania
+//  Panto Party
 //
 //  Created by Vinicius Rodrigues de Castro on 03/06/26.
 //
@@ -27,40 +27,46 @@ struct GameOverView: View {
     var body: some View {
         
         VStack{
-            if game.photoPermission {
+            if game.photoPermission && !game.gallery.isEmpty {
                 VStack {
-                    TitleAndSubtitleView(title: "Melhores Momentos", subtitle: "Confira os melhores momentos de cada rodada")
-                    ZStack {
-                        ScrollView (.horizontal, showsIndicators: false) {
-                            HStack{
-                                ForEach(game.gallery, id: \.self) { photo in
-                                    let polaroidColor = colors[game.gallery.firstIndex(of: photo)! % 4]
-                                    VStack{
-                                        Image(uiImage: photo)
-                                            .resizable()
-                                            .aspectRatio(photo.size.width / photo.size.height, contentMode: .fit)
-                                            .clipped()
-                                        Text("")
-                                            .fontWeight(.bold)
-                                            .padding()
-                                            .padding(.vertical)
+                    PantoTopBar(
+                        title: "Melhores Momentos",
+                        subtitle: "Confira os melhores momentos de cada rodada"
+                        
+                    )
+                    if game.gallery.first != nil {
+                        ZStack {
+                            ScrollView (.horizontal, showsIndicators: false) {
+                                HStack{
+                                    ForEach(game.gallery, id: \.self) { photo in
+                                        let polaroidColor = colors[game.gallery.firstIndex(of: photo) ?? 0 % 4]
+                                        VStack{
+                                            Image(uiImage: photo)
+                                                .resizable()
+                                                .aspectRatio(photo.size.width / photo.size.height, contentMode: .fit)
+                                                .clipped()
+                                            Text("")
+                                                .fontWeight(.bold)
+                                                .padding()
+                                                .padding(.vertical)
+                                        }
+                                        .background(polaroidColor)
+                                        .clipShape(
+                                            RoundedRectangle(cornerRadius: 28)
+                                        )
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 28)
+                                                .stroke(polaroidColor, lineWidth: 8)
+                                        )
+                                        .padding()
                                     }
-                                    .background(polaroidColor)
-                                    .clipShape(
-                                        RoundedRectangle(cornerRadius: 28)
-                                    )
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 28)
-                                            .stroke(polaroidColor, lineWidth: 8)
-                                    )
-                                    .padding()
                                 }
+                                .scrollTargetLayout()
+                                .frame(maxHeight: .infinity)
                             }
-                            .scrollTargetLayout()
-                            .frame(maxHeight: .infinity)
+                            .padding()
+                            .scrollTargetBehavior(.viewAligned)
                         }
-                        .padding()
-                        .scrollTargetBehavior(.viewAligned)
                     }
                 }
             }
@@ -91,8 +97,10 @@ struct GameOverView: View {
             }
             HStack{
                 Button3D(text: "Jogar novamente", systemImage: "arrow.uturn.backward"){
-                    nav.backBy(count: 6)
-                    game.gallery.removeAll()
+                    nav.backToRoot()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        game.gallery.removeAll()
+                    }
                 }
                 
             #if !targetEnvironment(macCatalyst)
@@ -110,14 +118,6 @@ struct GameOverView: View {
         .navigationBarBackButtonHidden(true)
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-//        .overlay (alignment: .topLeading) {
-//            RoundButton3D(systemImage: "chevron.backward", action: {
-//                nav.back()
-//                }
-//            )
-//                .padding(.horizontal, 24)
-//                .padding(.top, 16)
-//        }
     }
 }
 

@@ -1,6 +1,6 @@
 //
 //  CardView.swift
-//  pantomimania
+//  Panto Party
 //
 //  Created by Vinicius Rodrigues de Castro on 11/06/26.
 //
@@ -34,7 +34,7 @@ struct CardFront: View {
             RoundedRectangle(cornerRadius: 28)
                 .fill(Color("Colors/background/bg2"))
                 .stroke(cardColor, lineWidth: 2)
-                .aspectRatio(3/4, contentMode: (.fill))
+                .aspectRatio(3/4, contentMode: .fit)
                 .background(
                     GeometryReader { geometry in
                         Color.clear

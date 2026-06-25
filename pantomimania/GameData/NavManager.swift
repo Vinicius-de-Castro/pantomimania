@@ -1,6 +1,6 @@
 //
 //  NavManager.swift
-//  pantomimania
+//  Panto Party
 //
 //  Created by Vinicius Rodrigues de Castro on 03/06/26.
 //
